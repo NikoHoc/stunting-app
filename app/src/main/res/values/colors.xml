@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+<!--    colorPrimary – The color of the app bar.-->
+<!--    colorPrimaryDark – The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.-->
+<!--    colorAccent – The color of UI controls such as check boxes, radio buttons, and edit text boxes.-->
+<!--    windowBackground – The color of the screen background.-->
+<!--    textColorPrimary – The color of UI text in the app bar.-->
+<!--    statusBarColor – The color of the status bar.-->
+<!--    navigationBarColor – The color of the navigation bar.-->
+    <!-- Primary Colors -->
+    <color name="colorPrimary">#56C596</color>
+    <color name="colorPrimaryVariant">#329D9C</color>
+    <color name="colorPrimaryDark">#56C596</color>
+    <color name="colorAccent">#56C596</color>
+    <color name="colorSecondary">#7BE495</color>
+
+    <!-- Background and Surface Colors -->
+    <color name="backgroundColor">#CFF4D2</color>
+    <color name="surfaceColor">#FFFFFF</color> <!-- Light surface color for contrast -->
+
+    <!-- Text Colors -->
+    <color name="textColorPrimary">#205072</color>
+    <color name="textColorSecondary">#56C596</color>
 </resources>
