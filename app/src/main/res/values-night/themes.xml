@@ -1,22 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Stunting" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary colors -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Primary Theme Colors -->
+        <item name="colorPrimary">@color/mint_green</item>
+        <item name="colorOnPrimary">@color/deep_blue</item>
+        <item name="android:textColorPrimary">@color/deep_blue</item>
 
-        <!-- Background colors -->
-        <item name="android:colorBackground">@color/backgroundColor</item>
-        <item name="colorSurface">@color/surfaceColor</item>
+        <!-- Background and Surface Colors -->
+        <item name="android:colorBackground">@color/mint_green</item>
 
-        <!-- Text colors -->
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:textColorSecondary">@color/textColorSecondary</item>
 
-        <!-- App Bar colors -->
-        <item name="colorOnPrimary">@color/surfaceColor</item>
-        <item name="colorOnSecondary">@color/textColorPrimary</item>
+        <!-- Edit Text Background -->
+        <item name="editTextBackground">@color/leaf_green</item>
+
+        <!-- Button Style -->
+        <item name="buttonStyle">@style/PrimaryButton</item>
+    </style>
+
+    <!-- Custom Button Style -->
+    <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/deep_blue</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/leaf_green</item>
+        <item name="android:textColor">@color/deep_blue</item>
     </style>
 </resources>

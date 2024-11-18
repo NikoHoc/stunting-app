@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    colorPrimary – The color of the app bar.-->
-<!--    colorPrimaryDark – The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.-->
-<!--    colorAccent – The color of UI controls such as check boxes, radio buttons, and edit text boxes.-->
-<!--    windowBackground – The color of the screen background.-->
-<!--    textColorPrimary – The color of UI text in the app bar.-->
-<!--    statusBarColor – The color of the status bar.-->
-<!--    navigationBarColor – The color of the navigation bar.-->
-    <!-- Primary Colors -->
-    <color name="colorPrimary">#56C596</color>
-    <color name="colorPrimaryVariant">#329D9C</color>
-    <color name="colorPrimaryDark">#56C596</color>
-    <color name="colorAccent">#56C596</color>
-    <color name="colorSecondary">#7BE495</color>
 
-    <!-- Background and Surface Colors -->
-    <color name="backgroundColor">#CFF4D2</color>
-    <color name="surfaceColor">#FFFFFF</color> <!-- Light surface color for contrast -->
+    <color name="mint_green">#CFF4D2</color>
+    <color name="leaf_green">#56C596</color>
+    <color name="teal_blue">#329D9C</color>
+    <color name="deep_blue">#205072</color>
 
-    <!-- Text Colors -->
-    <color name="textColorPrimary">#205072</color>
-    <color name="textColorSecondary">#56C596</color>
+    <color name="gray">#888888</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

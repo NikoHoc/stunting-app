@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Colors -->
-    <color name="colorPrimary">#329D9C</color>
-    <color name="colorPrimaryVariant">#205072</color>
-    <color name="colorAccent">#7BE495</color>
-    <color name="colorSecondary">#56C596</color>
+    <color name="mint_green">#CFF4D2</color>
+    <color name="leaf_green">#56C596</color>
+    <color name="teal_blue">#329D9C</color>
+    <color name="deep_blue">#205072</color>
 
-    <!-- Background and Surface Colors -->
-    <color name="backgroundColor">#205072</color>
-    <color name="surfaceColor">#329D9C</color> <!-- Dark surface color for contrast -->
-
-    <!-- Text Colors -->
-    <color name="textColorPrimary">#CFF4D2</color>
-    <color name="textColorSecondary">#7BE495</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>
