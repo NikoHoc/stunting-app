@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.stunting.data.remote.DataRepository
 import com.dicoding.stunting.di.Injection
-import com.dicoding.stunting.ui.dashboard.DashboardViewModel
+import com.dicoding.stunting.ui.history.HistoryViewModel
 import com.dicoding.stunting.ui.home.HomeViewModel
 import com.dicoding.stunting.ui.login.LoginViewModel
-import com.dicoding.stunting.ui.notifications.NotificationsViewModel
+import com.dicoding.stunting.ui.profile.ProfileViewModel
 import com.dicoding.stunting.ui.register.RegisterViewModel
 import com.dicoding.stunting.ui.splash.SplashViewModel
 
@@ -20,11 +20,11 @@ class ViewModelFactory(private val repository: DataRepository) : ViewModelProvid
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(repository) as T
             }
-            modelClass.isAssignableFrom(DashboardViewModel::class.java) -> {
-                DashboardViewModel(repository) as T
+            modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
+                HistoryViewModel(repository) as T
             }
-            modelClass.isAssignableFrom(NotificationsViewModel::class.java) -> {
-                NotificationsViewModel(repository) as T
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
                 SplashViewModel(repository) as T

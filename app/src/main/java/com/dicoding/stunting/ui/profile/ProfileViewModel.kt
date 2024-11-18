@@ -1,11 +1,11 @@
-package com.dicoding.stunting.ui.notifications
+package com.dicoding.stunting.ui.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.stunting.data.remote.DataRepository
 
-class NotificationsViewModel(private val repository: DataRepository) : ViewModel()  {
+class ProfileViewModel(private val repository: DataRepository) : ViewModel()  {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"

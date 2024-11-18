@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Nourish</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_history">History</string>
+    <string name="title_profile">Profile</string>
 
     <!-- Strings for login page  -->
     <string name="welcome_text_1">Welcome to our platform</string>

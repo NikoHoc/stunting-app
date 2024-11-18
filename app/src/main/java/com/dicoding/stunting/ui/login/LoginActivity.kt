@@ -17,7 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dicoding.stunting.R
 import com.dicoding.stunting.data.pref.UserModel
-import com.dicoding.stunting.data.remote.Result
+    import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.ActivityLoginBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.main.MainActivity

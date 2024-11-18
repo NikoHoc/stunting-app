@@ -2,23 +2,28 @@ package com.dicoding.stunting.ui.register
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityRegisterBinding
-import com.dicoding.stunting.ui.login.LoginActivity
+import com.dicoding.stunting.ui.ViewModelFactory
+
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
+
+    private val registerViewModel  by viewModels<RegisterViewModel> {
+        ViewModelFactory.getInstance(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +70,46 @@ class RegisterActivity : AppCompatActivity() {
             }
             override fun afterTextChanged(s: Editable?) {}
         })
+
+        binding.btnRegister.setOnClickListener {
+            val username = binding.edRegisterUsername.text.toString()
+            val email = binding.edRegisterEmail.text.toString()
+            val password = binding.edRegisterPassword.text.toString()
+            registerViewModel.registerUser(username, email, password).observe(this) { result ->
+                if (result != null) {
+                    when (result) {
+                        is Result.Loading -> {
+                            binding.progressIndicator.visibility = View.VISIBLE
+                        }
+                        is Result.Success -> {
+                            val registerResponse = result.data
+                            AlertDialog.Builder(this).apply {
+                                setTitle(R.string.signup_success_alert_title)
+                                setMessage(registerResponse.message)
+                                setPositiveButton(R.string.success_alert_reply) { _, _ ->
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
+                            binding.progressIndicator.visibility = View.GONE
+                        }
+                        is Result.Error -> {
+                            AlertDialog.Builder(this).apply {
+                                setTitle(R.string.signup_error_alert_title)
+                                setMessage(result.error)
+                                setPositiveButton(R.string.error_alert_reply) { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                                create()
+                                show()
+                            }
+                            binding.progressIndicator.visibility = View.GONE
+                        }
+                    }
+                }
+            }
+        }
 
         binding.btnToLogin.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()

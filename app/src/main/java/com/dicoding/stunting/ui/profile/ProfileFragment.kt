@@ -1,29 +1,25 @@
-package com.dicoding.stunting.ui.dashboard
+package com.dicoding.stunting.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import com.dicoding.stunting.databinding.FragmentDashboardBinding
+import com.dicoding.stunting.databinding.FragmentProfileBinding
 import com.dicoding.stunting.ui.ViewModelFactory
-import com.dicoding.stunting.ui.notifications.NotificationsViewModel
 
-class DashboardFragment : Fragment() {
-    private var _binding: FragmentDashboardBinding? = null
+class ProfileFragment : Fragment() {
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: DashboardViewModel by viewModels {
+    private val viewModel: ProfileViewModel by viewModels {
         ViewModelFactory.getInstance(requireActivity())
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
 
         return root
     }
