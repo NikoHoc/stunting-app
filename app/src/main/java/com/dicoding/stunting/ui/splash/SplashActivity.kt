@@ -4,12 +4,16 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivitySplashBinding
+import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.login.LoginActivity
+import com.dicoding.stunting.ui.main.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -18,6 +22,10 @@ import kotlinx.coroutines.launch
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
+
+    private val splashViewModel  by viewModels<SplashViewModel> {
+        ViewModelFactory.getInstance(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +42,16 @@ class SplashActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
+            splashViewModel.getSession().observe(this@SplashActivity) { userModel ->
+                if (userModel.isLogin) {
+                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    finish()
+                    return@observe
+                }
+            }
             delay(3000L)
-            goToLoginActivity()
+            if (!isFinishing) goToLoginActivity()
         }
     }
 

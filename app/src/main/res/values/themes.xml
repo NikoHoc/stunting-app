@@ -9,8 +9,8 @@
         <!--    statusBarColor – The color of the status bar.-->
 
         <!-- Primary Theme Colors -->
-        <item name="colorPrimary">@color/mint_green</item>
-        <item name="colorOnPrimary">@color/deep_blue</item>
+        <item name="colorPrimary">@color/deep_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
         <item name="android:textColorPrimary">@color/deep_blue</item>
 
         <!-- Background and Surface Colors -->
@@ -21,6 +21,10 @@
 
         <!-- Button Style -->
         <item name="buttonStyle">@style/PrimaryButton</item>
+
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_right</item>
+        <item name="android:windowExitTransition">@android:transition/slide_left</item>
     </style>
 
 
