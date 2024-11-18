@@ -5,6 +5,8 @@ import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,11 +42,41 @@ class RegisterActivity : AppCompatActivity() {
 
 
     private fun setupAction() {
+        binding.edRegisterUsername.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                checkFieldsForErrors()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
 
+        binding.edRegisterEmail.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                checkFieldsForErrors()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        binding.edRegisterPassword.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                checkFieldsForErrors()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
 
         binding.btnToLogin.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    private fun checkFieldsForErrors() {
+        val usernameError = binding.edRegisterUsername.error != null
+        val emailError = binding.edRegisterEmail.error != null
+        val passwordError = binding.edRegisterPassword.error != null
+
+        binding.btnRegister.isEnabled = !emailError && !passwordError && !usernameError
     }
 
     private fun playAnimation() {

@@ -82,21 +82,22 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="8dp"
         app:startIconTint="@android:color/white"
-        android:hint="@string/username"
-        android:textColorHint="@color/white"
         tools:alpha="100"
         android:alpha="0"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="@id/tv_welcome_layout"
         app:layout_constraintStart_toStartOf="@id/tv_welcome_layout"
         app:layout_constraintTop_toBottomOf="@id/tv_welcome_layout"
         app:startIconDrawable="@drawable/ic_person">
 
-        <EditText
+        <com.dicoding.stunting.ui.custom.BaseEditText
             android:id="@+id/ed_register_username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
+            android:layout_height="match_parent"
+            android:inputType="text"
             android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="@string/username"
             android:textStyle="bold"
             android:background="@drawable/rounded_edit_text_layout"
             tools:ignore=",Autofill,LabelFor" />
@@ -112,16 +113,16 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="8dp"
         app:startIconTint="@android:color/white"
-        android:hint="@string/email"
         android:textColorHint="@color/white"
         tools:alpha="100"
         android:alpha="0"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="@id/usernameEditTextLayout"
         app:layout_constraintStart_toStartOf="@id/usernameEditTextLayout"
         app:layout_constraintTop_toBottomOf="@id/usernameEditTextLayout"
         app:startIconDrawable="@drawable/ic_email">
 
-        <EditText
+        <com.dicoding.stunting.ui.custom.EmailEditText
             android:id="@+id/ed_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -143,16 +144,16 @@
         app:endIconMode="password_toggle"
         app:endIconTint="@color/white"
         app:startIconTint="@android:color/white"
-        android:hint="@string/password"
         tools:alpha="100"
         android:alpha="0"
+        app:hintEnabled="true"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@id/emailEditTextLayout"
         app:layout_constraintStart_toStartOf="@id/emailEditTextLayout"
         app:layout_constraintTop_toBottomOf="@id/emailEditTextLayout"
         app:startIconDrawable="@drawable/ic_password">
 
-        <EditText
+        <com.dicoding.stunting.ui.custom.PasswordEditText
             android:id="@+id/ed_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -5,6 +5,8 @@ import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -44,11 +46,28 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
+        checkFieldsForErrors()
         setupAction()
         playAnimation()
     }
 
     private fun setupAction () {
+        binding.edLoginEmail.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                checkFieldsForErrors()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        binding.edLoginPassword.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                checkFieldsForErrors()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edLoginEmail.text.toString()
             val password = binding.edLoginPassword.text.toString()
@@ -104,6 +123,14 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this as Activity).toBundle())
         }
+    }
+
+
+    private fun checkFieldsForErrors() {
+        val emailError = binding.edLoginEmail.error != null || binding.edLoginEmail.text.isNullOrBlank()
+        val passwordError = binding.edLoginPassword.error != null || binding.edLoginPassword.text.isNullOrBlank()
+
+        binding.btnLogin.isEnabled = !emailError && !passwordError
     }
 
     private fun playAnimation() {
