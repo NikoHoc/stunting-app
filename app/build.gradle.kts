@@ -97,7 +97,6 @@ dependencies {
     implementation(libs.androidx.work.runtime)
     implementation(libs.async.http)
 
-    // TODO: Tambahkan Library TensorFlow Lite
     implementation(libs.tensorflow.lite.metadata)
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.task.vision)

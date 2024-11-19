@@ -36,7 +36,15 @@
     <string name="invalid_password">Password cannot be less than 8 characters</string>
     <string name="invalid_email">Email must end with "@gmail.com"</string>
 
+    <!-- Page title -->
+    <string name="greet_user">Hello, %1$s</string>
+    <string name="nourish_motto">Stay healthy</string>
+    <string name="iv_nourish">Nourish Logo</string>
+    <string name="child_icon">Child icon</string>
+
 
     <!-- Profile Page strings -->
+    <string name="username_profile">%1$s</string>
+    <string name="email_profile">%1$s</string>
     <string name="logout">Logout</string>
 </resources>

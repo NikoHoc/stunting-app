@@ -41,15 +41,15 @@ class SplashActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         lifecycleScope.launch {
+            delay(3000L)
             splashViewModel.getSession().observe(this@SplashActivity) { userModel ->
                 if (userModel.isLogin) {
                     startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                    finish()
-                    return@observe
+                } else {
+                    goToAuthenticationActivity()
                 }
+                finish()
             }
-            delay(3000L)
-            if (!isFinishing) goToAuthenticationActivity()
         }
     }
 
