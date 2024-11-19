@@ -1,6 +1,8 @@
 package com.dicoding.stunting.ui.main
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,10 +11,17 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityMainBinding
+import com.dicoding.stunting.ui.ViewModelFactory
+import com.dicoding.stunting.ui.authentication.AuthenticationActivity
+import com.dicoding.stunting.ui.splash.SplashViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val mainViewModel  by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +43,14 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        mainViewModel.getSession().observe(this@MainActivity) { userModel ->
+            if (!userModel.isLogin) {
+                startActivity(Intent(this@MainActivity, AuthenticationActivity::class.java))
+                finish()
+                return@observe
+            }
+        }
     }
 
 }

@@ -5,11 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.stunting.data.remote.DataRepository
 import com.dicoding.stunting.di.Injection
-import com.dicoding.stunting.ui.history.HistoryViewModel
-import com.dicoding.stunting.ui.home.HomeViewModel
-import com.dicoding.stunting.ui.login.LoginViewModel
-import com.dicoding.stunting.ui.profile.ProfileViewModel
-import com.dicoding.stunting.ui.register.RegisterViewModel
+import com.dicoding.stunting.ui.main.history.HistoryViewModel
+import com.dicoding.stunting.ui.main.home.HomeViewModel
+import com.dicoding.stunting.ui.authentication.login.LoginViewModel
+import com.dicoding.stunting.ui.main.profile.ProfileViewModel
+import com.dicoding.stunting.ui.authentication.register.RegisterViewModel
+import com.dicoding.stunting.ui.main.MainViewModel
 import com.dicoding.stunting.ui.splash.SplashViewModel
 
 class ViewModelFactory(private val repository: DataRepository) : ViewModelProvider.NewInstanceFactory() {
@@ -17,15 +18,6 @@ class ViewModelFactory(private val repository: DataRepository) : ViewModelProvid
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(repository) as T
-            }
-            modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
-                HistoryViewModel(repository) as T
-            }
-            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
-                ProfileViewModel(repository) as T
-            }
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
                 SplashViewModel(repository) as T
             }
@@ -34,6 +26,18 @@ class ViewModelFactory(private val repository: DataRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                MainViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                HomeViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
+                HistoryViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

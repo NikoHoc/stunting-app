@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.register
+package com.dicoding.stunting.ui.authentication.register
 
 import androidx.lifecycle.ViewModel
 import com.dicoding.stunting.data.remote.DataRepository

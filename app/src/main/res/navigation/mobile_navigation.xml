@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.dicoding.stunting.ui.home.HomeFragment"
+        android:name="com.dicoding.stunting.ui.main.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.dicoding.stunting.ui.history.HistoryFragment"
+        android:name="com.dicoding.stunting.ui.main.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.dicoding.stunting.ui.profile.ProfileFragment"
+        android:name="com.dicoding.stunting.ui.main.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

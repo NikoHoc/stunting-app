@@ -12,10 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivitySplashBinding
 import com.dicoding.stunting.ui.ViewModelFactory
-import com.dicoding.stunting.ui.login.LoginActivity
+import com.dicoding.stunting.ui.authentication.AuthenticationActivity
 import com.dicoding.stunting.ui.main.MainActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -51,13 +49,12 @@ class SplashActivity : AppCompatActivity() {
                 }
             }
             delay(3000L)
-            if (!isFinishing) goToLoginActivity()
+            if (!isFinishing) goToAuthenticationActivity()
         }
     }
 
-
-    private fun goToLoginActivity() {
-        Intent(this, LoginActivity::class.java).also {
+    private fun goToAuthenticationActivity() {
+        Intent(this, AuthenticationActivity::class.java).also {
             startActivity(it)
             finish()
         }

@@ -1,14 +1,14 @@
-package com.dicoding.stunting.ui.history
+package com.dicoding.stunting.ui.main.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.stunting.data.remote.DataRepository
 
-class HistoryViewModel (private val repository: DataRepository) : ViewModel() {
+class HomeViewModel (private val repository: DataRepository) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }

@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.login
+package com.dicoding.stunting.ui.authentication.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

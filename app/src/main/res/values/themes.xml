@@ -30,7 +30,7 @@
 
     <!-- Custom Button Style -->
     <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/deep_blue</item>
+        <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
     </style>
 

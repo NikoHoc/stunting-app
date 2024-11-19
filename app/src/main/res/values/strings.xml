@@ -35,4 +35,8 @@
     <string name="empty_input">This field cannot be empty</string>
     <string name="invalid_password">Password cannot be less than 8 characters</string>
     <string name="invalid_email">Email must end with "@gmail.com"</string>
+
+
+    <!-- Profile Page strings -->
+    <string name="logout">Logout</string>
 </resources>
