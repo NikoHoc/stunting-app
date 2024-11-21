@@ -1,199 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.home.HomeFragment" >
-
-    <FrameLayout
-        android:id="@+id/page_banner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="32dp"
-        android:background="@drawable/rounded_bottom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tv_greet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:textColor="@color/deep_blue"
-                android:text="@string/greet_user"
-                android:fontFamily="@font/poppins_extra_bold"
-                android:textSize="30sp"/>
-
-            <ImageView
-                android:id="@+id/app_logo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:contentDescription="@string/iv_nourish"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:src="@drawable/nourish_logo"/>
-
-            <TextView
-                android:id="@+id/app_motto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/tv_greet"
-                app:layout_constraintTop_toBottomOf="@id/tv_greet"
-                android:textColor="@color/deep_blue"
-                android:text="@string/nourish_motto"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:fontFamily="@font/montserrat_regular"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/child_icon"
-                android:src="@drawable/ic_child"
-                android:layout_marginStart="4dp"
-                app:layout_constraintStart_toEndOf="@id/app_motto"
-                app:layout_constraintTop_toBottomOf="@id/tv_greet"/>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/tv_features"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/features"
-        android:fontFamily="@font/montserrat_regular"
-        android:textColor="@color/deep_blue"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintStart_toStartOf="@id/page_banner"
-        app:layout_constraintEnd_toEndOf="@id/page_banner"
-        app:layout_constraintTop_toBottomOf="@id/page_banner"/>
-
-    <FrameLayout
-        android:id="@+id/features_layout"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_card"
-        android:elevation="8dp"
-        app:layout_constraintEnd_toEndOf="@id/tv_features"
-        app:layout_constraintStart_toStartOf="@id/tv_features"
-        app:layout_constraintTop_toBottomOf="@id/tv_features">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </LinearLayout>
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/tv_news_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintStart_toStartOf="@id/features_layout"
-        app:layout_constraintEnd_toEndOf="@id/features_layout"
-        app:layout_constraintTop_toBottomOf="@id/features_layout">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/news"
-                android:fontFamily="@font/montserrat_regular"
-                android:textColor="@color/deep_blue"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <TextView
-                android:id="@+id/btn_more_news"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/more_news"
-                android:fontFamily="@font/montserrat_regular"
-                android:textColor="@color/deep_blue"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+    tools:context=".ui.main.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/tv_news_layout"
-        app:layout_constraintEnd_toEndOf="@id/tv_news_layout"
-        app:layout_constraintTop_toBottomOf="@id/tv_news_layout">
+        android:layout_height="match_parent"
+        tools:context=".ui.main.home.HomeFragment" >
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:id="@+id/page_banner"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="32dp"
+            android:background="@drawable/rounded_bottom"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_greet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:textColor="@color/deep_blue"
+                    android:text="@string/greet_user"
+                    android:fontFamily="@font/poppins_extra_bold"
+                    android:textSize="30sp"/>
+
+                <ImageView
+                    android:id="@+id/app_logo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@string/iv_nourish"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/nourish_logo"/>
+
+                <TextView
+                    android:id="@+id/app_motto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/tv_greet"
+                    app:layout_constraintTop_toBottomOf="@id/tv_greet"
+                    android:textColor="@color/deep_blue"
+                    android:text="@string/nourish_motto"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/child_icon"
+                    android:src="@drawable/ic_child"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintStart_toEndOf="@id/app_motto"
+                    app:layout_constraintTop_toBottomOf="@id/tv_greet"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
         <TextView
-            android:id="@+id/tv_news_not_found"
+            android:id="@+id/tv_features"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/empty_news"
-            android:textColor="@color/deep_blue"
+            android:text="@string/features"
             android:fontFamily="@font/montserrat_regular"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            android:textColor="@color/deep_blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintStart_toStartOf="@id/page_banner"
+            app:layout_constraintEnd_toEndOf="@id/page_banner"
+            app:layout_constraintTop_toBottomOf="@id/page_banner"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_news_stunting"
+        <FrameLayout
+            android:id="@+id/features_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/rounded_card"
+            android:elevation="8dp"
+            app:layout_constraintEnd_toEndOf="@id/tv_features"
+            app:layout_constraintStart_toStartOf="@id/tv_features"
+            app:layout_constraintTop_toBottomOf="@id/tv_features">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_news_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:paddingBottom="360dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintStart_toStartOf="@id/features_layout"
+            app:layout_constraintEnd_toEndOf="@id/features_layout"
+            app:layout_constraintTop_toBottomOf="@id/features_layout">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/news"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/btn_more_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/more_news"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/tv_news_layout"
+            app:layout_constraintEnd_toEndOf="@id/tv_news_layout"
+            app:layout_constraintTop_toBottomOf="@id/tv_news_layout">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible"
+                />
+            <TextView
+                android:id="@+id/tv_news_not_found"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/empty_news"
+                android:textColor="@color/deep_blue"
+                android:fontFamily="@font/montserrat_regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news_stunting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:paddingBottom="90dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

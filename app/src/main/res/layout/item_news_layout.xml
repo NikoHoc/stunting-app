@@ -5,8 +5,7 @@
     card_view:cardCornerRadius="10dp"
     android:backgroundTint="@color/mint_green"
     android:elevation="16dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
+    android:layout_margin="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
