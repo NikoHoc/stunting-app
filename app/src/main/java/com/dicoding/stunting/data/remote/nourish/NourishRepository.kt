@@ -1,17 +1,17 @@
-package com.dicoding.stunting.data.remote
+package com.dicoding.stunting.data.remote.nourish
 
 import androidx.lifecycle.liveData
 import com.dicoding.stunting.data.pref.UserModel
 import com.dicoding.stunting.data.pref.UserPreference
-import com.dicoding.stunting.data.remote.retrofit.ApiServices
-import com.google.gson.Gson
 import com.dicoding.stunting.data.remote.Result
-import com.dicoding.stunting.data.remote.response.LoginResponse
-import com.dicoding.stunting.data.remote.response.RegisterResponse
+import com.dicoding.stunting.data.remote.nourish.retrofit.ApiServices
+import com.google.gson.Gson
+import com.dicoding.stunting.data.remote.nourish.response.LoginResponse
+import com.dicoding.stunting.data.remote.nourish.response.RegisterResponse
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 
-class DataRepository private constructor(
+class NourishRepository private constructor(
     private val apiServices: ApiServices,
     private val userPreference: UserPreference
 ) {
@@ -52,7 +52,7 @@ class DataRepository private constructor(
 
     companion object {
         @Volatile
-        private var instance: DataRepository? = null
-        fun getInstance(apiService: ApiServices, dataStoreToken: UserPreference) = DataRepository(apiService, dataStoreToken)
+        private var instance: NourishRepository? = null
+        fun getInstance(apiService: ApiServices, dataStoreToken: UserPreference) = NourishRepository(apiService, dataStoreToken)
     }
 }

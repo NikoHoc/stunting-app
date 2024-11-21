@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.FragmentProfileBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 
@@ -27,7 +28,15 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupView()
         setupAction()
+    }
+
+    private fun setupView () {
+        viewModel.getSession().observe(viewLifecycleOwner) { user ->
+            binding.tvUsername.text = resources.getString(R.string.username_profile, user.name)
+            binding.tvEmail.text = resources.getString(R.string.email_profile, user.email)
+        }
     }
 
     private fun setupAction() {

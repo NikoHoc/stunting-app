@@ -1,4 +1,4 @@
-package com.dicoding.stunting.data.remote.retrofit
+package com.dicoding.stunting.data.remote.nourish.retrofit
 
 import com.dicoding.stunting.BuildConfig
 import okhttp3.Interceptor

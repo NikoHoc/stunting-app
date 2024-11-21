@@ -1,7 +1,7 @@
-package com.dicoding.stunting.data.remote.retrofit
+package com.dicoding.stunting.data.remote.nourish.retrofit
 
-import com.dicoding.stunting.data.remote.response.LoginResponse
-import com.dicoding.stunting.data.remote.response.RegisterResponse
+import com.dicoding.stunting.data.remote.nourish.response.LoginResponse
+import com.dicoding.stunting.data.remote.nourish.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST

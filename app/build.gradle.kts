@@ -26,6 +26,12 @@ android {
         }
         val baseUrl: String = properties.getProperty("BASE_URL", "")
         buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
+
+        val newsBaseUrl: String = properties.getProperty("NEWS_BASE_URL", "")
+        buildConfigField("String", "NEWS_BASE_URL", "\"${newsBaseUrl}\"")
+
+        val newsApiKey: String = properties.getProperty("NEWS_API_KEY", "")
+        buildConfigField("String", "NEWS_API_KEY", "\"${newsApiKey}\"")
     }
 
     buildTypes {

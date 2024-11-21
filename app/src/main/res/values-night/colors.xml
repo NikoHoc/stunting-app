@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="mint_green">#CFF4D2</color>
+    <color name="mint_green_2">#C6CFF4D2</color>
     <color name="leaf_green">#56C596</color>
     <color name="teal_blue">#329D9C</color>
     <color name="deep_blue">#205072</color>

@@ -1,14 +1,13 @@
 package com.dicoding.stunting.ui.main.home
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.stunting.data.remote.DataRepository
+import androidx.lifecycle.asLiveData
+import com.dicoding.stunting.data.pref.UserModel
+import com.dicoding.stunting.data.remote.nourish.NourishRepository
 
-class HomeViewModel (private val repository: DataRepository) : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+class HomeViewModel (private val dataRepository: NourishRepository) : ViewModel() {
+    fun getSession(): LiveData<UserModel> {
+        return dataRepository.getSession().asLiveData()
     }
-    val text: LiveData<String> = _text
 }
