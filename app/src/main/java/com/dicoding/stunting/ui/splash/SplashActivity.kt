@@ -13,6 +13,7 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivitySplashBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationActivity
+import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.main.MainActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ import kotlinx.coroutines.launch
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
 
-    private val splashViewModel  by viewModels<SplashViewModel> {
+    private val authenticationViewModel  by viewModels<AuthenticationViewModel> {
         ViewModelFactory.getInstance(application)
     }
 
@@ -42,7 +43,7 @@ class SplashActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             delay(3000L)
-            splashViewModel.getSession().observe(this@SplashActivity) { userModel ->
+            authenticationViewModel.getSession().observe(this@SplashActivity) { userModel ->
                 if (userModel.isLogin) {
                     startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                 } else {

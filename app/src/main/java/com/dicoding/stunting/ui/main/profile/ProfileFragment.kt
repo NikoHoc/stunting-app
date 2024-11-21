@@ -9,12 +9,13 @@ import androidx.fragment.app.viewModels
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.FragmentProfileBinding
 import com.dicoding.stunting.ui.ViewModelFactory
+import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: ProfileViewModel by viewModels {
+    private val authenticationViewModel: AuthenticationViewModel by viewModels {
         ViewModelFactory.getInstance(requireActivity())
     }
 
@@ -33,7 +34,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupView () {
-        viewModel.getSession().observe(viewLifecycleOwner) { user ->
+        authenticationViewModel.getSession().observe(viewLifecycleOwner) { user ->
             binding.tvUsername.text = resources.getString(R.string.username_profile, user.name)
             binding.tvEmail.text = resources.getString(R.string.email_profile, user.email)
         }
@@ -41,7 +42,7 @@ class ProfileFragment : Fragment() {
 
     private fun setupAction() {
         binding.btnLogout.setOnClickListener{
-            viewModel.logout()
+            authenticationViewModel.logout()
         }
     }
 

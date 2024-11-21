@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Stunting"
         tools:targetApi="31">
         <activity
+            android:name=".ui.main.home.news.NewsDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.home.news.NewsActivity"
             android:exported="false" />
         <activity
@@ -40,7 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

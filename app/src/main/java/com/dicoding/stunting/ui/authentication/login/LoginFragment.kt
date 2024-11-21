@@ -18,6 +18,7 @@ import com.dicoding.stunting.data.pref.UserModel
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.FragmentLoginBinding
 import com.dicoding.stunting.ui.ViewModelFactory
+import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.authentication.register.RegisterFragment
 import com.dicoding.stunting.ui.main.MainActivity
 
@@ -25,7 +26,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val loginViewModel: LoginViewModel by viewModels {
+    private val authenticationViewModel: AuthenticationViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -52,7 +53,7 @@ class LoginFragment : Fragment() {
             val email = binding.edLoginEmail.text.toString()
             val password = binding.edLoginPassword.text.toString()
 
-            loginViewModel.login(email, password).observe(viewLifecycleOwner) { result ->
+            authenticationViewModel.login(email, password).observe(viewLifecycleOwner) { result ->
                 when (result) {
                     is Result.Loading -> {
                         binding.progressIndicator.visibility = View.VISIBLE
@@ -66,7 +67,7 @@ class LoginFragment : Fragment() {
                             token = loginResponse.loginResult?.token.toString(),
                             isLogin = true
                         )
-                        loginViewModel.saveSession(userModel)
+                        authenticationViewModel.saveSession(userModel)
 
                         AlertDialog.Builder(requireContext()).apply {
                             setTitle(R.string.login_success_alert_title)

@@ -15,12 +15,13 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.FragmentRegisterBinding
 import com.dicoding.stunting.ui.ViewModelFactory
+import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    private val registerViewModel: RegisterViewModel by viewModels {
+    private val authenticationViewModel: AuthenticationViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -49,7 +50,7 @@ class RegisterFragment : Fragment() {
             val email = binding.edRegisterEmail.text.toString()
             val password = binding.edRegisterPassword.text.toString()
 
-            registerViewModel.registerUser(username, email, password).observe(viewLifecycleOwner) { result ->
+            authenticationViewModel.registerUser(username, email, password).observe(viewLifecycleOwner) { result ->
                 when (result) {
                     is Result.Loading -> {
                         binding.progressIndicator.visibility = View.VISIBLE

@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.dicoding.stunting.R
 import com.dicoding.stunting.data.local.entity.NewsEntity
 import com.dicoding.stunting.databinding.ItemNewsLayoutBinding
+import com.dicoding.stunting.ui.main.home.news.NewsDetailActivity
 
 class NewsAdapter: ListAdapter<NewsEntity, NewsAdapter.MyViewHolder>(DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -33,8 +34,11 @@ class NewsAdapter: ListAdapter<NewsEntity, NewsAdapter.MyViewHolder>(DIFF_CALLBA
             binding.newsTitle.text = news.title
             binding.root.setOnClickListener {
                 val context = it.context
-                val intent = Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse(news.url)
+//                val intent = Intent(Intent.ACTION_VIEW).apply {
+//                    data = Uri.parse(news.url)
+//                }
+                val intent = Intent(context, NewsDetailActivity::class.java).apply {
+                    putExtra("URL", news.url)
                 }
                 context.startActivity(intent)
             }

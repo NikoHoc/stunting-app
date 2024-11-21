@@ -13,13 +13,13 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityMainBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationActivity
-import com.dicoding.stunting.ui.splash.SplashViewModel
+import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val mainViewModel  by viewModels<MainViewModel> {
+    private val authenticationViewModel  by viewModels<AuthenticationViewModel> {
         ViewModelFactory.getInstance(application)
     }
 
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        mainViewModel.getSession().observe(this@MainActivity) { userModel ->
+        authenticationViewModel.getSession().observe(this@MainActivity) { userModel ->
             if (!userModel.isLogin) {
                 startActivity(Intent(this@MainActivity, AuthenticationActivity::class.java))
                 finish()

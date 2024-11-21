@@ -50,6 +50,7 @@
 
     <!-- Strings for news activity -->
     <string name="back">Back</string>
+    <string name="web_view_created">Enjoy reading!</string>
 
     <!-- Profile Page strings -->
     <string name="username_profile">%1$s</string>

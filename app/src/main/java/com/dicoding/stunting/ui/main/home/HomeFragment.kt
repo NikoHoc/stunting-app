@@ -17,6 +17,7 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.FragmentHomeBinding
 import com.dicoding.stunting.ui.ViewModelFactory
+import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.main.home.adapter.NewsAdapter
 import com.dicoding.stunting.ui.main.home.news.NewsActivity
 
@@ -24,7 +25,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: HomeViewModel by viewModels {
+    private val authenticationViewModel: AuthenticationViewModel by viewModels {
         ViewModelFactory.getInstance(requireActivity())
     }
 
@@ -47,7 +48,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupView() {
-        viewModel.getSession().observe(viewLifecycleOwner) { user ->
+        authenticationViewModel.getSession().observe(viewLifecycleOwner) { user ->
             binding.tvGreet.text = resources.getString(R.string.greet_user, user.name)
         }
 
