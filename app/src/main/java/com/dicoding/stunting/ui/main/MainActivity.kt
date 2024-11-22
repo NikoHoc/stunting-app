@@ -44,6 +44,28 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    navController.popBackStack(R.id.navigation_home, false)
+                    navController.navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.navigation_history -> {
+                    navController.popBackStack(R.id.navigation_history, false)
+                    navController.navigate(R.id.navigation_history)
+                    true
+                }
+                R.id.navigation_profile -> {
+                    navController.popBackStack(R.id.navigation_profile, false)
+                    navController.navigate(R.id.navigation_profile)
+                    true
+                }
+                else -> false
+            }
+        }
+
+
         authenticationViewModel.getSession().observe(this@MainActivity) { userModel ->
             if (!userModel.isLogin) {
                 startActivity(Intent(this@MainActivity, AuthenticationActivity::class.java))

@@ -19,7 +19,6 @@
         app:itemTextColor="@color/bottom_nav_color"
         android:background="@drawable/navbar_round_corner"
         app:compatShadowEnabled="true"
-        android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

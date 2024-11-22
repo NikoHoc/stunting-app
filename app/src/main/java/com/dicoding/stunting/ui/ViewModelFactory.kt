@@ -8,7 +8,7 @@ import com.dicoding.stunting.data.remote.nourish.NourishRepository
 import com.dicoding.stunting.di.Injection
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.main.history.HistoryViewModel
-import com.dicoding.stunting.ui.main.home.NewsViewModel
+import com.dicoding.stunting.ui.main.home.news.NewsViewModel
 
 class ViewModelFactory(
     private val nourishRepository: NourishRepository,

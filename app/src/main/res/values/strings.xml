@@ -47,6 +47,9 @@
     <string name="empty_news">There is no news available</string>
     <string name="iv_news">News image</string>
     <string name="news_title">News Title</string>
+    <string name="stunt">Stunt</string>
+    <string name="food">Food</string>
+    <string name="clinics">Clinics</string>
 
     <!-- Strings for news activity -->
     <string name="back">Back</string>

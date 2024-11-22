@@ -9,7 +9,14 @@
         android:id="@+id/navigation_home"
         android:name="com.dicoding.stunting.ui.main.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/navigation_history" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_history"

@@ -9,15 +9,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.Result
-import com.dicoding.stunting.databinding.ActivityMainBinding
 import com.dicoding.stunting.databinding.ActivityNewsBinding
 import com.dicoding.stunting.ui.ViewModelFactory
-import com.dicoding.stunting.ui.main.home.NewsViewModel
 import com.dicoding.stunting.ui.main.home.adapter.NewsAdapter
 
 class NewsActivity : AppCompatActivity() {

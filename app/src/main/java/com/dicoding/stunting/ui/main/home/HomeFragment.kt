@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.stunting.R
@@ -18,8 +18,12 @@ import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.FragmentHomeBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
+import com.dicoding.stunting.ui.authentication.register.RegisterFragment
+import com.dicoding.stunting.ui.main.history.HistoryFragment
 import com.dicoding.stunting.ui.main.home.adapter.NewsAdapter
 import com.dicoding.stunting.ui.main.home.news.NewsActivity
+import com.dicoding.stunting.ui.main.home.news.NewsViewModel
+import com.dicoding.stunting.ui.main.profile.ProfileFragment
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -95,6 +99,28 @@ class HomeFragment : Fragment() {
         binding.btnMoreNews.setOnClickListener {
             val intent = Intent(requireActivity(), NewsActivity::class.java)
             startActivity(intent)
+        }
+
+        val navController = findNavController()
+
+        binding.btnAnalyze1.setOnClickListener {
+
+        }
+
+        binding.btnAnalyze2.setOnClickListener {
+
+        }
+
+        binding.btnHistory.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_historyFragment)
+        }
+
+        binding.btnMaps.setOnClickListener {
+
+        }
+
+        binding.btnProfile.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_profileFragment)
         }
     }
 

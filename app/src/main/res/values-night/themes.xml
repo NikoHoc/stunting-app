@@ -12,7 +12,7 @@
         <!-- Edit Text Background -->
         <item name="editTextBackground">@color/leaf_green</item>
 
-        <item name="android:navigationBarColor">@color/mint_green_2</item>
+        <item name="android:navigationBarColor">@color/mint_green</item>
 
 
         <!-- Button Style -->

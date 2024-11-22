@@ -92,25 +92,161 @@
             app:layout_constraintEnd_toEndOf="@id/page_banner"
             app:layout_constraintTop_toBottomOf="@id/page_banner"/>
 
-        <FrameLayout
+
+        <LinearLayout
             android:id="@+id/features_layout"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/rounded_card"
-            android:elevation="8dp"
-            app:layout_constraintEnd_toEndOf="@id/tv_features"
+            android:padding="4dp"
             app:layout_constraintStart_toStartOf="@id/tv_features"
-            app:layout_constraintTop_toBottomOf="@id/tv_features">
+            app:layout_constraintTop_toBottomOf="@id/tv_features"
+            app:layout_constraintEnd_toEndOf="@id/tv_features">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/layout_btn_analyze_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
-            </LinearLayout>
-        </FrameLayout>
+                    <ImageButton
+                        android:id="@+id/btn_analyze_1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/rounded_button"
+                        android:src="@drawable/ic_baby"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stunt"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_btn_analyze_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toEndOf="@+id/layout_btn_analyze_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <ImageButton
+                        android:id="@+id/btn_analyze_2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_salad"
+                        android:background="@drawable/rounded_button"
+                        tools:ignore="ContentDescription" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/food"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_btn_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toEndOf="@+id/layout_btn_analyze_2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/btn_history"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_time"
+                        tools:ignore="ContentDescription"
+                        android:background="@drawable/rounded_button"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_history"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_btn_maps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toEndOf="@+id/layout_btn_history"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <ImageButton
+                        android:id="@+id/btn_maps"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_map"
+                        android:background="@drawable/rounded_button"
+                        tools:ignore="ContentDescription" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clinics"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_btn_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toEndOf="@+id/layout_btn_maps"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <ImageButton
+                        android:id="@+id/btn_profile"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_profile"
+                        android:background="@drawable/rounded_button"
+                        tools:ignore="ContentDescription" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_profile"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/tv_news_layout"
