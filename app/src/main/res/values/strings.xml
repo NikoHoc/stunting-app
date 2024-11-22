@@ -56,4 +56,13 @@
     <string name="username_profile">%1$s</string>
     <string name="email_profile">%1$s</string>
     <string name="logout">Logout</string>
+
+    <string name="settings">Pengaturan</string>
+
+    <string name="profile_item_nutrition_tips">Panduan Nutrisi</string>
+    <string name="profile_item_vaccination_schedule">Jadwal Imunisasi</string>
+    <string name="profile_item_health_articles">Artikel Kesehatan</string>
+    <string name="profile_item_child_growth_tracker">Pantau Pertumbuhan Anak</string>
+    <string name="profile_item_reminder">Pengingat</string>
+
 </resources>

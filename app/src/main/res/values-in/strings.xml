@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Nourish</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_history">Riwayat</string>
+    <string name="title_profile">Profil</string>
+
+    <!-- Strings for login page -->
+    <string name="welcome_text_1">Selamat datang di platform kami</string>
+    <string name="welcome_text_2">silakan masuk untuk melanjutkan</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="to_register_page_1">Belum punya akun?</string>
+    <string name="to_register_page_2">Daftar di sini!</string>
+
+    <!-- Strings for sign up page -->
+    <string name="register">Daftar</string>
+    <string name="register_title_text">Ayo Daftar</string>
+    <string name="register_title_text_2">Isi formulir ini untuk \n membuat akun</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="to_login_page_1">Sudah punya akun?</string>
+    <string name="to_login_page_2">Masuk!</string>
+
+    <!-- Strings for login and register alert -->
+    <string name="login_success_alert_title">Login berhasil</string>
+    <string name="login_error_alert_title">Login gagal</string>
+    <string name="success_alert_reply">Lanjut</string>
+    <string name="error_alert_reply">Ulangi</string>
+    <string name="signup_success_alert_title">Akun berhasil dibuat</string>
+    <string name="signup_error_alert_title">Gagal membuat akun</string>
+
+    <!-- Edit Text error message -->
+    <string name="empty_input">Kolom ini tidak boleh kosong</string>
+    <string name="invalid_password">Kata sandi tidak boleh kurang dari 8 karakter</string>
+    <string name="invalid_email">Email harus diakhiri dengan "@gmail.com"</string>
+
+    <!-- Page title -->
+    <string name="greet_user">Halo, %1$s</string>
+    <string name="nourish_motto">Tetap sehat</string>
+    <string name="iv_nourish">Logo Nourish</string>
+    <string name="child_icon">Ikon Anak</string>
+
+    <!-- Strings for home fragment -->
+    <string name="features">Fitur</string>
+    <string name="news">Berita</string>
+    <string name="more_news">Selengkapnya</string>
+    <string name="empty_news">Tidak ada berita tersedia</string>
+    <string name="iv_news">Gambar Berita</string>
+    <string name="news_title">Judul Berita</string>
+
+    <!-- Strings for news activity -->
+    <string name="back">Kembali</string>
+    <string name="web_view_created">Selamat membaca!</string>
+
+    <!-- Profile Page strings -->
+    <string name="username_profile">%1$s</string>
+    <string name="email_profile">%1$s</string>
+    <string name="logout">Keluar</string>
+
+    <string name="settings">Pengaturan</string>
+
+    <string name="profile_item_nutrition_tips">Panduan Nutrisi</string>
+    <string name="profile_item_vaccination_schedule">Jadwal Imunisasi</string>
+    <string name="profile_item_health_articles">Artikel Kesehatan</string>
+    <string name="profile_item_child_growth_tracker">Pantau Pertumbuhan Anak</string>
+    <string name="profile_item_reminder">Pengingat</string>
+
+</resources>
