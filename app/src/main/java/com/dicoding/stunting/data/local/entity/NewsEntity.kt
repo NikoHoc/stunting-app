@@ -18,4 +18,7 @@ class NewsEntity (
 
     @ColumnInfo(name = "url_to_image")
     val urlToImage: String? = null,
+
+    @ColumnInfo(name = "created_at")
+    val createdAt: Long
 )

@@ -17,4 +17,7 @@ interface NewsDao {
 
     @Query("DELETE FROM news")
     suspend fun deleteAll()
+
+    @Query("SELECT MAX(created_at) FROM news")
+    fun getLatestNewsTimestamp(): Long?
 }

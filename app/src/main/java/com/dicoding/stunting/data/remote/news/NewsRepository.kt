@@ -9,6 +9,8 @@ import com.dicoding.stunting.data.local.entity.NewsEntity
 import com.dicoding.stunting.data.local.room.NewsDao
 import com.dicoding.stunting.data.remote.news.retrofit.ApiService
 import com.dicoding.stunting.data.remote.Result
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlin.math.log
 
 class NewsRepository private constructor(
@@ -19,33 +21,43 @@ class NewsRepository private constructor(
     fun getNews(): LiveData<Result<List<NewsEntity>>> = liveData {
         emit(Result.Loading)
 
-        val localData: LiveData<Result<List<NewsEntity>>> = newsDao.getAllNews().map { newsList ->
-            Log.d("NewsRepository", "Fetched news from DB: ${newsList.size}")
-            Result.Success(newsList)
+        // Checking news data >= 12 hours to call API if needed
+        val isOutdated = withContext(Dispatchers.IO) {
+            val currentTime = System.currentTimeMillis()
+            newsDao.getLatestNewsTimestamp()?.let { lastUpdated ->
+                currentTime - lastUpdated >= 12 * 60 * 60 * 1000 // 12 jam
+            } ?: true // no data -> outDated
         }
 
-        val localResult = localData.value
-        if (localResult is Result.Success && localResult.data.isEmpty()) {
+        // if news >= 12 hours
+        if (isOutdated) {
             try {
                 val response = newsApiService.getStuntingNews(apiKey = BuildConfig.NEWS_API_KEY)
                 val listNews = response.articles?.map { news ->
                     NewsEntity(
                         title = news?.title,
                         url = news?.url,
-                        urlToImage = news?.urlToImage
+                        urlToImage = news?.urlToImage,
+                        createdAt = System.currentTimeMillis()
                     )
                 }
-                newsDao.deleteAll()
-                Log.d("NewsRepository", "Old news deleted")
-                newsDao.insertIntoNews(listNews!!)
-                Log.d("NewsRepository", "New news inserted into database: ${listNews.size}")
+                withContext(Dispatchers.IO) {
+                    newsDao.deleteAll()
+                    Log.d("NewsRepository", "Old news deleted")
+                    newsDao.insertIntoNews(listNews!!)
+                    Log.d("NewsRepository", "New news inserted into database: ${listNews.size}")
+                }
+                emit(Result.Success(listNews!!))
             } catch (e: Exception) {
                 Log.d("NewsRepository", "getNewsArticle: ${e.message.toString()}")
                 emit(Result.Error(e.message.toString()))
-                return@liveData
             }
         }
 
+        val localData: LiveData<Result<List<NewsEntity>>> = newsDao.getAllNews().map { newsList ->
+            Log.d("NewsRepository", "Fetched news from DB: ${newsList.size}")
+            Result.Success(newsList)
+        }
         emitSource(localData)
     }
 

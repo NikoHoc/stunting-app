@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.dicoding.stunting.data.local.entity.NewsEntity
 
-@Database(entities = [NewsEntity::class], version = 2, exportSchema = false)
+@Database(entities = [NewsEntity::class], version = 1, exportSchema = false)
 abstract class NourishDatabase: RoomDatabase() {
     abstract fun newsDao(): NewsDao
 
