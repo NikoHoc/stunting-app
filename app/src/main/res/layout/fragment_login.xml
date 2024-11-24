@@ -154,7 +154,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_corner"
         style="@style/PrimaryButton"
         tools:alpha="100"
         android:alpha="0"

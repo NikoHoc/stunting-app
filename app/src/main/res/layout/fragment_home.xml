@@ -121,7 +121,7 @@
                         android:id="@+id/btn_analyze_1"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:background="@drawable/rounded_button"
+                        android:background="@drawable/rounded_corner"
                         android:src="@drawable/ic_baby"
                         tools:ignore="ContentDescription" />
 
@@ -150,7 +150,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:src="@drawable/ic_salad"
-                        android:background="@drawable/rounded_button"
+                        android:background="@drawable/rounded_corner"
                         tools:ignore="ContentDescription" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -179,7 +179,7 @@
                         android:layout_height="48dp"
                         android:src="@drawable/ic_time"
                         tools:ignore="ContentDescription"
-                        android:background="@drawable/rounded_button"/>
+                        android:background="@drawable/rounded_corner"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -205,13 +205,13 @@
                         android:id="@+id/btn_maps"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:src="@drawable/ic_map"
-                        android:background="@drawable/rounded_button"
+                        android:src="@drawable/ic_journal"
+                        android:background="@drawable/rounded_corner"
                         tools:ignore="ContentDescription" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/clinics"
+                        android:text="@string/journal"
                         android:fontFamily="@font/montserrat_regular"
                         android:textColor="@color/deep_blue"
                         android:textSize="10sp"
@@ -233,7 +233,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:src="@drawable/ic_profile"
-                        android:background="@drawable/rounded_button"
+                        android:background="@drawable/rounded_corner"
                         tools:ignore="ContentDescription" />
                     <TextView
                         android:layout_width="wrap_content"

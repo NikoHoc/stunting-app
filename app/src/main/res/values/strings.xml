@@ -49,7 +49,7 @@
     <string name="news_title">News Title</string>
     <string name="stunt">Stunt</string>
     <string name="food">Food</string>
-    <string name="clinics">Clinics</string>
+    <string name="journal">Journal</string>
 
     <!-- Strings for news activity -->
     <string name="back">Back</string>
@@ -59,4 +59,10 @@
     <string name="username_profile">%1$s</string>
     <string name="email_profile">%1$s</string>
     <string name="logout">Logout</string>
+
+
+    <!-- Strings for history page   -->
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="stunting_model_tab">Stunting</string>
+    <string name="food_model_tab">Food Recommendation</string>
 </resources>

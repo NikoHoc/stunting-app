@@ -108,7 +108,7 @@ class RegisterFragment : Fragment() {
         binding.btnRegister.isEnabled = isEnabled
 
         if (isEnabled) {
-            binding.btnRegister.setBackgroundResource(R.drawable.rounded_button)
+            binding.btnRegister.setBackgroundResource(R.drawable.rounded_corner)
         } else {
             binding.btnRegister.setBackgroundResource(R.drawable.rounded_disabled_button)
         }

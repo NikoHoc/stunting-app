@@ -124,7 +124,7 @@ class LoginFragment : Fragment() {
         binding.btnLogin.isEnabled = isEnabled
 
         if (isEnabled) {
-            binding.btnLogin.setBackgroundResource(R.drawable.rounded_button)
+            binding.btnLogin.setBackgroundResource(R.drawable.rounded_corner)
         } else {
             binding.btnLogin.setBackgroundResource(R.drawable.rounded_disabled_button)
         }
