@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
         authenticationViewModel.getSession().observe(this@MainActivity) { userModel ->
             if (!userModel.isLogin) {
                 startActivity(Intent(this@MainActivity, AuthenticationActivity::class.java))

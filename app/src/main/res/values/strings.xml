@@ -60,11 +60,20 @@
     <string name="email_profile">%1$s</string>
     <string name="logout">Logout</string>
 
+    <!-- Strings for journal page   -->
+    <string name="add_journal">Add Journal</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="description">Description</string>
+    <string name="description_empty">Please fill in the form</string>
+    <string name="upload">Upload</string>
 
     <!-- Strings for history page   -->
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="stunting_model_tab">Stunting</string>
     <string name="food_model_tab">Food Recommendation</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="permission_granted">Permission request granted</string>
+    <string name="permission_denied">Permission request denied</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

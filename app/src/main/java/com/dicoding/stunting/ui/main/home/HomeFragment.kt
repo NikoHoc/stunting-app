@@ -19,8 +19,10 @@ import com.dicoding.stunting.databinding.FragmentHomeBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.authentication.register.RegisterFragment
+import com.dicoding.stunting.ui.journal.AddJournalActivity
+import com.dicoding.stunting.ui.main.MainActivity
 import com.dicoding.stunting.ui.main.history.HistoryFragment
-import com.dicoding.stunting.ui.main.home.adapter.NewsAdapter
+import com.dicoding.stunting.ui.main.home.news.adapter.NewsAdapter
 import com.dicoding.stunting.ui.main.home.news.NewsFragment
 import com.dicoding.stunting.ui.main.home.news.NewsViewModel
 import com.dicoding.stunting.ui.main.profile.ProfileFragment
@@ -115,8 +117,9 @@ class HomeFragment : Fragment() {
             navController.navigate(R.id.action_homeFragment_to_historyFragment)
         }
 
-        binding.btnMaps.setOnClickListener {
-
+        binding.btnJournal.setOnClickListener {
+            val intent = Intent(requireContext(), AddJournalActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnProfile.setOnClickListener {

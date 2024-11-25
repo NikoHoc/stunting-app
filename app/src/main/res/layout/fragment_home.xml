@@ -202,7 +202,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
                     <ImageButton
-                        android:id="@+id/btn_maps"
+                        android:id="@+id/btn_journal"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:src="@drawable/ic_journal"
