@@ -21,7 +21,7 @@ import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.authentication.register.RegisterFragment
 import com.dicoding.stunting.ui.main.history.HistoryFragment
 import com.dicoding.stunting.ui.main.home.adapter.NewsAdapter
-import com.dicoding.stunting.ui.main.home.news.NewsActivity
+import com.dicoding.stunting.ui.main.home.news.NewsFragment
 import com.dicoding.stunting.ui.main.home.news.NewsViewModel
 import com.dicoding.stunting.ui.main.profile.ProfileFragment
 
@@ -97,8 +97,8 @@ class HomeFragment : Fragment() {
 
     private fun setupAction() {
         binding.btnMoreNews.setOnClickListener {
-            val intent = Intent(requireActivity(), NewsActivity::class.java)
-            startActivity(intent)
+            val navController = findNavController()
+            navController.navigate(R.id.action_navigation_home_to_newsFragment)
         }
 
         val navController = findNavController()

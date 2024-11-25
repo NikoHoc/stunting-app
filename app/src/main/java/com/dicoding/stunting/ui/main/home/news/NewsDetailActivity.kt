@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dicoding.stunting.R
-import com.dicoding.stunting.databinding.ActivityNewsBinding
 import com.dicoding.stunting.databinding.ActivityNewsDetailBinding
 
 class NewsDetailActivity : AppCompatActivity() {

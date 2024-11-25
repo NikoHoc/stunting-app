@@ -2,6 +2,7 @@ package com.dicoding.stunting.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -62,6 +63,13 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 else -> false
+            }
+        }
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.newsFragment -> binding.navView.visibility = View.GONE
+                else -> binding.navView.visibility = View.VISIBLE
             }
         }
 

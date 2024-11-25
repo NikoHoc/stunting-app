@@ -2,43 +2,37 @@ package com.dicoding.stunting.ui.main.home.news
 
 import android.content.res.Configuration
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.Result
-import com.dicoding.stunting.databinding.ActivityNewsBinding
+import com.dicoding.stunting.databinding.FragmentHomeBinding
+import com.dicoding.stunting.databinding.FragmentNewsBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.main.home.adapter.NewsAdapter
 
-class NewsActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityNewsBinding
+class NewsFragment : Fragment() {
+    private var _binding: FragmentNewsBinding? = null
+    private val binding get() = _binding!!
 
-    private val newsViewModel by viewModels<NewsViewModel> {
-        ViewModelFactory.getInstance(this)
+    private val newsViewModel: NewsViewModel by viewModels {
+        ViewModelFactory.getInstance(requireActivity())
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+        _binding = FragmentNewsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding = ActivityNewsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        window.statusBarColor = resources.getColor(R.color.leaf_green, theme)
-        supportActionBar?.hide()
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         setupView()
         setupAction()
@@ -46,7 +40,7 @@ class NewsActivity : AppCompatActivity() {
 
     private fun setupView() {
         val newsAdapter = NewsAdapter()
-        newsViewModel.getNews().observe(this) { result ->
+        newsViewModel.getNews().observe(viewLifecycleOwner) { result ->
             if (result != null) {
                 when (result) {
                     is Result.Loading -> {
@@ -63,7 +57,7 @@ class NewsActivity : AppCompatActivity() {
                         binding.progressBar.visibility = View.GONE
                         binding.tvNewsNotFound.visibility = View.VISIBLE
                         Toast.makeText(
-                            this,
+                            requireContext(),
                             result.error,
                             Toast.LENGTH_SHORT
                         ).show()
@@ -76,16 +70,21 @@ class NewsActivity : AppCompatActivity() {
 
     private fun showRecyclerList(newsAdapter: NewsAdapter) {
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            binding.rvNewsStunting.layoutManager = GridLayoutManager(this, 2)
+            binding.rvNewsStunting.layoutManager = GridLayoutManager(requireContext(), 2)
         } else {
-            binding.rvNewsStunting.layoutManager = LinearLayoutManager(this)
+            binding.rvNewsStunting.layoutManager = LinearLayoutManager(requireContext())
         }
         binding.rvNewsStunting.adapter = newsAdapter
     }
 
     private fun setupAction() {
-        binding.btnBack.setOnClickListener{
-            finish()
+        binding.btnBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
