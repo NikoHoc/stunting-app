@@ -19,7 +19,7 @@ import com.dicoding.stunting.databinding.FragmentHomeBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.authentication.register.RegisterFragment
-import com.dicoding.stunting.ui.journal.AddJournalActivity
+import com.dicoding.stunting.ui.main.journal.AddJournalActivity
 import com.dicoding.stunting.ui.main.MainActivity
 import com.dicoding.stunting.ui.main.history.HistoryFragment
 import com.dicoding.stunting.ui.main.home.news.adapter.NewsAdapter

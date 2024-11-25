@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.journal
+package com.dicoding.stunting.ui.main.journal
 
 import android.Manifest
 import android.content.pm.PackageManager

@@ -23,7 +23,7 @@
         android:theme="@style/Theme.Stunting"
         tools:targetApi="31">
         <activity
-            android:name=".ui.journal.AddJournalActivity"
+            android:name=".ui.main.journal.AddJournalActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.home.news.detail.NewsDetailActivity"

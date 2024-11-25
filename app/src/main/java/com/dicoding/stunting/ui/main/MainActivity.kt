@@ -46,24 +46,58 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_home -> {
-                    navController.popBackStack(R.id.navigation_home, false)
-                    navController.navigate(R.id.navigation_home)
-                    true
+            val currentDestination = navController.currentDestination?.id
+            val navOptions = when (currentDestination to item.itemId) {
+                // Home to History and Profile: Slide kanan
+                R.id.navigation_home to R.id.navigation_history,
+                R.id.navigation_home to R.id.navigation_profile -> androidx.navigation.navOptions {
+                    anim {
+                        enter = R.anim.slide_in_right
+                        exit = R.anim.slide_out_left
+                        popEnter = R.anim.slide_in_left
+                        popExit = R.anim.slide_out_right
+                    }
+
                 }
-                R.id.navigation_history -> {
-                    navController.popBackStack(R.id.navigation_history, false)
-                    navController.navigate(R.id.navigation_history)
-                    true
+
+                // History to Home: Slide kiri
+                R.id.navigation_history to R.id.navigation_home -> androidx.navigation.navOptions {
+                    anim {
+                        enter = R.anim.slide_in_left
+                        exit = R.anim.slide_out_right
+                        popEnter = R.anim.slide_in_right
+                        popExit = R.anim.slide_out_left
+                    }
+                    popUpTo(R.id.navigation_history) { inclusive = true }
                 }
-                R.id.navigation_profile -> {
-                    navController.popBackStack(R.id.navigation_profile, false)
-                    navController.navigate(R.id.navigation_profile)
-                    true
+                // History to Profile: Slide kanan
+                R.id.navigation_history to R.id.navigation_profile -> androidx.navigation.navOptions {
+                    anim {
+                        enter = R.anim.slide_in_right
+                        exit = R.anim.slide_out_left
+                        popEnter = R.anim.slide_in_left
+                        popExit = R.anim.slide_out_right
+                    }
+                    popUpTo(R.id.navigation_history) { inclusive = true }
                 }
-                else -> false
+                // Profile to History and home: Slide kiri
+                R.id.navigation_profile to R.id.navigation_history,
+                R.id.navigation_profile to R.id.navigation_home -> androidx.navigation.navOptions {
+                    anim {
+                        enter = R.anim.slide_in_left
+                        exit = R.anim.slide_out_right
+                        popEnter = R.anim.slide_in_right
+                        popExit = R.anim.slide_out_left
+                    }
+                    popUpTo(R.id.navigation_profile) { inclusive = true }
+                }
+                else -> null
             }
+
+            navOptions?.let {
+                navController.navigate(item.itemId, null, it)
+                true
+            } ?: false
         }
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -81,5 +115,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }

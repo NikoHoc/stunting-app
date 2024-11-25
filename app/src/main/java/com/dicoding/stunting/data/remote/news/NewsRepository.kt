@@ -25,7 +25,9 @@ class NewsRepository private constructor(
         val isOutdated = withContext(Dispatchers.IO) {
             val currentTime = System.currentTimeMillis()
             newsDao.getLatestNewsTimestamp()?.let { lastUpdated ->
-                currentTime - lastUpdated >= 12 * 60 * 60 * 1000 // 12 jam
+                val timeDifference = currentTime - lastUpdated
+                Log.d("NewsRepo", "Time since last update: $timeDifference ms (${timeDifference / (60 * 60 * 1000)} hours)")
+                timeDifference >= 12 * 60 * 60 * 1000 // 12 jam
             } ?: true // no data -> outDated
         }
 
@@ -52,13 +54,13 @@ class NewsRepository private constructor(
                 Log.d("NewsRepository", "getNewsArticle: ${e.message.toString()}")
                 emit(Result.Error(e.message.toString()))
             }
+        } else {
+            val localData: LiveData<Result<List<NewsEntity>>> = newsDao.getAllNews().map { newsList ->
+                Log.d("NewsRepository", "Fetched news from DB: ${newsList.size}")
+                Result.Success(newsList)
+            }
+            emitSource(localData)
         }
-
-        val localData: LiveData<Result<List<NewsEntity>>> = newsDao.getAllNews().map { newsList ->
-            Log.d("NewsRepository", "Fetched news from DB: ${newsList.size}")
-            Result.Success(newsList)
-        }
-        emitSource(localData)
     }
 
     companion object {
