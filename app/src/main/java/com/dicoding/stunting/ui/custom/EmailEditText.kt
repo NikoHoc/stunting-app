@@ -9,7 +9,7 @@ import android.util.Patterns
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import com.dicoding.stunting.R
-import com.dicoding.stunting.ui.utils.isEmailValid
+import com.dicoding.stunting.utils.isEmailValid
 
 class EmailEditText: AppCompatEditText {
 

@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.utils
+package com.dicoding.stunting.utils
 
 import android.content.ContentValues
 import android.content.Context
@@ -21,23 +21,28 @@ import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.util.TimeZone
 
 fun String.isEmailValid(): Boolean  {
     return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }
 
-fun formatDate(createdAt: String): String {
-    // Parse the input date string
-    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-    inputFormat.timeZone = TimeZone.getTimeZone("UTC") // Ensure the input is treated as UTC
-
-    // Format the date to the desired output
-    val outputFormat = SimpleDateFormat("dd MMMM yyyy - hh:mm a", Locale.getDefault())
-    outputFormat.timeZone = TimeZone.getDefault() // Convert to local time
-
-    val date = inputFormat.parse(createdAt)
-    return date?.let { outputFormat.format(it) } ?: "Invalid date"
+fun formatDate(input: String): String {
+    return try {
+        val timestamp = input.toLongOrNull()
+        if (timestamp != null) {
+            // Input is a timestamp in milliseconds
+            val date = Date(timestamp)
+            val formatter = SimpleDateFormat("dd MMMM yyyy - hh:mm a", Locale.getDefault())
+            formatter.format(date)
+        } else {
+            // Input is a date string
+            val formatter = SimpleDateFormat("dd MMMM yyyy - hh:mm a", Locale.getDefault())
+            val date = formatter.parse(input)
+            formatter.format(date!!)
+        }
+    } catch (e: Exception) {
+        "Invalid Date"
+    }
 }
 
 private const val FILENAME_FORMAT = "yyyyMMdd_HHmmss"

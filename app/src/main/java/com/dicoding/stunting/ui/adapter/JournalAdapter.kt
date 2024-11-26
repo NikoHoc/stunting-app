@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.main.journal.adapater
+package com.dicoding.stunting.ui.main.journal.adapter
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -15,7 +15,7 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.databinding.ItemJournalLayoutBinding
 import com.dicoding.stunting.ui.main.journal.JournalDetailActivity
-import com.dicoding.stunting.ui.utils.formatDate
+import com.dicoding.stunting.utils.formatDate
 
 
 class JournalAdapter: ListAdapter<ListJournalItem, JournalAdapter.MyViewHolder>(DIFF_CALLBACK) {

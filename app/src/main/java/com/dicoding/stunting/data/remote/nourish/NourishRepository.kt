@@ -1,6 +1,13 @@
 package com.dicoding.stunting.data.remote.nourish
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import androidx.lifecycle.map
+import com.dicoding.stunting.data.local.entity.JournalHistoryEntity
+import com.dicoding.stunting.data.local.entity.NewsEntity
+import com.dicoding.stunting.data.local.room.JournalDao
+import com.dicoding.stunting.data.local.room.NewsDao
 import com.dicoding.stunting.data.pref.UserModel
 import com.dicoding.stunting.data.pref.UserPreference
 import com.dicoding.stunting.data.remote.Result
@@ -10,7 +17,10 @@ import com.dicoding.stunting.data.remote.nourish.retrofit.ApiServices
 import com.google.gson.Gson
 import com.dicoding.stunting.data.remote.nourish.response.LoginResponse
 import com.dicoding.stunting.data.remote.nourish.response.RegisterResponse
+import com.dicoding.stunting.utils.formatDate
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -20,7 +30,9 @@ import java.io.File
 
 class NourishRepository private constructor(
     private val apiServices: ApiServices,
-    private val userPreference: UserPreference
+    private val userPreference: UserPreference,
+    private val journalDao: JournalDao
+
 ) {
 
     fun uploadJournal(imageFile: File, description: String) = liveData {
@@ -43,15 +55,58 @@ class NourishRepository private constructor(
 
     }
 
-    fun getJournal() = liveData {
+//    fun getJournal() = liveData {
+//        emit(Result.Loading)
+//        try {
+//            val response = apiServices.getJournal()
+//            emit(Result.Success(response))
+//        } catch (e: HttpException) {
+//            val errorBody = e.response()?.errorBody()?.string()
+//            val errorResponse = Gson().fromJson(errorBody, JournalResponse::class.java)
+//            emit(Result.Error(errorResponse.message.toString()))
+//        }
+//    }
+
+    fun getJournal(): LiveData<Result<List<JournalHistoryEntity>>> = liveData {
         emit(Result.Loading)
-        try {
-            val response = apiServices.getJournal()
-            emit(Result.Success(response))
-        } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, JournalResponse::class.java)
-            emit(Result.Error(errorResponse.message.toString()))
+
+        val isOutdated = withContext(Dispatchers.IO) {
+            val currentTime = System.currentTimeMillis()
+            journalDao.getLatestJournalTimestamp()?.let { lastUpdated ->
+                val timeDifference = currentTime - lastUpdated
+                Log.d("NourishRepo", "Time since last update: $timeDifference ms (${timeDifference / (60 * 60 * 1000)} hours)")
+                timeDifference >= 12 * 60 * 60 * 1000 // 12 jam
+            } ?: true // no data -> outDated
+        }
+
+        if (isOutdated) {
+            try {
+                val response = apiServices.getJournal()
+                val journalList = response.listJournal?.map { journal ->
+                    JournalHistoryEntity(
+                        journalDate = formatDate(journal?.createdAt.toString()),
+                        description = journal?.description,
+                        photoUrl = journal?.photoUrl,
+                        createdAt = System.currentTimeMillis()
+                    )
+                }
+                withContext(Dispatchers.IO) {
+                    journalDao.deleteAll()
+                    Log.d("NourishRepo", "Old news deleted")
+                    journalDao.insertIntoJournal(journalList!!)
+                    Log.d("NourishRepo", "New journal inserted into database: ${journalList.size}")
+
+                }
+            } catch (e: Exception) {
+                Log.d("NourishRepo", "getJournal: ${e.message.toString()}")
+                emit(Result.Error(e.message.toString()))
+            }
+        } else {
+            val localData: LiveData<Result<List<JournalHistoryEntity>>> = journalDao.getAllJournal().map { journalList ->
+                Log.d("NewsRepository", "Fetched news from DB: ${journalList.size}")
+                Result.Success(journalList)
+            }
+            emitSource(localData)
         }
     }
 
@@ -92,6 +147,9 @@ class NourishRepository private constructor(
     companion object {
         @Volatile
         private var instance: NourishRepository? = null
-        fun getInstance(apiService: ApiServices, dataStoreToken: UserPreference) = NourishRepository(apiService, dataStoreToken)
+        fun getInstance(
+            apiService: ApiServices,
+            dataStoreToken: UserPreference,
+            journalDao: JournalDao) = NourishRepository(apiService, dataStoreToken, journalDao)
     }
 }

@@ -25,9 +25,9 @@ import com.dicoding.stunting.databinding.ActivityAddJournalBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.ui.main.MainActivity
-import com.dicoding.stunting.ui.utils.getImageUri
-import com.dicoding.stunting.ui.utils.reduceFileImage
-import com.dicoding.stunting.ui.utils.uriToFile
+import com.dicoding.stunting.utils.getImageUri
+import com.dicoding.stunting.utils.reduceFileImage
+import com.dicoding.stunting.utils.uriToFile
 
 class AddJournalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddJournalBinding

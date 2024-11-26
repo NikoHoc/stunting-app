@@ -16,7 +16,9 @@ object Injection {
         val pref = UserPreference.getInstance(context.dataStore)
         val user = runBlocking { pref.getSession().first() }
         val apiService = NourishApiConfig.getApiService(user.token)
-        return NourishRepository.getInstance(apiService, pref)
+        val database = NourishDatabase.getInstance(context)
+        val journalDao = database.journalDao()
+        return NourishRepository.getInstance(apiService, pref, journalDao)
     }
 
     fun providerNewsRepository(context: Context): NewsRepository {

@@ -10,7 +10,7 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.databinding.ActivityAddJournalBinding
 import com.dicoding.stunting.databinding.ActivityJournalDetailBinding
-import com.dicoding.stunting.ui.utils.formatDate
+import com.dicoding.stunting.utils.formatDate
 
 class JournalDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityJournalDetailBinding

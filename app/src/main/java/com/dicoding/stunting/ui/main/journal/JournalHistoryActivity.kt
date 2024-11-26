@@ -17,6 +17,7 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityJournalHistoryBinding
 import com.dicoding.stunting.databinding.ActivityMainBinding
 import com.dicoding.stunting.data.remote.Result
+import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationActivity
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
@@ -74,12 +75,18 @@ class JournalHistoryActivity : AppCompatActivity() {
                     when (result) {
                         is Result.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE
+                            binding.tvJournalNotFound.visibility = View.GONE
                         }
                         is Result.Success -> {
-                            val story = result.data.listStory
-                            journalAdapter.submitList(story)
+                            val journal = result.data.map { journalEntity ->
+                                ListJournalItem(
+                                    createdAt = journalEntity.createdAt.toString(),
+                                    description = journalEntity.description,
+                                    photoUrl = journalEntity.photoUrl
+                                )
+                            }
+                            journalAdapter.submitList(journal)
 
-                            Toast.makeText(this, result.data.message, Toast.LENGTH_SHORT).show()
                             binding.progressBar.visibility = View.GONE
                             binding.tvJournalNotFound.visibility = View.GONE
                         }
