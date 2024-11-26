@@ -10,6 +10,7 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.databinding.ActivityAddJournalBinding
 import com.dicoding.stunting.databinding.ActivityJournalDetailBinding
+import com.dicoding.stunting.ui.utils.formatDate
 
 class JournalDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityJournalDetailBinding
@@ -44,7 +45,7 @@ class JournalDetailActivity : AppCompatActivity() {
             .error(R.drawable.image_placeholder)
             .into(binding.ivJournal)
 
-        binding.journalDate.text = journal.createdAt
+        binding.journalDate.text = formatDate(journal.createdAt.toString())
         binding.journalDescription.text = journal.description
     }
 

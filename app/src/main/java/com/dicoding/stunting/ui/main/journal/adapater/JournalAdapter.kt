@@ -15,6 +15,7 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.databinding.ItemJournalLayoutBinding
 import com.dicoding.stunting.ui.main.journal.JournalDetailActivity
+import com.dicoding.stunting.ui.utils.formatDate
 
 
 class JournalAdapter: ListAdapter<ListJournalItem, JournalAdapter.MyViewHolder>(DIFF_CALLBACK) {
@@ -36,7 +37,7 @@ class JournalAdapter: ListAdapter<ListJournalItem, JournalAdapter.MyViewHolder>(
                 .error(R.drawable.image_placeholder)
                 .into(binding.ivJournal)
 
-            binding.journalDate.text = journal.createdAt
+            binding.journalDate.text = formatDate(journal.createdAt.toString())
 
             binding.root.setOnClickListener {
                 val context = it.context

@@ -27,6 +27,19 @@ fun String.isEmailValid(): Boolean  {
     return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }
 
+fun formatDate(createdAt: String): String {
+    // Parse the input date string
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+    inputFormat.timeZone = TimeZone.getTimeZone("UTC") // Ensure the input is treated as UTC
+
+    // Format the date to the desired output
+    val outputFormat = SimpleDateFormat("dd MMMM yyyy - hh:mm a", Locale.getDefault())
+    outputFormat.timeZone = TimeZone.getDefault() // Convert to local time
+
+    val date = inputFormat.parse(createdAt)
+    return date?.let { outputFormat.format(it) } ?: "Invalid date"
+}
+
 private const val FILENAME_FORMAT = "yyyyMMdd_HHmmss"
 private val timeStamp: String = SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(Date())
 
