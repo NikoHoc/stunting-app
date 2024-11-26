@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.main.home.news.detail
+package com.dicoding.stunting.ui.main.news
 
 import android.annotation.SuppressLint
 import android.os.Bundle

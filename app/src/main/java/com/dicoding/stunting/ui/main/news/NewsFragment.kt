@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.main.home.news
+package com.dicoding.stunting.ui.main.news
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -16,7 +16,7 @@ import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.FragmentHomeBinding
 import com.dicoding.stunting.databinding.FragmentNewsBinding
 import com.dicoding.stunting.ui.ViewModelFactory
-import com.dicoding.stunting.ui.main.home.news.adapter.NewsAdapter
+import com.dicoding.stunting.ui.main.news.adapter.NewsAdapter
 
 class NewsFragment : Fragment() {
     private var _binding: FragmentNewsBinding? = null

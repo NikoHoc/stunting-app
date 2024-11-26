@@ -67,6 +67,17 @@
     <string name="description">Description</string>
     <string name="description_empty">Please fill in the form</string>
     <string name="upload">Upload</string>
+    <string name="success_upload_alert">Journal created</string>
+    <string name="failed_upload_alert">Journal created</string>
+    <string name="image_error">Error getting image</string>
+    <string name="empty_journal">There is no journal at the moment</string>
+
+    <!-- journal detail -->
+    <string name="my_journal">My Journal</string>
+    <string name="journal_date">20 November 2024 – 10:15 AM</string>
+    <string name="to_journal_list">History</string>
+
+
 
     <!-- Strings for history page   -->
     <string name="stunting_model_tab">Stunting</string>

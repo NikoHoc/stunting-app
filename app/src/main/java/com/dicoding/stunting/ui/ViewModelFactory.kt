@@ -8,7 +8,8 @@ import com.dicoding.stunting.data.remote.nourish.NourishRepository
 import com.dicoding.stunting.di.Injection
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.main.history.HistoryViewModel
-import com.dicoding.stunting.ui.main.home.news.NewsViewModel
+import com.dicoding.stunting.ui.main.journal.JournalViewModel
+import com.dicoding.stunting.ui.main.news.NewsViewModel
 
 class ViewModelFactory(
     private val nourishRepository: NourishRepository,
@@ -23,6 +24,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
                 HistoryViewModel(nourishRepository) as T
+            }
+            modelClass.isAssignableFrom(JournalViewModel::class.java) -> {
+                JournalViewModel(nourishRepository) as T
             }
             modelClass.isAssignableFrom(NewsViewModel::class.java) -> {
                 NewsViewModel(newsRepository) as T

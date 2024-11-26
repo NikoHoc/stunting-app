@@ -22,9 +22,9 @@ import com.dicoding.stunting.ui.authentication.register.RegisterFragment
 import com.dicoding.stunting.ui.main.journal.AddJournalActivity
 import com.dicoding.stunting.ui.main.MainActivity
 import com.dicoding.stunting.ui.main.history.HistoryFragment
-import com.dicoding.stunting.ui.main.home.news.adapter.NewsAdapter
-import com.dicoding.stunting.ui.main.home.news.NewsFragment
-import com.dicoding.stunting.ui.main.home.news.NewsViewModel
+import com.dicoding.stunting.ui.main.news.adapter.NewsAdapter
+import com.dicoding.stunting.ui.main.news.NewsFragment
+import com.dicoding.stunting.ui.main.news.NewsViewModel
 import com.dicoding.stunting.ui.main.profile.ProfileFragment
 
 class HomeFragment : Fragment() {

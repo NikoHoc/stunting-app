@@ -1,26 +1,40 @@
 package com.dicoding.stunting.ui.main.journal
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityAddJournalBinding
+import com.dicoding.stunting.ui.ViewModelFactory
+import com.dicoding.stunting.data.remote.Result
+import com.dicoding.stunting.ui.main.MainActivity
 import com.dicoding.stunting.ui.utils.getImageUri
+import com.dicoding.stunting.ui.utils.reduceFileImage
+import com.dicoding.stunting.ui.utils.uriToFile
 
 class AddJournalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddJournalBinding
+
+    private val journalViewModel  by viewModels<JournalViewModel> {
+        ViewModelFactory.getInstance(application)
+    }
 
     private var currentImageUri: Uri? = null
 
@@ -70,10 +84,12 @@ class AddJournalActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             finish()
         }
+        binding.edDescription.addTextChangedListener(inputListener())
         binding.btnGallery.setOnClickListener { startGallery() }
         binding.btnCamera.setOnClickListener { startCamera() }
 
-        binding.edDescription.addTextChangedListener(inputListener())
+        binding.btnUpload.setOnClickListener { uploadJournal() }
+
     }
 
     private fun startGallery() {
@@ -111,6 +127,54 @@ class AddJournalActivity : AppCompatActivity() {
             Log.d("Image URI", "showImage: $it")
             binding.ivJournal.setImageURI(it)
         }
+    }
+
+    @SuppressLint("NewApi")
+    private fun uploadJournal() {
+        currentImageUri?.let { uri ->
+            val imageFile = uriToFile(uri, this@AddJournalActivity).reduceFileImage()
+            Log.d("Image File", "showImage: ${imageFile.path}")
+            val description = binding.edDescription.text.toString()
+            Log.d("Story Description", "description: $description")
+
+            journalViewModel.uploadJournal(imageFile, description).observe(this) { result ->
+                if (result != null) {
+                    when (result) {
+                        is Result.Loading -> {
+                            binding.progressIndicator.visibility = View.VISIBLE
+                        }
+                        is Result.Success -> {
+                            val uploadResponse = result.data
+                            AlertDialog.Builder(this).apply {
+                                setTitle(R.string.success_upload_alert)
+                                setMessage(uploadResponse.message)
+                                setPositiveButton(R.string.success_alert_reply) { _, _ ->
+                                    val intent = Intent(this@AddJournalActivity, JournalHistoryActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
+                            binding.progressIndicator.visibility = View.GONE
+                        }
+                        is Result.Error -> {
+                            AlertDialog.Builder(this).apply {
+                                setTitle(R.string.failed_upload_alert)
+                                setMessage(result.error)
+                                setPositiveButton(R.string.error_alert_reply) { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                                create()
+                                show()
+                            }
+                            binding.progressIndicator.visibility = View.GONE
+                        }
+                    }
+                }
+            }
+        } ?: Toast.makeText(this, getString(R.string.image_error), Toast.LENGTH_LONG).show()
     }
 
     private fun inputListener(): TextWatcher {

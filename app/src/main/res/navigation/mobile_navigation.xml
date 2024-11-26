@@ -47,7 +47,7 @@
 
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.dicoding.stunting.ui.main.home.news.NewsFragment"
+        android:name="com.dicoding.stunting.ui.main.news.NewsFragment"
         android:label="News"
         tools:layout="@layout/fragment_news" />
 </navigation>

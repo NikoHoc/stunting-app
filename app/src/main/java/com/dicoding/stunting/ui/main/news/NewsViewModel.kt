@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.main.home.news
+package com.dicoding.stunting.ui.main.news
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

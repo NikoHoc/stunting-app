@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.main.home.news.adapter
+package com.dicoding.stunting.ui.main.news.adapter
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.dicoding.stunting.R
 import com.dicoding.stunting.data.local.entity.NewsEntity
 import com.dicoding.stunting.databinding.ItemNewsLayoutBinding
-import com.dicoding.stunting.ui.main.home.news.detail.NewsDetailActivity
+import com.dicoding.stunting.ui.main.news.NewsDetailActivity
 
 class NewsAdapter: ListAdapter<NewsEntity, NewsAdapter.MyViewHolder>(DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
