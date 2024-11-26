@@ -4,7 +4,7 @@ import com.dicoding.stunting.data.remote.news.response.NewsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ApiService {
+interface NewsApiService {
     // https://newsapi.org/v2/everything?q=stunting&language=id&apiKey=[apiKey]
     @GET("everything")
     suspend fun getStuntingNews(

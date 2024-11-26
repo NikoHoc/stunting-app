@@ -3,7 +3,7 @@ package com.dicoding.stunting.ui.authentication
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.dicoding.stunting.data.pref.UserModel
+import com.dicoding.stunting.data.local.pref.UserModel
 import com.dicoding.stunting.data.remote.nourish.NourishRepository
 import kotlinx.coroutines.launch
 

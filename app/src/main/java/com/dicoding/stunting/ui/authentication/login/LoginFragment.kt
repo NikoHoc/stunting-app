@@ -14,7 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import com.dicoding.stunting.R
-import com.dicoding.stunting.data.pref.UserModel
+import com.dicoding.stunting.data.local.pref.UserModel
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.FragmentLoginBinding
 import com.dicoding.stunting.ui.ViewModelFactory

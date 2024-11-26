@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,14 +17,9 @@ import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.databinding.FragmentHomeBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
-import com.dicoding.stunting.ui.authentication.register.RegisterFragment
 import com.dicoding.stunting.ui.main.journal.AddJournalActivity
-import com.dicoding.stunting.ui.main.MainActivity
-import com.dicoding.stunting.ui.main.history.HistoryFragment
-import com.dicoding.stunting.ui.main.news.adapter.NewsAdapter
-import com.dicoding.stunting.ui.main.news.NewsFragment
+import com.dicoding.stunting.ui.adapter.NewsAdapter
 import com.dicoding.stunting.ui.main.news.NewsViewModel
-import com.dicoding.stunting.ui.main.profile.ProfileFragment
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null

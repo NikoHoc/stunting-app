@@ -8,20 +8,18 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityJournalHistoryBinding
-import com.dicoding.stunting.databinding.ActivityMainBinding
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationActivity
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
-import com.dicoding.stunting.ui.main.journal.adapater.JournalAdapter
+import com.dicoding.stunting.ui.adapter.JournalAdapter
 
 class JournalHistoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityJournalHistoryBinding

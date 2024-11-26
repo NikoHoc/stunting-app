@@ -2,12 +2,12 @@ package com.dicoding.stunting.di
 
 import android.content.Context
 import com.dicoding.stunting.data.local.room.NourishDatabase
-import com.dicoding.stunting.data.pref.UserPreference
-import com.dicoding.stunting.data.pref.dataStore
+import com.dicoding.stunting.data.local.pref.UserPreference
+import com.dicoding.stunting.data.local.pref.dataStore
 import com.dicoding.stunting.data.remote.news.NewsRepository
 import com.dicoding.stunting.data.remote.nourish.NourishRepository
-import com.dicoding.stunting.data.remote.nourish.retrofit.ApiConfig as NourishApiConfig
-import com.dicoding.stunting.data.remote.news.retrofit.ApiConfig as NewsApiConfig
+import com.dicoding.stunting.data.remote.nourish.retrofit.NourishApiConfig as NourishApiConfig
+import com.dicoding.stunting.data.remote.news.retrofit.NewsApiConfig as NewsApiConfig
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 

@@ -1,4 +1,4 @@
-package com.dicoding.stunting.data.pref
+package com.dicoding.stunting.data.local.pref
 
 data class UserModel(
     val userId: String,

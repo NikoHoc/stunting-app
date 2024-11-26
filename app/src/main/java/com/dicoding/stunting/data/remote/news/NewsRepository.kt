@@ -7,14 +7,13 @@ import androidx.lifecycle.map
 import com.dicoding.stunting.BuildConfig
 import com.dicoding.stunting.data.local.entity.NewsEntity
 import com.dicoding.stunting.data.local.room.NewsDao
-import com.dicoding.stunting.data.remote.news.retrofit.ApiService
+import com.dicoding.stunting.data.remote.news.retrofit.NewsApiService
 import com.dicoding.stunting.data.remote.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import kotlin.math.log
 
 class NewsRepository private constructor(
-    private val newsApiService: ApiService,
+    private val newsApiService: NewsApiService,
     private val newsDao: NewsDao
 ) {
 
@@ -67,10 +66,10 @@ class NewsRepository private constructor(
         @Volatile
         private var instance: NewsRepository? = null
         fun getInstance(
-            newsApiService: ApiService,
+            newsApiService: NewsApiService,
             newsDao: NewsDao,
 
-        ): NewsRepository =
+            ): NewsRepository =
             instance ?: synchronized(this) {
                 instance ?: NewsRepository(
                     newsApiService,

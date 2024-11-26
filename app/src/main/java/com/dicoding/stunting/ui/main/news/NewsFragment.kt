@@ -7,16 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.Result
-import com.dicoding.stunting.databinding.FragmentHomeBinding
 import com.dicoding.stunting.databinding.FragmentNewsBinding
 import com.dicoding.stunting.ui.ViewModelFactory
-import com.dicoding.stunting.ui.main.news.adapter.NewsAdapter
+import com.dicoding.stunting.ui.adapter.NewsAdapter
 
 class NewsFragment : Fragment() {
     private var _binding: FragmentNewsBinding? = null

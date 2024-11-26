@@ -5,15 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
 import com.dicoding.stunting.data.local.entity.JournalHistoryEntity
-import com.dicoding.stunting.data.local.entity.NewsEntity
 import com.dicoding.stunting.data.local.room.JournalDao
-import com.dicoding.stunting.data.local.room.NewsDao
-import com.dicoding.stunting.data.pref.UserModel
-import com.dicoding.stunting.data.pref.UserPreference
+import com.dicoding.stunting.data.local.pref.UserModel
+import com.dicoding.stunting.data.local.pref.UserPreference
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.data.remote.nourish.response.AddJournalResponse
-import com.dicoding.stunting.data.remote.nourish.response.JournalResponse
-import com.dicoding.stunting.data.remote.nourish.retrofit.ApiServices
+import com.dicoding.stunting.data.remote.nourish.retrofit.NourishApiServices
 import com.google.gson.Gson
 import com.dicoding.stunting.data.remote.nourish.response.LoginResponse
 import com.dicoding.stunting.data.remote.nourish.response.RegisterResponse
@@ -29,7 +26,7 @@ import retrofit2.HttpException
 import java.io.File
 
 class NourishRepository private constructor(
-    private val apiServices: ApiServices,
+    private val apiServices: NourishApiServices,
     private val userPreference: UserPreference,
     private val journalDao: JournalDao
 
@@ -148,7 +145,7 @@ class NourishRepository private constructor(
         @Volatile
         private var instance: NourishRepository? = null
         fun getInstance(
-            apiService: ApiServices,
+            apiService: NourishApiServices,
             dataStoreToken: UserPreference,
             journalDao: JournalDao) = NourishRepository(apiService, dataStoreToken, journalDao)
     }
