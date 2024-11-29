@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="mint_green">#CFF4D2</color>
+    <color name="leaf_green">#56C596</color>
+    <color name="teal_blue">#329D9C</color>
+    <color name="deep_blue">#205072</color>
+    <color name="disabled_button">#5E021D2F</color>
+
+    <color name="gray">#888888</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

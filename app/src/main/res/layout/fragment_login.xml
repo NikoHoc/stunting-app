@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.authentication.login.LoginFragment">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/nourish_logo"
+        tools:alpha="100"
+        android:alpha="0"
+        android:transitionName="logoTransition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="111dp" />
+
+    <LinearLayout
+        android:id="@+id/tv_welcome_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo"
+        app:layout_constraintStart_toStartOf="@id/iv_logo"
+        app:layout_constraintEnd_toEndOf="@id/iv_logo"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_nourish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/deep_blue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_extra_bold"
+            tools:alpha="100"
+            android:alpha="0"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tv_welcome_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/deep_blue"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            tools:alpha="100"
+            android:alpha="0"
+            android:text="@string/welcome_text_1"/>
+
+        <TextView
+            android:id="@+id/tv_welcome_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/deep_blue"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+            tools:alpha="100"
+            android:alpha="0"
+            android:text="@string/welcome_text_2"/>
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailEditTextLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/white"
+        app:startIconTint="@android:color/white"
+        android:textColorHint="@color/white"
+
+        tools:alpha="100"
+        android:alpha="0"
+        app:hintEnabled="true"
+        app:layout_constraintEnd_toEndOf="@id/tv_welcome_layout"
+        app:layout_constraintStart_toStartOf="@id/tv_welcome_layout"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome_layout"
+        app:startIconDrawable="@drawable/ic_email">
+
+        <com.dicoding.stunting.ui.custom.EmailEditText
+            android:id="@+id/ed_login_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_edit_text_layout"
+            tools:ignore=",Autofill,LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordEditTextLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/white"
+        app:startIconTint="@android:color/white"
+        android:textColorHint="@color/white"
+        tools:alpha="100"
+        android:alpha="0"
+        app:hintEnabled="true"
+        app:layout_constraintEnd_toEndOf="@id/emailEditTextLayout"
+        app:layout_constraintStart_toStartOf="@id/emailEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@id/emailEditTextLayout"
+        app:startIconDrawable="@drawable/ic_password">
+
+        <com.dicoding.stunting.ui.custom.PasswordEditText
+            android:id="@+id/ed_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_edit_text_layout"
+            tools:ignore="Autofill,LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/rounded_corner"
+        style="@style/PrimaryButton"
+        tools:alpha="100"
+        android:alpha="0"
+        app:layout_constraintStart_toStartOf="@id/passwordEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@id/passwordEditTextLayout"
+        app:layout_constraintEnd_toEndOf="@id/passwordEditTextLayout"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
+        app:layout_constraintStart_toStartOf="@id/btn_login"
+        app:layout_constraintEnd_toEndOf="@id/btn_login">
+
+        <TextView
+            android:id="@+id/tv_register_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_register_page_1"
+            android:textColor="@color/deep_blue"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold"
+            tools:alpha="100"
+            android:alpha="0"/>
+
+        <TextView
+            android:id="@+id/btn_to_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_register_page_2"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/teal_blue"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold"
+            tools:alpha="100"
+            android:alpha="0"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
