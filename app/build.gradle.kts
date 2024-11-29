@@ -54,6 +54,7 @@ android {
         viewBinding = true
         buildConfig = true
         mlModelBinding = true
+        dataBinding = true
     }
 }
 
