@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.main.profile.adapter
+package com.dicoding.stunting.ui.helper
 
 data class ProfileAction(
     val title: String,

@@ -1,4 +1,4 @@
-package com.dicoding.stunting.ui.main.profile.adapter
+package com.dicoding.stunting.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ItemProfileActionBinding
+import com.dicoding.stunting.ui.helper.ProfileAction
 
 class ProfileActionsAdapter(
     private val actions: List<ProfileAction>,

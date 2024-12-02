@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    xmlns:tools="http://schemas.android.com/tools" >
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
@@ -20,43 +19,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Stunting"
-        tools:targetApi="31">
-
+        tools:targetApi="31" >
+        <activity
+            android:name=".ui.main.stunting.StuntingActivity"
+            android:exported="false" />
         <!-- Splash Activity (Launcher) -->
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Authentication Activities -->
+        </activity> <!-- Authentication Activities -->
         <activity
             android:name=".ui.authentication.AuthenticationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.register.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false" />
-
-        <!-- Main Activities -->
+            android:exported="false" /> <!-- Main Activities -->
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="false" />
-
-        <!-- Profile Activities -->
+            android:exported="false" /> <!-- Profile Activities -->
         <activity
             android:name=".ui.main.profile.UserIdentityActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.main.profile.ProfileActivity"
-            android:exported="false" />
-
-        <!-- Journal Activities -->
+            android:exported="false" /> <!-- Journal Activities -->
         <activity
             android:name=".ui.main.journal.JournalHistoryActivity"
             android:exported="false" />
@@ -65,16 +50,10 @@
             android:exported="false" />
         <activity
             android:name=".ui.main.journal.AddJournalActivity"
-            android:exported="false" />
-
-        <!-- News Activities -->
+            android:exported="false" /> <!-- News Activities -->
         <activity
-            android:name=".ui.main.home.news.NewsActivity"
+            android:name=".ui.main.news.NewsDetailActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.main.home.news.NewsDetailActivity"
-            android:exported="false" />
-
     </application>
 
 </manifest>

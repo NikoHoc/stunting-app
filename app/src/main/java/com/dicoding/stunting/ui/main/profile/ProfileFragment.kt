@@ -17,8 +17,9 @@ import com.dicoding.stunting.databinding.FragmentProfileBinding
 import com.dicoding.stunting.ui.ViewModelFactory
 import com.dicoding.stunting.ui.authentication.AuthenticationActivity
 import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
-import com.dicoding.stunting.ui.main.profile.adapter.ProfileActionsAdapter
-import com.dicoding.stunting.ui.main.profile.adapter.ProfileAction
+import com.dicoding.stunting.ui.main.journal.JournalHistoryActivity
+import com.dicoding.stunting.ui.adapter.ProfileActionsAdapter
+import com.dicoding.stunting.ui.helper.ProfileAction
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -90,7 +91,7 @@ class ProfileFragment : Fragment() {
             getString(R.string.profile_item_account) -> navigateToUserIdentity()
             getString(R.string.profile_item_language) -> startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
             getString(R.string.profile_item_reminder) -> showToast("Reminder clicked")
-            getString(R.string.profile_item_journal) -> showToast("Journal clicked")
+            getString(R.string.profile_item_journal) -> startActivity(Intent(requireContext(), JournalHistoryActivity::class.java))
         }
     }
 

@@ -87,8 +87,30 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Profile Action Items -->
+    <string name="action_title">Action</string>
     <string name="profile_item_account">Account</string>
     <string name="profile_item_language">Language</string>
     <string name="profile_item_reminder">Reminder</string>
     <string name="profile_item_journal">Journal</string>
+
+
+    <!-- Strings for stunting classification   -->
+    <string name="stunting_analyze">Stunt Analyze</string>
+    <string name="stunt_page_title">Check your stunt</string>
+    <string name="tv_fill_in_form">Please fill in this form below!</string>
+    <string name="age">Age (month)</string>
+    <string name="height">Height (cm)</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="analyze">Analyze</string>
+    
+    <string name="severely_stunted">Severely stunted</string>
+    <string name="stunted">Stunted</string>
+    <string name="normal">Normal</string>
+    <string name="high">High</string>
+    <string name="unknown">Result Unknown</string>
+
+    <string name="tflite_is_not_initialized_yet">Model is not initialized yet</string>
+    <string name="no_tflite_interpreter_loaded">Interpreter is not loaded yet</string>
 </resources>

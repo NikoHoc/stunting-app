@@ -20,6 +20,7 @@ import com.dicoding.stunting.ui.authentication.AuthenticationViewModel
 import com.dicoding.stunting.ui.main.journal.AddJournalActivity
 import com.dicoding.stunting.ui.adapter.NewsAdapter
 import com.dicoding.stunting.ui.main.news.NewsViewModel
+import com.dicoding.stunting.ui.main.stunting.StuntingActivity
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -100,7 +101,8 @@ class HomeFragment : Fragment() {
         val navController = findNavController()
 
         binding.btnAnalyze1.setOnClickListener {
-
+            val intent = Intent(requireContext(), StuntingActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnAnalyze2.setOnClickListener {

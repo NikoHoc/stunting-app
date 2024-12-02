@@ -40,16 +40,22 @@ class ViewModelFactory(
         private var INSTANCE: ViewModelFactory? = null
 //        @JvmStatic
 //        fun getInstance(context: Context) = ViewModelFactory(Injection.provideNourishRepository(context))
+//        @JvmStatic
+//        fun getInstance(context: Context): ViewModelFactory {
+//            return INSTANCE ?: synchronized(this) {
+//                val nourishRepository = Injection.provideNourishRepository(context)
+//                val newsRepository = Injection.providerNewsRepository(context)
+//                ViewModelFactory(nourishRepository, newsRepository).also {
+//                    INSTANCE = it
+//                }
+//            }
+//        }
+
         @JvmStatic
-        fun getInstance(context: Context): ViewModelFactory {
-            return INSTANCE ?: synchronized(this) {
-                val nourishRepository = Injection.provideNourishRepository(context)
-                val newsRepository = Injection.providerNewsRepository(context)
-                ViewModelFactory(nourishRepository, newsRepository).also {
-                    INSTANCE = it
-                }
-            }
-        }
+        fun getInstance(context: Context) = ViewModelFactory(
+            Injection.provideNourishRepository(context),
+            Injection.providerNewsRepository(context)
+        )
 
 
     }

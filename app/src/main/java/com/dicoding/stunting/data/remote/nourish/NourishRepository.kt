@@ -67,15 +67,16 @@ class NourishRepository private constructor(
     fun getJournal(): LiveData<Result<List<JournalHistoryEntity>>> = liveData {
         emit(Result.Loading)
 
-        val isOutdated = withContext(Dispatchers.IO) {
-            val currentTime = System.currentTimeMillis()
-            journalDao.getLatestJournalTimestamp()?.let { lastUpdated ->
-                val timeDifference = currentTime - lastUpdated
-                Log.d("NourishRepo", "Time since last update: $timeDifference ms (${timeDifference / (60 * 60 * 1000)} hours)")
-                timeDifference >= 12 * 60 * 60 * 1000 // 12 jam
-            } ?: true // no data -> outDated
-        }
+//        val isOutdated = withContext(Dispatchers.IO) {
+//            val currentTime = System.currentTimeMillis()
+//            journalDao.getLatestJournalTimestamp()?.let { lastUpdated ->
+//                val timeDifference = currentTime - lastUpdated
+//                Log.d("NourishRepo", "Time since last update: $timeDifference ms (${timeDifference / (60 * 60 * 1000)} hours)")
+//                timeDifference >= 12 * 60 * 60 * 1000 // 12 jam
+//            } ?: true // no data -> outDated
+//        }
 
+        val isOutdated = true
         if (isOutdated) {
             try {
                 val response = apiServices.getJournal()
@@ -92,7 +93,7 @@ class NourishRepository private constructor(
                     Log.d("NourishRepo", "Old news deleted")
                     journalDao.insertIntoJournal(journalList!!)
                     Log.d("NourishRepo", "New journal inserted into database: ${journalList.size}")
-
+                    emit(Result.Success(journalList))
                 }
             } catch (e: Exception) {
                 Log.d("NourishRepo", "getJournal: ${e.message.toString()}")

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.stunting.StuntingActivity">
+
+    <FrameLayout
+        android:id="@+id/page_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="22dp"
+        android:background="@drawable/rounded_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="32dp"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow"
+                android:contentDescription="@string/back"
+                app:tint="@color/deep_blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/deep_blue"
+                android:text="@string/stunting_analyze"
+                android:fontFamily="@font/poppins_extra_bold"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_stunt_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stunt_page_title"
+        android:textColor="@color/deep_blue"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_extra_bold"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/page_banner"
+        app:layout_constraintStart_toStartOf="@id/page_banner"
+        app:layout_constraintTop_toBottomOf="@id/page_banner"/>
+
+    <TextView
+        android:id="@+id/tv_fill_in_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_fill_in_form"
+        android:textColor="@color/deep_blue"
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="@id/tv_stunt_tittle"
+        app:layout_constraintStart_toStartOf="@id/tv_stunt_tittle"
+        app:layout_constraintTop_toBottomOf="@id/tv_stunt_tittle"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ageEditTextLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        app:hintTextColor="@color/white"
+        app:boxStrokeColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/tv_fill_in_form"
+        app:layout_constraintStart_toStartOf="@id/tv_fill_in_form"
+        app:layout_constraintTop_toBottomOf="@id/tv_fill_in_form">
+
+        <com.dicoding.stunting.ui.custom.BaseEditText
+            android:id="@+id/ed_age_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="@string/age"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_edit_text_layout"
+            tools:ignore=",Autofill,LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/heightEditTextLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        app:hintTextColor="@color/white"
+        app:boxStrokeColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/ageEditTextLayout"
+        app:layout_constraintStart_toStartOf="@id/ageEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@id/ageEditTextLayout">
+
+        <com.dicoding.stunting.ui.custom.BaseEditText
+            android:id="@+id/ed_height_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="@string/height"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_edit_text_layout"
+            tools:ignore=",Autofill,LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gender_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        app:hintTextColor="@color/white"
+        app:boxStrokeColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/heightEditTextLayout"
+        app:layout_constraintStart_toStartOf="@id/heightEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@id/heightEditTextLayout"
+        android:hint="@string/gender">
+
+        <AutoCompleteTextView
+            android:id="@+id/gender_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@drawable/rounded_edit_text_layout"
+            tools:ignore="LabelFor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_analyze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/gender_input_layout"
+        app:layout_constraintStart_toStartOf="@id/gender_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/gender_input_layout"
+        android:background="@drawable/rounded_button"
+        app:icon="@drawable/ic_analyze"
+        android:text="@string/analyze"
+        />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/btn_analyze"
+        app:layout_constraintStart_toStartOf="@id/btn_analyze"
+        app:layout_constraintTop_toBottomOf="@id/btn_analyze"
+        android:visibility="gone"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
