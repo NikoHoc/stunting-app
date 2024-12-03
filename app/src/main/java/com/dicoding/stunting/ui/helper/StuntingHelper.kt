@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.AssetManager
 import android.util.Log
 import com.dicoding.stunting.R
+import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.tflite.client.TfLiteInitializationOptions
 import com.google.android.gms.tflite.gpu.support.TfLiteGpu
 import com.google.android.gms.tflite.java.TfLite
@@ -26,16 +27,23 @@ class StuntingHelper (
     private var interpreter: InterpreterApi? = null
 
     init {
+        Log.d(TAG, "Checking GPU delegate availability...")
         TfLiteGpu.isGpuDelegateAvailable(context).onSuccessTask { gpuAvailable ->
+            Log.d(TAG, "GPU Delegate Availability: $gpuAvailable")
             val optionsBuilder = TfLiteInitializationOptions.builder()
             if (gpuAvailable) {
                 optionsBuilder.setEnableGpuDelegateSupport(true)
                 isGPUSupported = true
+                Log.d(TAG, "GPU delegate support enabled.")
+            } else {
+                Log.d(TAG, "GPU delegate not available.")
             }
             TfLite.initialize(context, optionsBuilder.build())
         }.addOnSuccessListener {
+            Log.d(TAG, "TensorFlow Lite initialized successfully.")
             loadLocalModel()
-        }.addOnFailureListener {
+        }.addOnFailureListener { e ->
+            Log.e(TAG, "TensorFlow Lite initialization failed: ${e.message}")
             onError(context.getString(R.string.tflite_is_not_initialized_yet))
         }
     }
@@ -53,6 +61,7 @@ class StuntingHelper (
     }
 
     private fun loadModelFile(assetManager: AssetManager, modelPath: String): MappedByteBuffer {
+        Log.d(TAG, "Loading model file from assets: $modelPath")
         assetManager.openFd(modelPath).use { fileDescriptor ->
             FileInputStream(fileDescriptor.fileDescriptor).use { inputStream ->
                 val fileChannel = inputStream.channel
@@ -93,19 +102,29 @@ class StuntingHelper (
             return
         }
 
-        val inputArray = FloatArray(3)
-        inputArray[0] = age!!.toFloat()
-        inputArray[1] = gender!!.toFloat()
-        inputArray[2] = height!!.toFloat()
+        if (age == null || height == null || gender == null) {
+            onError(context.getString(R.string.invalid_input))
+            Log.e(TAG, "Predict failed: Invalid input provided.")
+            return
+        }
+
+        val inputArray = floatArrayOf(age.toFloat(), gender.toFloat(), height.toFloat())
+        Log.d(TAG, "Input data: ${inputArray.joinToString()}")
 
         val outputArray = Array(1) {
-            FloatArray(1)
+            FloatArray(4)
         }
         try {
             interpreter?.run(inputArray, outputArray)
-            val result = outputArray[0][0].toInt()
+            // get the prediction output
+            val predictions = outputArray[0]
+            Log.d(TAG, "Output data: ${predictions.joinToString()}")
+
+            // get the highest value within predictions
+            val resultIndex = predictions.indices.maxByOrNull { predictions[it] } ?: -1
+            Log.d("StuntingClassificationResult:", "Result index: $resultIndex")
             onResult(
-                when (result) {
+                when (resultIndex) {
                     0 -> context.getString(R.string.severely_stunted)
                     1 -> context.getString(R.string.stunted)
                     2 -> context.getString(R.string.normal)

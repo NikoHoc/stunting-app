@@ -9,6 +9,8 @@ constraintlayout = "2.1.4"
 fragmentKtx = "1.8.4"
 navigationFragmentKtx = "2.8.3"
 navigationUiKtx = "2.8.3"
+playServicesTfliteGpu = "16.3.0"
+playServicesTfliteJava = "16.3.0"
 ucrop = "2.2.8"
 glide = "4.16.0"
 lifecycleLivedataKtx = "2.8.6"
@@ -47,6 +49,8 @@ androidx-datastore-preferences = { module = "androidx.datastore:datastore-prefer
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 
 # Image
+play-services-tflite-gpu = { module = "com.google.android.gms:play-services-tflite-gpu", version.ref = "playServicesTfliteGpu" }
+play-services-tflite-java = { module = "com.google.android.gms:play-services-tflite-java", version.ref = "playServicesTfliteJava" }
 ucrop = { group = "com.github.yalantis", name = "ucrop", version.ref = "ucrop" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 

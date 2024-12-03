@@ -6,6 +6,7 @@ import android.view.View
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         window.statusBarColor = resources.getColor(R.color.leaf_green, theme)
         supportActionBar?.hide()
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val navView: BottomNavigationView = binding.navView
 

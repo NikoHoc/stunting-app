@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.method.PasswordTransformationMethod
 import android.text.method.HideReturnsTransformationMethod
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityUserIdentityBinding
 
@@ -18,8 +19,9 @@ class UserIdentityActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         window.statusBarColor = resources.getColor(R.color.leaf_green, theme)
-
         supportActionBar?.hide()
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val username = intent.getStringExtra(EXTRA_USERNAME) ?: "Unknown User"
         val email = intent.getStringExtra(EXTRA_EMAIL) ?: "Unknown Email"

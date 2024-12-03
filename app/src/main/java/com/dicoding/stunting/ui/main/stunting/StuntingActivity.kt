@@ -3,21 +3,19 @@ package com.dicoding.stunting.ui.main.stunting
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityStuntingBinding
-import com.dicoding.stunting.ml.StuntingClassificationModel
 import com.dicoding.stunting.ui.helper.StuntingHelper
-import org.tensorflow.lite.DataType
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
 
 class StuntingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStuntingBinding
@@ -30,6 +28,8 @@ class StuntingActivity : AppCompatActivity() {
 
         binding = ActivityStuntingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         window.statusBarColor = resources.getColor(R.color.leaf_green, theme)
         supportActionBar?.hide()
@@ -57,15 +57,16 @@ class StuntingActivity : AppCompatActivity() {
         binding.edHeightInput.addTextChangedListener(inputListener())
         binding.genderInput.addTextChangedListener(inputListener())
 
-//        stuntingHelper = StuntingHelper(
-//            context = this,
-//            onResult = { result ->
-//                binding.tvResult.text = result
-//            },
-//            onError = {errorMessage ->
-//                Toast.makeText(this@StuntingActivity, errorMessage, Toast.LENGTH_SHORT).show()
-//            }
-//        )
+        stuntingHelper = StuntingHelper(
+            context = this,
+            onResult = { result ->
+                binding.tvResult.text = result
+                binding.tvResult.visibility = View.VISIBLE
+            },
+            onError = {errorMessage ->
+                Toast.makeText(this@StuntingActivity, errorMessage, Toast.LENGTH_SHORT).show()
+            }
+        )
 
         binding.btnAnalyze.setOnClickListener {
             val age = binding.edAgeInput.text.toString().toIntOrNull()
@@ -75,46 +76,13 @@ class StuntingActivity : AppCompatActivity() {
                 getString(R.string.female) -> 1
                 else -> null
             }
+            Log.d("Age:", age.toString())
+            Log.d("height:", height.toString())
+            Log.d("genderValue:", genderValue.toString())
 
-            if (age != null && height != null && genderValue != null) {
-                // Convert inputs to a ByteBuffer
-                val byteBuffer = ByteBuffer.allocateDirect(3 * 4) // 3 integers, each 4 bytes (FLOAT32)
-                byteBuffer.order(ByteOrder.nativeOrder())
-                byteBuffer.putFloat(age.toFloat())
-                byteBuffer.putFloat(genderValue.toFloat())
-                byteBuffer.putFloat(height.toFloat())
+            stuntingHelper.predict(age, height, genderValue)
 
-                // Load and process the model
-                val model = StuntingClassificationModel.newInstance(this)
-                val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 3), DataType.FLOAT32)
-                inputFeature0.loadBuffer(byteBuffer)
 
-                // Get the output
-                val outputs = model.process(inputFeature0)
-                val outputFeature0 = outputs.outputFeature0AsTensorBuffer
-                val outputArray = outputFeature0.floatArray
-
-                // Find the class with the highest probability
-                val maxIndex = outputArray.indices.maxByOrNull { outputArray[it] } ?: -1
-
-                // Map the result to the corresponding label
-                val result = when (maxIndex) {
-                    0 -> getString(R.string.severely_stunted)
-                    1 -> getString(R.string.stunted)
-                    2 -> getString(R.string.normal)
-                    3 -> getString(R.string.high)
-                    else -> getString(R.string.unknown)
-                }
-
-                // Display the result
-                binding.tvResult.text = result
-
-                // Release the model
-                model.close()
-            } else {
-                // Handle invalid input
-                binding.tvResult.text = "Please enter valid inputs!"
-            }
         }
     }
 

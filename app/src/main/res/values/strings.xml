@@ -104,6 +104,7 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="analyze">Analyze</string>
+    <string name="invalid_input">Invalid Input</string>
     
     <string name="severely_stunted">Severely stunted</string>
     <string name="stunted">Stunted</string>
