@@ -8,6 +8,8 @@
         android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -32,16 +34,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Authentication Activities -->
+        </activity>
         <activity
             android:name=".ui.authentication.AuthenticationActivity"
-            android:exported="false" /> <!-- Main Activities -->
+            android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="false" /> <!-- Profile Activities -->
+            android:exported="false" />
         <activity
             android:name=".ui.main.profile.UserIdentityActivity"
-            android:exported="false" /> <!-- Journal Activities -->
+            android:exported="false" />
         <activity
             android:name=".ui.main.journal.JournalHistoryActivity"
             android:exported="false" />
@@ -50,7 +52,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.main.journal.AddJournalActivity"
-            android:exported="false" /> <!-- News Activities -->
+            android:exported="false" />
         <activity
             android:name=".ui.main.news.NewsDetailActivity"
             android:exported="false" />
