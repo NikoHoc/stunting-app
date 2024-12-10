@@ -119,8 +119,8 @@
 
                     <ImageButton
                         android:id="@+id/btn_analyze_1"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/rounded_corner"
                         android:src="@drawable/ic_baby"
                         tools:ignore="ContentDescription" />
@@ -131,34 +131,7 @@
                         android:text="@string/stunt"
                         android:fontFamily="@font/montserrat_regular"
                         android:textColor="@color/deep_blue"
-                        android:textSize="10sp"
-                        tools:ignore="SmallSp"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layout_btn_analyze_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="24dp"
-                    app:layout_constraintStart_toEndOf="@+id/layout_btn_analyze_1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
-                    <ImageButton
-                        android:id="@+id/btn_analyze_2"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:src="@drawable/ic_salad"
-                        android:background="@drawable/rounded_corner"
-                        tools:ignore="ContentDescription" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/food"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:textColor="@color/deep_blue"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         tools:ignore="SmallSp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -169,14 +142,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="24dp"
-                    app:layout_constraintStart_toEndOf="@+id/layout_btn_analyze_2"
+                    app:layout_constraintStart_toEndOf="@+id/layout_btn_analyze_1"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <ImageButton
                         android:id="@+id/btn_history"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/ic_time"
                         tools:ignore="ContentDescription"
                         android:background="@drawable/rounded_corner"/>
@@ -187,7 +160,7 @@
                         android:text="@string/title_history"
                         android:fontFamily="@font/montserrat_regular"
                         android:textColor="@color/deep_blue"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         tools:ignore="SmallSp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -203,8 +176,8 @@
                     app:layout_constraintBottom_toBottomOf="parent">
                     <ImageButton
                         android:id="@+id/btn_journal"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/ic_journal"
                         android:background="@drawable/rounded_corner"
                         tools:ignore="ContentDescription" />
@@ -214,7 +187,7 @@
                         android:text="@string/journal"
                         android:fontFamily="@font/montserrat_regular"
                         android:textColor="@color/deep_blue"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         tools:ignore="SmallSp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -230,8 +203,8 @@
                     app:layout_constraintBottom_toBottomOf="parent">
                     <ImageButton
                         android:id="@+id/btn_profile"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/ic_profile"
                         android:background="@drawable/rounded_corner"
                         tools:ignore="ContentDescription" />
@@ -241,7 +214,7 @@
                         android:text="@string/title_profile"
                         android:fontFamily="@font/montserrat_regular"
                         android:textColor="@color/deep_blue"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         tools:ignore="SmallSp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -291,8 +264,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginTop="8dp"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="@id/tv_news_layout"

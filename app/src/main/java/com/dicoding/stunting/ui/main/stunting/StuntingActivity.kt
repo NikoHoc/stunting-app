@@ -1,10 +1,10 @@
 package com.dicoding.stunting.ui.main.stunting
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
@@ -59,18 +59,25 @@ class StuntingActivity : AppCompatActivity() {
 
         stuntingHelper = StuntingHelper(
             context = this,
-            onResult = { result ->
-                binding.tvResult.text = result
-                binding.tvResult.visibility = View.VISIBLE
+            onResult = { result, description, age, gender, height ->
+                val intent = Intent(this, StuntingResultActivity::class.java).apply {
+                    putExtra("RESULT", result)
+                    putExtra("DESCRIPTION", description)
+                    putExtra("AGE", age)
+                    putExtra("GENDER", gender)
+                    putExtra("HEIGHT", height)
+                }
+                startActivity(intent)
+                finish()
             },
-            onError = {errorMessage ->
+            onError = { errorMessage ->
                 Toast.makeText(this@StuntingActivity, errorMessage, Toast.LENGTH_SHORT).show()
             }
         )
 
         binding.btnAnalyze.setOnClickListener {
             val age = binding.edAgeInput.text.toString().toIntOrNull()
-            val height = binding.edHeightInput.text.toString().toIntOrNull()
+            val height = binding.edHeightInput.text.toString().toFloatOrNull()
             val genderValue = when (binding.genderInput.text.toString()) {
                 getString(R.string.male) -> 0
                 getString(R.string.female) -> 1

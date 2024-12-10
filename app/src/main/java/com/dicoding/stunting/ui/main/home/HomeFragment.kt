@@ -105,10 +105,6 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.btnAnalyze2.setOnClickListener {
-
-        }
-
         binding.btnHistory.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_historyFragment)
         }

@@ -18,6 +18,7 @@ class UserPreference private constructor(private val dataStore: DataStore<androi
             preferences[USER_ID] = user.userId
             preferences[NAME_KEY] = user.name
             preferences[EMAIL_KEY] = user.email
+            preferences[PASSWORD_KEY] = user.password
             preferences[TOKEN_KEY] = user.token
             preferences[IS_LOGIN_KEY] = true
         }
@@ -29,6 +30,7 @@ class UserPreference private constructor(private val dataStore: DataStore<androi
                 preferences[USER_ID] ?: "",
                 preferences[NAME_KEY] ?: "",
                 preferences[EMAIL_KEY] ?: "",
+                preferences[PASSWORD_KEY] ?: "",
                 preferences[TOKEN_KEY] ?: "",
                 preferences[IS_LOGIN_KEY] ?: false,
             )
@@ -48,6 +50,7 @@ class UserPreference private constructor(private val dataStore: DataStore<androi
         private val USER_ID = stringPreferencesKey("userId")
         private val NAME_KEY = stringPreferencesKey("name")
         private val EMAIL_KEY = stringPreferencesKey("email")
+        private val PASSWORD_KEY = stringPreferencesKey("password")
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
 

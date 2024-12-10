@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.method.PasswordTransformationMethod
 import android.text.method.HideReturnsTransformationMethod
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.dicoding.stunting.R
@@ -23,22 +24,22 @@ class UserIdentityActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        val username = intent.getStringExtra(EXTRA_USERNAME) ?: "Unknown User"
-        val email = intent.getStringExtra(EXTRA_EMAIL) ?: "Unknown Email"
+        val username = intent.getStringExtra(EXTRA_USERNAME) ?: getString(R.string.unknown_user)
+        val email = intent.getStringExtra(EXTRA_EMAIL) ?: getString(R.string.unknown_email)
+        val password = intent.getStringExtra(EXTRA_PASSWORD) ?: getString(R.string.unknown_password)
 
         binding.tvUsername.text = Editable.Factory.getInstance().newEditable(username)
         binding.tvEmail.text = Editable.Factory.getInstance().newEditable(email)
-
-        val password = intent.getStringExtra(EXTRA_PASSWORD) ?: "Password not available"
         binding.etPassword.setText(password)
+
 
         binding.btnTogglePassword.setOnClickListener {
             if (binding.etPassword.transformationMethod is HideReturnsTransformationMethod) {
                 binding.etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
-                binding.btnTogglePassword.setImageResource(R.drawable.ic_baseline_password_24)
+                binding.btnTogglePassword.setImageResource(R.drawable.ic_password_hidden)
             } else {
                 binding.etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                binding.btnTogglePassword.setImageResource(R.drawable.ic_baseline_off_password_24)
+                binding.btnTogglePassword.setImageResource(R.drawable.ic_baseline_password_24)
             }
         }
 

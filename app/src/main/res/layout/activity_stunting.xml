@@ -123,7 +123,7 @@
             android:id="@+id/ed_height_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:hint="@string/height"
@@ -172,16 +172,6 @@
         app:icon="@drawable/ic_analyze"
         android:text="@string/analyze"
         />
-
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@id/btn_analyze"
-        app:layout_constraintStart_toStartOf="@id/btn_analyze"
-        app:layout_constraintTop_toBottomOf="@id/btn_analyze"
-        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

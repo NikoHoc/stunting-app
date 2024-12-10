@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.stunting.StuntingResultActivity">
+
+    <FrameLayout
+        android:id="@+id/page_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="22dp"
+        android:background="@drawable/rounded_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="32dp"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow"
+                android:contentDescription="@string/back"
+                app:tint="@color/deep_blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/deep_blue"
+                android:text="@string/stunting_result_title"
+                android:fontFamily="@font/poppins_extra_bold"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/user_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_data"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/deep_blue"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page_banner"/>
+
+    <TextView
+        android:id="@+id/tv_user_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_age"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/deep_blue"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="@id/user_data"
+        app:layout_constraintEnd_toEndOf="@id/user_data"
+        app:layout_constraintTop_toBottomOf="@id/user_data"/>
+    <TextView
+        android:id="@+id/tv_user_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_height"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/deep_blue"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="@id/tv_user_age"
+        app:layout_constraintEnd_toEndOf="@id/tv_user_age"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_age"/>
+    <TextView
+        android:id="@+id/tv_user_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_gender"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/deep_blue"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="@id/tv_user_height"
+        app:layout_constraintEnd_toEndOf="@id/tv_user_height"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_height"/>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/result"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/deep_blue"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="@id/tv_user_gender"
+        app:layout_constraintEnd_toEndOf="@id/tv_user_gender"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_gender"/>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/result_desc"
+        android:fontFamily="@font/montserrat_regular"
+        android:justificationMode="inter_word"
+        android:textColor="@color/deep_blue"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_result"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

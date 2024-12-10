@@ -43,13 +43,17 @@
     <!-- Strings for home fragment -->
     <string name="features">Features</string>
     <string name="news">News</string>
-    <string name="more_news">More</string>
+    <string name="more_news">More News</string>
     <string name="empty_news">There is no news available</string>
     <string name="iv_news">News image</string>
     <string name="news_title">News Title</string>
     <string name="stunt">Stunt</string>
     <string name="food">Food</string>
     <string name="journal">Journal</string>
+
+    <!-- Strings for card layout -->
+    <string name="card_image">Card Image</string>
+    <string name="card_title">Card Title</string>
 
     <!-- Strings for news activity -->
     <string name="back">Back</string>
@@ -59,6 +63,8 @@
     <string name="username_profile">%1$s</string>
     <string name="email_profile">%1$s</string>
     <string name="logout">Logout</string>
+    <string name="profile_menu">Menu Profile</string>
+    <string name="copyright">Copyright © 2024 Nourish</string>
 
     <!-- Strings for journal page   -->
     <string name="add_journal">Add Journal</string>
@@ -78,13 +84,12 @@
     <string name="to_journal_list">History</string>
 
     <!-- Strings for history page   -->
-    <string name="stunting_model_tab">Stunting</string>
-    <string name="food_model_tab">Food Recommendation</string>
+    <string name="history_sub_title">Stunting Analyze Result</string>
+    <string name="empty_history">Analyze history is still empty</string>
 
+    <!-- String for permission   -->
     <string name="permission_granted">Permission request granted</string>
     <string name="permission_denied">Permission request denied</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Profile Action Items -->
     <string name="action_title">Action</string>
@@ -92,7 +97,10 @@
     <string name="profile_item_language">Language</string>
     <string name="profile_item_reminder">Reminder</string>
     <string name="profile_item_journal">Journal</string>
-
+    <!-- Strings for user detail       -->
+    <string name="unknown_user">Unknown User</string>
+    <string name="unknown_email">Unknown Email</string>
+    <string name="unknown_password">Unknown Password</string>
 
     <!-- Strings for stunting classification   -->
     <string name="stunting_analyze">Stunt Analyze</string>
@@ -105,12 +113,32 @@
     <string name="female">Female</string>
     <string name="analyze">Analyze</string>
     <string name="invalid_input">Invalid Input</string>
-    
+
+    <!-- Result String    -->
+    <string name="result">Result: %1$s</string>
     <string name="severely_stunted">Severely stunted</string>
     <string name="stunted">Stunted</string>
     <string name="normal">Normal</string>
     <string name="high">High</string>
     <string name="unknown">Result Unknown</string>
+
+    <!-- Result Stunting Activity  -->
+    <string name="stunting_result_title">Result</string>
+    <string name="user_data">Your Data:</string>
+    <string name="user_age">Age (month): %d</string>
+    <string name="user_height">Height (cm): %.1f</string>
+    <string name="user_gender">Gender: %1$s</string>
+    <string name="unknown_gender">Unknown Gender</string>
+
+    <string name="result_desc">Result Description</string>
+    <string name="severely_stunted_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Severely Stunted.\n\nThis indicates that your body is not receiving adequate nutrients to support healthy growth and development. But don’t worry—this is a journey, and every step toward better nutrition makes a difference.\n\nTo start improving your health, we recommend focusing on a diet rich in high-calorie, protein-packed, and micronutrient-dense foods to support rapid recovery and growth. Foods like lean meats, eggs, dairy, nuts, seeds, whole grains, and leafy greens can help replenish your nutritional reserves.\n\nHere are some recommended foods tailored for you:\n- Proteins: Boiled eggs, grilled chicken, lentils, and chickpeas.\n- Healthy Fats: Avocados, peanut butter, and mixed nuts.\n- Micronutrient-Rich Options: Spinach, broccoli, fortified cereals, and sweet potatoes.\n\nRemember, small but consistent changes can lead to big improvements in your health. Keep striving!</string>
+    <string name="stunted_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Stunted.\n\nThis suggests that you may be lacking some essential nutrients required for optimal growth. The good news is that with a balanced and nutrient-rich diet, you can catch up and achieve better health outcomes.\n\nWe recommend incorporating a diet that emphasizes growth-promoting nutrients, including a healthy balance of carbohydrates, proteins, fats, and essential vitamins and minerals. Focus on whole, unprocessed foods that provide sustained energy and nourishment.\n\nHere are some recommended foods tailored for you:\n- Proteins: Fish, tofu, yogurt, and beans.\n- Carbohydrates: Brown rice, oats, whole-wheat bread, and quinoa.\n- Vegetables: Carrots, bell peppers, and green beans.\n- Snacks: Dried fruits, nuts, and low-sugar smoothies.\n\nEvery meal is an opportunity to nourish your body. Let’s take this step together!</string>
+    <string name="normal_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Normal.\n\nGreat job! Your nutrition is supporting your growth and maintaining your health. However, there’s always room to fine-tune your diet for optimal performance and resilience.\n\nWe suggest focusing on a maintenance-focused diet that sustains your energy levels and supports your body\'s natural growth and functions. A diverse diet with moderate portions and all essential nutrients will help you stay on track.\n\nHere are some recommended foods tailored for you:\n- Proteins: Grilled turkey, eggs, lentil soup, and cottage cheese.\n- Carbohydrates: Sweet potatoes, whole-grain pasta, and barley.\n- Vegetables: Broccoli, spinach, and zucchini.\n- Fruits: Apples, bananas, and berries.\n\nKeep up the great work and continue making healthy food choices!</string>
+    <string name="high_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as High.\n\nCongratulations on maintaining a healthy and balanced diet! Your current nutrition is supporting your growth and overall well-being. To continue thriving, we encourage you to maintain a diet rich in energy-dense and nutrient-dense foods to fuel your active lifestyle.\n\nHere are some recommended foods tailored for you:\n- Proteins: Salmon, eggs, lean beef, and chickpea salads.\n- Healthy Fats: Olive oil, avocado toast, and nuts.\n- Carbohydrates: Quinoa, whole-grain bread, and roasted potatoes.\n- Fruits and Vegetables: Mangoes, oranges, kale, and asparagus.\n\nYour commitment to good nutrition is inspiring, keep it up and continue enjoying a variety of wholesome foods!</string>
+    <string name="unknown_desc">Description Unknown</string>
+
+
+
 
     <string name="tflite_is_not_initialized_yet">Model is not initialized yet</string>
     <string name="no_tflite_interpreter_loaded">Interpreter is not loaded yet</string>

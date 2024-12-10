@@ -1,11 +1,14 @@
 package com.dicoding.stunting.data.remote.nourish.retrofit
 
+import com.dicoding.stunting.data.remote.nourish.request.LoginRequest
+import com.dicoding.stunting.data.remote.nourish.request.RegisterRequest
 import com.dicoding.stunting.data.remote.nourish.response.AddJournalResponse
 import com.dicoding.stunting.data.remote.nourish.response.JournalResponse
 import com.dicoding.stunting.data.remote.nourish.response.LoginResponse
 import com.dicoding.stunting.data.remote.nourish.response.RegisterResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -28,6 +31,18 @@ interface NourishApiServices {
         @Field("email") email: String,
         @Field("password") password: String
     ): LoginResponse
+
+    /* Nourish */
+//    @POST("auth/register")
+//    suspend fun register(
+//        @Body request: RegisterRequest
+//    ): RegisterResponse
+
+//    @POST("auth/login")
+//    suspend fun login(
+//        @Body request: LoginRequest
+//    ): LoginResponse
+
 
     @GET("stories")
     suspend fun getJournal(): JournalResponse

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.AssetManager
 import android.util.Log
 import com.dicoding.stunting.R
-import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.tflite.client.TfLiteInitializationOptions
 import com.google.android.gms.tflite.gpu.support.TfLiteGpu
 import com.google.android.gms.tflite.java.TfLite
@@ -16,10 +15,10 @@ import java.nio.ByteBuffer
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 
-class StuntingHelper (
+class StuntingHelper(
     private val modelName: String = "StuntingClassificationModel.tflite",
     val context: Context,
-    private val onResult: (String) -> Unit,
+    private val onResult: (String, String, Int, Int, Float) -> Unit,
     private val onError: (String) -> Unit,
 ) {
     private var isGPUSupported: Boolean = false
@@ -96,7 +95,7 @@ class StuntingHelper (
         interpreter?.close()
     }
 
-    fun predict(age: Int?, height: Int?, gender: Int?) {
+    fun predict(age: Int?, height: Float?, gender: Int?) {
         if (interpreter == null) {
             onError(context.getString(R.string.no_tflite_interpreter_loaded))
             return
@@ -111,27 +110,37 @@ class StuntingHelper (
         val inputArray = floatArrayOf(age.toFloat(), gender.toFloat(), height.toFloat())
         Log.d(TAG, "Input data: ${inputArray.joinToString()}")
 
-        val outputArray = Array(1) {
-            FloatArray(4)
-        }
+        val outputArray = Array(1) { FloatArray(4) }
         try {
             interpreter?.run(inputArray, outputArray)
+
             // get the prediction output
             val predictions = outputArray[0]
             Log.d(TAG, "Output data: ${predictions.joinToString()}")
 
             // get the highest value within predictions
             val resultIndex = predictions.indices.maxByOrNull { predictions[it] } ?: -1
-            Log.d("StuntingClassificationResult:", "Result index: $resultIndex")
-            onResult(
-                when (resultIndex) {
-                    0 -> context.getString(R.string.severely_stunted)
-                    1 -> context.getString(R.string.stunted)
-                    2 -> context.getString(R.string.normal)
-                    3 -> context.getString(R.string.high)
-                    else -> context.getString(R.string.unknown)
-                }
-            )
+
+            val percentage = (predictions[resultIndex] * 100).toInt()
+
+            val result = when (resultIndex) {
+                0 -> context.getString(R.string.severely_stunted)
+                1 -> context.getString(R.string.stunted)
+                2 -> context.getString(R.string.normal)
+                3 -> context.getString(R.string.high)
+                else -> context.getString(R.string.unknown)
+            }
+
+            val resultDesc = when (resultIndex) {
+                0 -> context.getString(R.string.severely_stunted_desc, percentage)
+                1 -> context.getString(R.string.stunted_desc, percentage)
+                2 -> context.getString(R.string.normal_desc, percentage)
+                3 -> context.getString(R.string.high_desc, percentage)
+                else -> context.getString(R.string.unknown_desc)
+            }
+
+            onResult(result, resultDesc, age, gender, height)
+
         } catch (e: Exception) {
             onError(context.getString(R.string.no_tflite_interpreter_loaded))
             Log.e(TAG, e.message.toString())

@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.FragmentHistoryBinding
 import com.dicoding.stunting.ui.ViewModelFactory
-import com.dicoding.stunting.ui.main.history.pager.HistoryPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HistoryFragment : Fragment() {
@@ -31,16 +30,7 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val pagerAdapter = HistoryPagerAdapter(this)
-        binding.viewPager.adapter = pagerAdapter
 
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            tab.text = when (position) {
-                0 -> resources.getString(R.string.stunting_model_tab)
-                1 -> resources.getString(R.string.food_model_tab)
-                else -> null
-            }
-        }.attach()
     }
 
     override fun onDestroyView() {

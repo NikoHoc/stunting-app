@@ -1,8 +1,10 @@
 package com.dicoding.stunting.ui.main.profile
 
 import android.content.Intent
+import android.os.Build.VERSION_CODES.P
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -101,7 +103,10 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), UserIdentityActivity::class.java).apply {
                     putExtra(UserIdentityActivity.EXTRA_USERNAME, user.name)
                     putExtra(UserIdentityActivity.EXTRA_EMAIL, user.email)
+                    putExtra(UserIdentityActivity.EXTRA_PASSWORD, user.password)
+                    Log.d("password", user.password)
                 }
+                Log.d("UserIdentityFragment", "Launching UserIdentityActivity")
                 startActivity(intent)
             }
         }

@@ -113,7 +113,6 @@ dependencies {
 
     implementation ("androidx.work:work-runtime-ktx:2.8.1")
 
-
     implementation("com.google.android.gms:play-services-tflite-java:16.1.0")
     implementation("com.google.android.gms:play-services-tflite-gpu:16.2.0")
 }

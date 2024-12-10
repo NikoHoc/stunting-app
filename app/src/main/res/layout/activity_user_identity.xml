@@ -46,9 +46,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="51dp"
-        android:text="Name"
-        android:textColor="#333333"
-        android:textSize="18sp"
+        android:text="@string/username"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/deep_blue"
+        android:textStyle="bold"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_image_container" />
@@ -59,16 +61,18 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="48dp"
-        android:text="Nicholas"
-        android:textColor="#333333"
-        android:textSize="18sp"
+        android:text="@string/username"
+        android:textColor="@color/deep_blue"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="16sp"
         android:inputType="text"
         android:enabled="false"
         android:backgroundTint="@color/deep_blue"
         android:backgroundTintMode="src_atop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelUsername" />
+        app:layout_constraintTop_toBottomOf="@id/labelUsername"
+        tools:ignore="Autofill,LabelFor" />
 
     <!-- Label for Email -->
     <TextView
@@ -78,9 +82,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="51dp"
-        android:text="Email"
-        android:textColor="#333333"
-        android:textSize="18sp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/deep_blue"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUsername" />
@@ -92,16 +98,18 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="48dp"
-        android:text="nicho.juntak@gmail.com"
-        android:textColor="#666666"
-        android:textSize="18sp"
+        android:text="@string/email"
+        android:textColor="@color/deep_blue"
+        android:textSize="16sp"
         android:inputType="text"
         android:enabled="false"
+        android:fontFamily="@font/montserrat_regular"
         android:backgroundTint="@color/deep_blue"
         android:backgroundTintMode="src_atop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelEmail" />
+        app:layout_constraintTop_toBottomOf="@id/labelEmail"
+        tools:ignore="Autofill,LabelFor,TextFields" />
 
     <!-- Label for Password -->
     <TextView
@@ -111,9 +119,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="51dp"
-        android:text="Password"
-        android:textColor="#333333"
-        android:textSize="18sp"
+        android:text="@string/password"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/deep_blue"
+        android:textStyle="bold"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEmail" />
@@ -125,15 +135,17 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="48dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:textColor="#333333"
-        android:textSize="18sp"
+        android:textColor="@color/deep_blue"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_regular"
         android:backgroundTint="@color/deep_blue"
         android:backgroundTintMode="src_atop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelPassword" />
+        app:layout_constraintTop_toBottomOf="@id/labelPassword"
+        tools:ignore="Autofill" />
 
     <ImageView
         android:id="@+id/btnTogglePassword"
@@ -141,10 +153,11 @@
         android:layout_height="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
-        android:src="@drawable/ic_baseline_password_24"
-        android:tint="@color/deep_blue"
+        android:src="@drawable/ic_password_hidden"
+        app:tint="@color/deep_blue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/etPassword" />
+        app:layout_constraintTop_toTopOf="@id/etPassword"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/btnBack"
@@ -152,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_button"
-        android:text="Back"
+        android:text="@string/back"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

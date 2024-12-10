@@ -14,6 +14,8 @@ import com.dicoding.stunting.data.remote.nourish.retrofit.NourishApiServices
 import com.google.gson.Gson
 import com.dicoding.stunting.data.remote.nourish.response.LoginResponse
 import com.dicoding.stunting.data.remote.nourish.response.RegisterResponse
+import com.dicoding.stunting.data.remote.nourish.request.LoginRequest
+import com.dicoding.stunting.data.remote.nourish.request.RegisterRequest
 import com.dicoding.stunting.utils.formatDate
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -111,6 +113,7 @@ class NourishRepository private constructor(
     fun registerUser(name: String, email: String, password: String) = liveData {
         emit(Result.Loading)
         try {
+//            val response = apiServices.register(RegisterRequest(name, email, password))
             val response = apiServices.register(name, email, password)
             emit(Result.Success(response))
         } catch (e: HttpException) {
@@ -123,11 +126,14 @@ class NourishRepository private constructor(
     fun login(email: String, password: String) = liveData {
         emit(Result.Loading)
         try {
+            Log.d("Login Data Repository", "$email $password")
             val response = apiServices.login(email, password)
+//            val response = apiServices.login(LoginRequest(email, password))
             emit(Result.Success(response))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            Log.d("Login Error", errorResponse.message.toString())
             emit(Result.Error(errorResponse.message.toString()))
         }
     }

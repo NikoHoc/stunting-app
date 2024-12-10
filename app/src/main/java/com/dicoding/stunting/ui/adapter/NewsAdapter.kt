@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.stunting.R
 import com.dicoding.stunting.data.local.entity.NewsEntity
-import com.dicoding.stunting.databinding.ItemNewsLayoutBinding
+import com.dicoding.stunting.databinding.ItemCardLayoutBinding
 import com.dicoding.stunting.ui.main.news.NewsDetailActivity
 
 class NewsAdapter: ListAdapter<NewsEntity, NewsAdapter.MyViewHolder>(DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = ItemNewsLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemCardLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -24,13 +24,13 @@ class NewsAdapter: ListAdapter<NewsEntity, NewsAdapter.MyViewHolder>(DIFF_CALLBA
         holder.bind(news)
     }
 
-    class MyViewHolder(private val binding: ItemNewsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(private val binding: ItemCardLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(news: NewsEntity) {
-            Glide.with(binding.ivNews.context)
+            Glide.with(binding.cardImage.context)
                 .load(news.urlToImage)
                 .error(R.drawable.image_placeholder)
-                .into(binding.ivNews)
-            binding.newsTitle.text = news.title
+                .into(binding.cardImage)
+            binding.cardTitle.text = news.title
             binding.root.setOnClickListener {
                 val context = it.context
 //                val intent = Intent(Intent.ACTION_VIEW).apply {
