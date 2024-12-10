@@ -21,10 +21,9 @@ class NotificationWorker(context: Context, workerParams: WorkerParameters) : Wor
     }
 
     private fun showDailyNotification() {
-        val channelId = "daily_notification_channel"
+        val channelId = applicationContext.getString(R.string.notification_channel_id)
         val notificationId = 1
 
-        // Check for notification permissions if on Android 13 or higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (applicationContext.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) !=
                 android.content.pm.PackageManager.PERMISSION_GRANTED
@@ -33,10 +32,9 @@ class NotificationWorker(context: Context, workerParams: WorkerParameters) : Wor
             }
         }
 
-        // Create Notification Channel for Android O and above
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelName = "Daily Notification"
-            val channelDescription = "Channel for daily reminders about stunting prevention"
+            val channelName = applicationContext.getString(R.string.notification_channel_name)
+            val channelDescription = applicationContext.getString(R.string.notification_channel_description)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(channelId, channelName, importance).apply {
                 description = channelDescription
@@ -54,9 +52,9 @@ class NotificationWorker(context: Context, workerParams: WorkerParameters) : Wor
         )
 
         val notification = NotificationCompat.Builder(applicationContext, channelId)
-            .setSmallIcon(R.drawable.nourish_logo) // Adjust icon as per your drawable resource
-            .setContentTitle("CaloCare Reminder")
-            .setContentText("It's a new day! Don't forget to scan and maintain your diet!")
+            .setSmallIcon(R.drawable.nourish_logo)
+            .setContentTitle(applicationContext.getString(R.string.notification_title))
+            .setContentText(applicationContext.getString(R.string.notification_content))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)

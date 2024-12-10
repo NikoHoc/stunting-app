@@ -9,7 +9,6 @@ import android.util.Patterns
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import com.dicoding.stunting.R
-import com.dicoding.stunting.utils.isEmailValid
 
 class EmailEditText: AppCompatEditText {
 
@@ -40,8 +39,15 @@ class EmailEditText: AppCompatEditText {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val email = s.toString()
                 when {
-                    email.isBlank() -> error = context.getString(R.string.empty_input)
-                    !email.isEmailValid() -> error = context.getString(R.string.invalid_email)
+                    email.isBlank() -> {
+                        error = context.getString(R.string.empty_input)
+                    }
+                    !email.contains("@") -> {
+                        error = context.getString(R.string.email_must_contain_at)
+                    }
+                    !email.endsWith("gmail.com") -> {
+                        error = context.getString(R.string.email_must_end_with_gmail_com)
+                    }
                 }
             }
             override fun afterTextChanged(s: Editable?) {
