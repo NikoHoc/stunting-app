@@ -1,7 +1,9 @@
 package com.dicoding.stunting.ui.main.journal
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
@@ -11,11 +13,12 @@ import com.dicoding.stunting.R
 import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.databinding.ActivityAddJournalBinding
 import com.dicoding.stunting.databinding.ActivityJournalDetailBinding
-import com.dicoding.stunting.utils.formatDate
+import com.dicoding.stunting.utils.formatDateTime
 
 class JournalDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityJournalDetailBinding
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,22 +37,23 @@ class JournalDetailActivity : AppCompatActivity() {
             insets
         }
 
-        val journal = intent.getParcelableExtra<ListJournalItem>(EXTRA_JOURNAL_DATA)
-        journal?.let {
-            setData(it)
-        }
+        val journalDate = intent.getStringExtra(EXTRA_JOURNAL_DATE)
+        val journalDesc = intent.getStringExtra(EXTRA_JOURNAL_DESC)
+        val journalPhoto = intent.getStringExtra(EXTRA_JOURNAL_PHOTO_URL)
 
+        setupView(journalDate, journalDesc, journalPhoto)
         setupAction()
     }
 
-    private fun setData(journal: ListJournalItem) {
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setupView (date: String?, description: String?, photoUrl: String?) {
         Glide.with(this)
-            .load(journal.photoUrl)
+            .load(photoUrl)
             .error(R.drawable.image_placeholder)
             .into(binding.ivJournal)
 
-        binding.journalDate.text = formatDate(journal.createdAt.toString())
-        binding.journalDescription.text = journal.description
+        binding.journalDate.text = formatDateTime(date.toString())
+        binding.journalDescription.text = description.toString()
     }
 
     private fun setupAction() {
@@ -65,5 +69,8 @@ class JournalDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_JOURNAL_DATA = "JOURNAL_DATA"
+        const val EXTRA_JOURNAL_DATE = "JOURNAL_DATE"
+        const val EXTRA_JOURNAL_DESC = "JOURNAL_DESC"
+        const val EXTRA_JOURNAL_PHOTO_URL = "JOURNAL_PHOTO_URL"
     }
 }

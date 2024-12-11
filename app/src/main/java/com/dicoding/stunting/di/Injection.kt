@@ -18,7 +18,8 @@ object Injection {
         val apiService = NourishApiConfig.getApiService(user.token)
         val database = NourishDatabase.getInstance(context)
         val journalDao = database.journalDao()
-        return NourishRepository.getInstance(apiService, pref, journalDao)
+        val predictionDao = database.predictionDao()
+        return NourishRepository.getInstance(apiService, pref, journalDao, predictionDao)
     }
 
     fun providerNewsRepository(context: Context): NewsRepository {

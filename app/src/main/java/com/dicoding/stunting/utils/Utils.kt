@@ -19,25 +19,22 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
+@RequiresApi(Build.VERSION_CODES.O)
+fun formatDateTime(input: String): String {
+    // Step 1: Parse the input string into a ZonedDateTime
+    val instant = Instant.parse(input)
+    val zonedDateTime = instant.atZone(ZoneId.systemDefault())
 
-fun formatDate(input: String): String {
-    return try {
-        val timestamp = input.toLongOrNull()
-        if (timestamp != null) {
-            val date = Date(timestamp)
-            val formatter = SimpleDateFormat("dd MMMM yyyy - hh:mm a", Locale.getDefault())
-            formatter.format(date)
-        } else {
-            val formatter = SimpleDateFormat("dd MMMM yyyy - hh:mm a", Locale.getDefault())
-            val date = formatter.parse(input)
-            formatter.format(date!!)
-        }
-    } catch (e: Exception) {
-        "Invalid Date"
-    }
+    // Step 2: Format the ZonedDateTime into the desired format
+    val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy - hh:mm a", Locale("id", "ID"))
+    return zonedDateTime.format(formatter)
 }
 
 private const val FILENAME_FORMAT = "yyyyMMdd_HHmmss"
@@ -100,12 +97,12 @@ fun File.reduceFileImage(): File {
     var streamLength: Int
     do {
         val bmpStream = ByteArrayOutputStream()
-        bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
         val bmpPicByteArray = bmpStream.toByteArray()
         streamLength = bmpPicByteArray.size
         compressQuality -= 5
     } while (streamLength > MAXIMAL_SIZE)
-    bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+    bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
     return file
 }
 

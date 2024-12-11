@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    card_view:cardCornerRadius="10dp"
+    android:backgroundTint="#F2F2F2"
+    android:elevation="16dp"
+    android:layout_margin="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_date_prediction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/journal_date"
+            android:fontFamily="@font/poppins_extra_bold"
+            android:textColor="@color/deep_blue"
+            android:textSize="16sp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/result"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/deep_blue"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/tv_date_prediction"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail"
+            android:layout_marginEnd="4dp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/tv_result"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

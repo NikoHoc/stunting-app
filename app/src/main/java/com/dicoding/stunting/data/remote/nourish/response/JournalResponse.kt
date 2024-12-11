@@ -17,24 +17,24 @@ data class JournalResponse (
 
 @Parcelize
 data class ListJournalItem(
-    @field:SerializedName("id")
-    val id: String? = null,
+    @field:SerializedName("journals_id")
+    val journalsId: String? = null,
 
-    @field:SerializedName("name")
-    val name: String? = null,
+    @field:SerializedName("user_id")
+    val userId: String? = null,
 
     @field:SerializedName("description")
     val description: String? = null,
 
-    @field:SerializedName("photoUrl")
+    @field:SerializedName("photo_url")
     val photoUrl: String? = null,
 
-    @field:SerializedName("createdAt")
+    @field:SerializedName("created_at")
     val createdAt: String? = null,
 
-    @field:SerializedName("lon")
+    @field:SerializedName("longitude")
     val lon: Double? = null,
 
-    @field:SerializedName("lat")
+    @field:SerializedName("latitude")
     val lat: Double? = null
 ) : Parcelable

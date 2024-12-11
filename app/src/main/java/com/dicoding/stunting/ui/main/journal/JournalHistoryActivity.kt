@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.stunting.R
+import com.dicoding.stunting.data.local.entity.JournalHistoryEntity
 import com.dicoding.stunting.databinding.ActivityJournalHistoryBinding
 import com.dicoding.stunting.data.remote.Result
 import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
@@ -72,7 +73,7 @@ class JournalHistoryActivity : AppCompatActivity() {
                 startActivity(Intent(this, AuthenticationActivity::class.java))
                 finish()
             } else {
-                journalViewModel.getJournal().observe(this) { result ->
+                journalViewModel.getJournal(user.userId).observe(this) { result ->
                     when (result) {
                         is Result.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE
@@ -80,16 +81,22 @@ class JournalHistoryActivity : AppCompatActivity() {
                         }
                         is Result.Success -> {
                             val journal = result.data.map { journalEntity ->
-                                ListJournalItem(
-                                    createdAt = journalEntity.createdAt.toString(),
+                                JournalHistoryEntity(
+                                    journalId = journalEntity.journalId,
+                                    userId = journalEntity.userId,
+                                    journalDate = journalEntity.journalDate,
                                     description = journalEntity.description,
-                                    photoUrl = journalEntity.photoUrl
+                                    photoUrl = journalEntity.photoUrl,
+                                    createdAt = journalEntity.createdAt
                                 )
                             }
-                            journalAdapter.submitList(journal)
-
+                            if (journal.isEmpty()) {
+                                binding.tvJournalNotFound.visibility = View.VISIBLE
+                            } else {
+                                journalAdapter.submitList(journal)
+                                binding.tvJournalNotFound.visibility = View.GONE
+                            }
                             binding.progressBar.visibility = View.GONE
-                            binding.tvJournalNotFound.visibility = View.GONE
                         }
                         is Result.Error -> {
                             Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()

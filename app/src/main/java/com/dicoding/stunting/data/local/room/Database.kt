@@ -6,11 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.dicoding.stunting.data.local.entity.JournalHistoryEntity
 import com.dicoding.stunting.data.local.entity.NewsEntity
+import com.dicoding.stunting.data.local.entity.PredictionHistoryEntity
 
-@Database(entities = [NewsEntity::class, JournalHistoryEntity::class], version = 1, exportSchema = false)
+@Database(entities = [NewsEntity::class, JournalHistoryEntity::class, PredictionHistoryEntity::class], version = 1, exportSchema = false)
 abstract class NourishDatabase: RoomDatabase() {
     abstract fun newsDao(): NewsDao
     abstract fun journalDao(): JournalDao
+    abstract fun predictionDao(): PredictionDao
 
     companion object {
         @Volatile

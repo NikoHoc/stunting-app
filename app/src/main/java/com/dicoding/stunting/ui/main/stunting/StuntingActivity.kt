@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.dicoding.stunting.R
 import com.dicoding.stunting.databinding.ActivityStuntingBinding
 import com.dicoding.stunting.ui.helper.StuntingHelper
+import com.dicoding.stunting.ui.main.stunting.StuntingResultActivity.Companion.EXTRA_PREDICTION_GENDER
 
 class StuntingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStuntingBinding
@@ -60,12 +61,17 @@ class StuntingActivity : AppCompatActivity() {
         stuntingHelper = StuntingHelper(
             context = this,
             onResult = { result, description, age, gender, height ->
+                val fixGender = when (gender) {
+                    0 -> getString(R.string.user_gender, getString(R.string.male))
+                    1 -> getString(R.string.user_gender, getString(R.string.female))
+                    else -> getString(R.string.user_gender, getString(R.string.unknown_gender))
+                }
                 val intent = Intent(this, StuntingResultActivity::class.java).apply {
-                    putExtra("RESULT", result)
-                    putExtra("DESCRIPTION", description)
-                    putExtra("AGE", age)
-                    putExtra("GENDER", gender)
-                    putExtra("HEIGHT", height)
+                    putExtra(StuntingResultActivity.EXTRA_PREDICTION_RESULT, result)
+                    putExtra(StuntingResultActivity.EXTRA_PREDICTION_DESC, description)
+                    putExtra(StuntingResultActivity.EXTRA_PREDICTION_AGE, age)
+                    putExtra(StuntingResultActivity.EXTRA_PREDICTION_GENDER, fixGender)
+                    putExtra(StuntingResultActivity.EXTRA_PREDICTION_HEIGHT, height)
                 }
                 startActivity(intent)
                 finish()

@@ -1,0 +1,12 @@
+package com.dicoding.stunting.data.remote.nourish.response
+
+import com.google.gson.annotations.SerializedName
+
+data class UploadPredictionResponse(
+
+	@field:SerializedName("error")
+	val error: Boolean? = null,
+
+	@field:SerializedName("message")
+	val message: String? = null
+)
