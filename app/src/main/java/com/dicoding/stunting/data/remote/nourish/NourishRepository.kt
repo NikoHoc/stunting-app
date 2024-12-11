@@ -181,6 +181,10 @@ class NourishRepository private constructor(
         }
     }
 
+    fun isPredictionExists(age: Int, height: Float, gender: String, result: String): LiveData<Boolean> {
+        return predictionDao.isPredictionExists(age, height, gender, result)
+    }
+
     companion object {
         @Volatile
         private var instance: NourishRepository? = null

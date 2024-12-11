@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
@@ -48,12 +49,16 @@ class PredictionHistoryAdapter: ListAdapter<PredictionHistoryEntity, PredictionH
             binding.btnDetail.setOnClickListener {
                 val context = it.context
                 val intent = Intent(context, StuntingResultActivity::class.java)
+
+                // Ensure these values are correct before adding to the intent
+                Log.d("DEBUG BIND:", "Description: ${prediction.description}, Result: ${prediction.result}")
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_AGE, prediction.age)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_GENDER, prediction.gender)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_HEIGHT, prediction.height)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_RESULT, prediction.result)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_DESC, prediction.description)
 
+                Log.d("ISI DESKRIPSI:", prediction.description.toString())
                 context.startActivity(intent)
             }
         }

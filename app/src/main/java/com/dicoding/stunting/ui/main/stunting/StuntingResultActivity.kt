@@ -57,6 +57,10 @@ class StuntingResultActivity : AppCompatActivity() {
 
             tvResult.text = getString(R.string.result, result)
             tvDescription.text = description
+
+            historyViewModel.isPredictionInDb(age, height, gender, result).observe(this@StuntingResultActivity) { exists ->
+                binding.btnSave.visibility = if (exists) View.GONE else View.VISIBLE
+            }
         }
     }
 
@@ -64,8 +68,7 @@ class StuntingResultActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener { finish() }
 
         binding.btnSave.setOnClickListener {
-            val descriptions = "tes"
-            historyViewModel.uploadPredict(age, gender, height, result, descriptions).observe(this) { result ->
+            historyViewModel.uploadPredict(age, gender, height, result, description).observe(this) { result ->
                 when (result) {
                     is Result.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE

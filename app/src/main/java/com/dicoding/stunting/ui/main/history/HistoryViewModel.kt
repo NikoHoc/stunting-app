@@ -12,6 +12,8 @@ class HistoryViewModel (private val dataRepository: NourishRepository) : ViewMod
     fun getPredictionHistory(userId: String): LiveData<Result<List<PredictionHistoryEntity>>> {
         return dataRepository.getPredictionHistory(userId)
     }
-
+    fun isPredictionInDb(age: Int, height: Float, gender: String, result: String): LiveData<Boolean> {
+        return dataRepository.isPredictionExists(age, height, gender, result)
+    }
     fun uploadPredict(age: Int, gender: String, height: Float, result: String, description: String) = dataRepository.uploadPredict(age, gender, height, result, description)
 }

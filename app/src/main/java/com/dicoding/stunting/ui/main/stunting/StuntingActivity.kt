@@ -62,9 +62,9 @@ class StuntingActivity : AppCompatActivity() {
             context = this,
             onResult = { result, description, age, gender, height ->
                 val fixGender = when (gender) {
-                    0 -> getString(R.string.user_gender, getString(R.string.male))
-                    1 -> getString(R.string.user_gender, getString(R.string.female))
-                    else -> getString(R.string.user_gender, getString(R.string.unknown_gender))
+                    0 -> getString(R.string.male)
+                    1 -> getString(R.string.female)
+                    else -> getString(R.string.unknown_gender)
                 }
                 val intent = Intent(this, StuntingResultActivity::class.java).apply {
                     putExtra(StuntingResultActivity.EXTRA_PREDICTION_RESULT, result)
