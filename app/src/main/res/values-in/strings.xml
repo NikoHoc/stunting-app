@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nourish</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_history">Riwayat</string>
+    <string name="title_profile">Profil</string>
+
+    <!-- Strings untuk halaman login -->
+    <string name="welcome_text_1">Selamat datang di platform kami</string>
+    <string name="welcome_text_2">silakan masuk untuk melanjutkan</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="to_register_page_1">Belum punya akun?</string>
+    <string name="to_register_page_2">Daftar di sini!</string>
+
+    <!-- Strings untuk halaman pendaftaran -->
+    <string name="register">Daftar</string>
+    <string name="register_title_text">Mari Daftar</string>
+    <string name="register_title_text_2">Silakan isi formulir ini untuk \n membuat akun</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="to_login_page_1">Sudah punya akun?</string>
+    <string name="to_login_page_2">Masuk!</string>
+
+    <!-- Strings untuk alert login dan pendaftaran -->
+    <string name="login_success_alert_title">Login berhasil</string>
+    <string name="login_error_alert_title">Login gagal</string>
+    <string name="success_alert_reply">Berikutnya</string>
+    <string name="error_alert_reply">Ulangi</string>
+    <string name="signup_success_alert_title">Akun berhasil dibuat</string>
+    <string name="signup_error_alert_title">Gagal membuat akun</string>
+
+    <!-- Pesan kesalahan Edit Text -->
+    <string name="empty_input">Kolom ini tidak boleh kosong</string>
+    <string name="invalid_password">Kata sandi tidak boleh kurang dari 8 karakter</string>
+    <string name="email_must_contain_at">Email harus mengandung @</string>
+    <string name="email_must_end_with_gmail_com">Email harus diakhiri dengan "gmail.com"</string>
+
+    <!-- Judul halaman -->
+    <string name="greet_user">Halo, %1$s</string>
+    <string name="nourish_motto">Tetap sehat</string>
+    <string name="iv_nourish">Logo Nourish</string>
+    <string name="child_icon">Ikon Anak</string>
+
+    <!-- Strings untuk fragmen beranda -->
+    <string name="features">Fitur</string>
+    <string name="news">Berita</string>
+    <string name="more_news">Lebih Banyak Berita</string>
+    <string name="empty_news">Tidak ada berita tersedia</string>
+    <string name="iv_news">Gambar berita</string>
+    <string name="news_title">Judul Berita</string>
+    <string name="stunt">Stunting</string>
+    <string name="food">Makanan</string>
+    <string name="journal">Jurnal</string>
+    <string name="find_out">Mari Temukan</string>
+    <string name="intro_title">Apa itu Stunting?</string>
+
+    <string name="stunting">Stunting</string>
+    <string name="next">Berikutnya</string>
+    <string name="definition_1">Kondisi di mana anak-anak lebih pendek dari normal untuk usia mereka akibat malnutrisi kronis.</string>
+    <string name="definition_2">Ini bisa terjadi ketika mereka tidak mendapatkan cukup nutrisi.</string>
+    <string name="card_image">Gambar Kartu</string>
+    <string name="card_title">Judul Kartu</string>
+
+    <!-- Fakta -->
+    <string name="facts">Fakta</string>
+    <string name="facts_definition">Tingkat stunting di Indonesia tetap tinggi, dengan Survei Kesehatan Indonesia 2023 (SKI) melaporkan tingkat 21,5%</string>
+    <string name="facts_definition2">Bahkan sebelum COVID-19, Indonesia menghadapi tingkat malnutrisi yang tinggi. Saat ini, lebih dari dua juta anak mengalami wasting parah, dan lebih dari tujuh juta anak di bawah 5 tahun mengalami stunting</string>
+
+    <!-- Masalah Penting -->
+    <string name="crucial_issue">Masalah Penting</string>
+    <string name="issue_definition">Kesadaran dan pengetahuan terbatas tentang pencegahan stunting</string>
+    <string name="issue_definition2">Kurangnya Standardisasi dalam Metrik Pertumbuhan dan Nutrisi</string>
+    <string name="issue_definition3">Aksesibilitas Terbatas terhadap Informasi Terkait Stunting</string>
+    <string name="issue_definition4">Tingginya Prevalensi Stunting di Indonesia</string>
+
+    <!-- Fragmen Nourish -->
+    <string name="nourish">Nourish</string>
+    <string name="nourish_definition1">Deteksi Tanda Awal Stunting</string>
+    <string name="nourish_definition2">Rekomendasi Makanan yang Dipersonalisasi</string>
+    <string name="nourish_definition3">Fitur jurnal untuk dokumentasi</string>
+    <string name="nourish_definition4">Informasi berita tentang Stunting</string>
+    <string name="nourish_button">Jelajahi Nourish</string>
+
+    <!-- Strings untuk aktivitas berita -->
+    <string name="back">Kembali</string>
+    <string name="web_view_created">Selamat membaca!</string>
+
+    <!-- Strings untuk halaman Profil -->
+    <string name="username_profile">%1$s</string>
+    <string name="email_profile">%1$s</string>
+    <string name="logout">Keluar</string>
+    <string name="profile_menu">Menu Profil</string>
+    <string name="copyright">Hak Cipta © 2024 Nourish</string>
+
+    <!-- Strings untuk halaman jurnal -->
+    <string name="add_journal">Tambah Jurnal</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="description">Deskripsi</string>
+    <string name="description_empty">Silakan isi formulir</string>
+    <string name="upload">Unggah</string>
+    <string name="success_upload_alert">Jurnal dibuat</string>
+    <string name="failed_upload_alert">Pembuatan jurnal gagal</string>
+    <string name="image_error">Kesalahan mendapatkan gambar</string>
+    <string name="empty_journal">Saat ini tidak ada jurnal</string>
+
+    <!-- Detail jurnal -->
+    <string name="my_journal">Jurnal Saya</string>
+    <string name="journal_date">20 November 2024 – 10:15 AM</string>
+    <string name="to_journal_list">Riwayat</string>
+
+    <!-- Strings untuk halaman riwayat -->
+    <string name="history_sub_title">Hasil Analisis Stunting</string>
+    <string name="empty_history">Riwayat analisis masih kosong</string>
+
+    <!-- String untuk izin -->
+    <string name="permission_granted">Permintaan izin disetujui</string>
+    <string name="permission_denied">Permintaan izin ditolak</string>
+
+    <!-- Item Aksi Profil -->
+    <string name="action_title">Aksi</string>
+    <string name="profile_item_account">Akun</string>
+    <string name="profile_item_language">Bahasa</string>
+    <string name="profile_item_reminder">Pengingat</string>
+    <string name="profile_item_journal">Jurnal</string>
+    <!-- Strings untuk detail pengguna -->
+    <string name="unknown_user">Pengguna Tidak Dikenal</string>
+    <string name="unknown_email">Email Tidak Dikenal</string>
+    <string name="unknown_password">Kata Sandi Tidak Dikenal</string>
+
+    <!-- Strings untuk klasifikasi stunting -->
+    <string name="stunting_analyze">Analisis Stunting</string>
+    <string name="stunt_page_title">Periksa stunting Anda</string>
+    <string name="tv_fill_in_form">Silakan isi formulir di bawah ini!</string>
+    <string name="age">Usia (bulan)</string>
+    <string name="height">Tinggi (cm)</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="male">Laki-laki</string>
+    <string name="female">Perempuan</string>
+    <string name="analyze">Analisis</string>
+    <string name="invalid_input">Input Tidak Valid</string>
+
+    <!-- String Hasil -->
+    <string name="result">Hasil: %1$s</string>
+    <string name="severely_stunted">Sangat Stunted</string>
+    <string name="stunted">Stunted</string>
+    <string name="normal">Normal</string>
+    <string name="high">Tinggi</string>
+    <string name="unknown">Hasil Tidak Dikenal</string>
+
+    <string name="food_rec">Rekomendasi Makanan</string>
+    <!-- Aktivitas Hasil Stunting -->
+    <string name="stunting_result_title">Hasil</string>
+    <string name="user_data">Data Anda:</string>
+    <string name="user_age">Usia (bulan): %d</string>
+    <string name="user_height">Tinggi (cm): %.1f</string>
+    <string name="user_gender">Jenis Kelamin: %1$s</string>
+    <string name="unknown_gender">Jenis Kelamin Tidak Dikenal</string>
+
+    <string name="result_desc">Deskripsi Hasil</string>
+    <string name="severely_stunted_desc">Berdasarkan data Anda, kami %1$d%% yakin bahwa status nutrisi Anda diklasifikasikan sebagai Sangat Stunted. Ini menunjukkan kekurangan signifikan nutrisi esensial, yang mempengaruhi pertumbuhan dan perkembangan Anda. Perhatian segera terhadap diet yang kaya nutrisi sangat penting untuk membantu membalikkan kondisi ini dan meningkatkan kesehatan secara keseluruhan.</string>
+    <string name="stunted_desc">Berdasarkan data Anda, kami %1$d%% yakin bahwa status nutrisi Anda diklasifikasikan sebagai Stunted. Meskipun pertumbuhan telah melambat, dengan nutrisi dan perawatan yang tepat, Anda dapat membuat kemajuan signifikan menuju perkembangan yang lebih sehat. Fokus pada diet seimbang dengan vitamin, mineral, dan protein esensial untuk mendukung pertumbuhan.</string>
+    <string name="normal_desc">Berdasarkan data Anda, kami %1$d%% yakin bahwa status nutrisi Anda diklasifikasikan sebagai Normal. Pertumbuhan dan perkembangan Anda berada di jalur yang benar, tetapi perhatian terus-menerus terhadap diet seimbang yang kaya nutrisi akan memastikan Anda tetap sehat dan kuat. Teruskan kerja bagus Anda dengan diet bervariasi yang mendukung kesejahteraan secara keseluruhan.</string>
+    <string name="high_desc">Berdasarkan data Anda, kami %1$d%% yakin bahwa status nutrisi Anda diklasifikasikan sebagai Tinggi. Ini menunjukkan bahwa tubuh Anda menerima lebih dari cukup nutrisi untuk pertumbuhan dan perkembangan. Mempertahankan pendekatan seimbang terhadap nutrisi akan membantu mencegah ketidakseimbangan di masa depan sambil menjaga kesehatan yang baik.</string>
+    <string name="unknown_desc">Deskripsi Tidak Dikenal</string>
+
+    <string name="save">Simpan</string>
+    <string name="up_predict_success_title">Prediksi Disimpan</string>
+    <string name="up_predict_failed_title">Gagal Menyimpan Prediksi</string>
+    <string name="success_up_predict_reply">Selesai</string>
+    <string name="get_food">Dapatkan Rekomendasi Makanan</string>
+    <string name="empty_food">Rekomendasi Makanan tidak tersedia saat ini</string>
+
+    <string name="category_label">Kategori: %1$s</string>
+    <string name="food_label">Makanan: %1$s</string>
+    <string name="serving_size_label">Porsi: %1$s (g)</string>
+    <string name="calories_label">Kalori: %1$s</string>
+    <string name="protein_label">Protein: %1$s (g)</string>
+    <string name="fats_label">Lemak: %1$s (g)</string>
+    <string name="vitamin_a_label">Vitamin A: %1$s (IU)</string>
+    <string name="vitamin_c_label">Vitamin C: %1$s (mg)</string>
+    <string name="vitamin_d_label">Vitamin D: %1$s (IU)</string>
+    <string name="vitamin_e_label">Vitamin E: %1$s (mg)</string>
+    <string name="vitamin_b1_label">Vitamin B1: %1$s (mg)</string>
+    <string name="vitamin_b2_label">Vitamin B2: %1$s (mg)</string>
+
+    <!-- Strings Notifikasi -->
+    <string name="notification_channel_id">saluran_notifikasi_harian</string>
+    <string name="notification_channel_name">Notifikasi Harian</string>
+    <string name="notification_channel_description">Saluran untuk pengingat harian tentang pencegahan stunting</string>
+    <string name="notification_title">Pengingat Mingguan Nourish</string>
+    <string name="notification_content">Ini hari baru! Jangan lupa untuk memindai dan menjaga diet Anda!</string>
+
+    <string name="tflite_is_not_initialized_yet">Model belum diinisialisasi</string>
+    <string name="no_tflite_interpreter_loaded">Interpreter belum dimuat</string>
+    <!-- TODO: Hapus atau ubah teks placeholder ini -->
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+</resources>
