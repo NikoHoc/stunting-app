@@ -5,24 +5,34 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.commit
 import com.dicoding.stunting.R
+import com.dicoding.stunting.databinding.FragmentIssueBinding
 
 
 class IssueFragment : Fragment() {
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private var _binding: FragmentIssueBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_issue, container, false)
+    ): View {
+        _binding = FragmentIssueBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        return root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnNext.setOnClickListener {
+            parentFragmentManager.commit {
+                addToBackStack(null)
+                replace(R.id.introduction_activity, NourishFragment(),  NourishFragment::class.java.simpleName)
+            }
+        }
+    }
 
 }

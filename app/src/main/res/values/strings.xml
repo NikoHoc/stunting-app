@@ -58,9 +58,28 @@
     <string name="next">Next</string>
     <string name="definition_1">A condition where children are shorter than normal for their age due to chronic malnutrition.</string>
     <string name="definition_2">This could happen when they don’t get enough nutrition.</string>
-    <!-- Strings for card layout -->
     <string name="card_image">Card Image</string>
     <string name="card_title">Card Title</string>
+
+    <!-- Facts -->
+    <string name="facts">Facts</string>
+    <string name="facts_definition">Stunting rate in Indonesia remains high, with the 2023 Indonesia Health Survey (SKI) reporting a rate of 21.5%</string>
+    <string name="facts_definition2">Even before COVID-19, Indonesia faced high levels of malnutrition. Currently, more than two million children suffer from severe wasting, and more than seven million children under-5 are stunted</string>
+
+    <!-- Crucial Issue -->
+    <string name="crucial_issue">Crucial Issue</string>
+    <string name="issue_definition">Limited awareness and knowledge regarding stunting prevention</string>
+    <string name="issue_definition2">Lack of Standardization in Growth and Nutrition Metrics</string>
+    <string name="issue_definition3">Limited Accessibility to Stunting-Related Information</string>
+    <string name="issue_definition4">High Prevalence of Stunting in Indonesia</string>
+
+    <!-- Nourish Fragment -->
+    <string name="nourish">Nourish</string>
+    <string name="nourish_definition1">Detect Early Signs of Stunting</string>
+    <string name="nourish_definition2">Personalized Food Recommendation</string>
+    <string name="nourish_definition3">Journal feature for documentation</string>
+    <string name="nourish_definition4">News information about Stunting</string>
+    <string name="nourish_button">Explore Nourish</string>
 
     <!-- Strings for news activity -->
     <string name="back">Back</string>
