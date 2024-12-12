@@ -1,5 +1,6 @@
 package com.dicoding.stunting.ui.main.stunting
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.view.View
@@ -20,7 +21,7 @@ import com.dicoding.stunting.data.remote.Result
 class StuntingResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStuntingResultBinding
 
-    private val historyViewModel: HistoryViewModel by viewModels {
+    private val stuntingViewModel: StuntingViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
 
@@ -58,8 +59,10 @@ class StuntingResultActivity : AppCompatActivity() {
             tvResult.text = getString(R.string.result, result)
             tvDescription.text = description
 
-            historyViewModel.isPredictionInDb(age, height, gender, result).observe(this@StuntingResultActivity) { exists ->
+            stuntingViewModel.isPredictionInDb(age, height, gender, result).observe(this@StuntingResultActivity) { exists ->
                 binding.btnSave.visibility = if (exists) View.GONE else View.VISIBLE
+                binding.tvSaveInstruction.visibility = if (exists) View.GONE else View.VISIBLE
+                binding.btnGetFood.visibility = if (exists) View.VISIBLE else View.GONE
             }
         }
     }
@@ -68,7 +71,7 @@ class StuntingResultActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener { finish() }
 
         binding.btnSave.setOnClickListener {
-            historyViewModel.uploadPredict(age, gender, height, result, description).observe(this) { result ->
+            stuntingViewModel.uploadPredict(age, gender, height, result, description).observe(this) { result ->
                 when (result) {
                     is Result.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE
@@ -84,8 +87,11 @@ class StuntingResultActivity : AppCompatActivity() {
                             create()
                             show()
                         }
+                        binding.tvSaveInstruction.visibility = View.GONE
                         binding.progressBar.visibility = View.GONE
                         binding.btnSave.visibility = View.GONE
+
+                        binding.btnGetFood.visibility = View.VISIBLE
                     }
                     is Result.Error -> {
                         AlertDialog.Builder(this).apply {
@@ -101,6 +107,21 @@ class StuntingResultActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        binding.btnGetFood.setOnClickListener {
+            val classification = when (result) {
+                getString(R.string.severely_stunted) -> 0
+                getString(R.string.stunted) -> 1
+                getString(R.string.normal) -> 2
+                getString(R.string.high) -> 3
+                else -> getString(R.string.unknown)
+            }
+            val intent = Intent(this, FoodRecommendationActivity::class.java).apply {
+                putExtra(FoodRecommendationActivity.EXTRA_CLASSIFICATION, classification)
+            }
+            startActivity(intent)
+
         }
     }
 

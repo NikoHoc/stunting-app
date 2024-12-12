@@ -50,15 +50,13 @@ class PredictionHistoryAdapter: ListAdapter<PredictionHistoryEntity, PredictionH
                 val context = it.context
                 val intent = Intent(context, StuntingResultActivity::class.java)
 
-                // Ensure these values are correct before adding to the intent
-                Log.d("DEBUG BIND:", "Description: ${prediction.description}, Result: ${prediction.result}")
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_AGE, prediction.age)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_GENDER, prediction.gender)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_HEIGHT, prediction.height)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_RESULT, prediction.result)
                 intent.putExtra(StuntingResultActivity.EXTRA_PREDICTION_DESC, prediction.description)
 
-                Log.d("ISI DESKRIPSI:", prediction.description.toString())
+                Log.d("res", prediction.result.toString())
                 context.startActivity(intent)
             }
         }

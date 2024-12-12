@@ -142,12 +142,13 @@
 
     <!-- Result String    -->
     <string name="result">Result: %1$s</string>
-    <string name="severely_stunted">Severely stunted</string>
+    <string name="severely_stunted">Severely Stunted</string>
     <string name="stunted">Stunted</string>
     <string name="normal">Normal</string>
     <string name="high">High</string>
     <string name="unknown">Result Unknown</string>
 
+    <string name="food_rec">Food Recommendation</string>
     <!-- Result Stunting Activity  -->
     <string name="stunting_result_title">Result</string>
     <string name="user_data">Your Data:</string>
@@ -157,16 +158,32 @@
     <string name="unknown_gender">Unknown Gender</string>
 
     <string name="result_desc">Result Description</string>
-    <string name="severely_stunted_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Severely Stunted. This suggests a significant lack of essential nutrients, affecting your growth and development. Immediate attention to a nutrient-dense diet is crucial to help reverse this condition and improve overall health.\n\nHere are some recommended foods for you:\n- Proteins: Boiled eggs, grilled chicken, lentils, and chickpeas.\n- Healthy Fats: Avocados, peanut butter, and mixed nuts.\n- Micronutrient-Rich Options: Spinach, broccoli, fortified cereals, and sweet potatoes.\n</string>
-    <string name="stunted_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Stunted. While growth has been slowed, with proper nutrition and care, you can make significant progress toward healthier development. Focus on a balanced diet with essential vitamins, minerals, and proteins to support growth.\n\nHere are some recommended foods for you:\n- Proteins: Fish, tofu, yogurt, and beans.\n- Carbohydrates: Brown rice, oats, whole-wheat bread, and quinoa.\n- Vegetables: Carrots, bell peppers, and green beans.\n- Snacks: Dried fruits, nuts, and low-sugar smoothies.\n</string>
-    <string name="normal_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Normal. Your growth and development are on track, but continued attention to a balanced, nutrient-rich diet will ensure you stay healthy and strong. Keep up the good work with a varied diet that supports overall well-being.\n\nHere are some recommended foods for you:\n- Proteins: Grilled turkey, eggs, lentil soup, and cottage cheese.\n- Carbohydrates: Sweet potatoes, whole-grain pasta, and barley.\n- Vegetables: Broccoli, spinach, and zucchini.\n- Fruits: Apples, bananas, and berries.\n</string>
-    <string name="high_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as High. This indicates that your body is receiving more than sufficient nutrients for growth and development. Maintaining a balanced approach to nutrition will help prevent any future imbalances while sustaining good health.\n\nHere are some recommended foods for you:\n- Proteins: Salmon, eggs, lean beef, and chickpea salads.\n- Healthy Fats: Olive oil, avocado toast, and nuts.\n- Carbohydrates: Quinoa, whole-grain bread, and roasted potatoes.\n- Fruits and Vegetables: Mangoes, oranges, kale, and asparagus.\n</string>
+    <string name="severely_stunted_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Severely Stunted. This suggests a significant lack of essential nutrients, affecting your growth and development. Immediate attention to a nutrient-dense diet is crucial to help reverse this condition and improve overall health.</string>
+    <string name="stunted_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Stunted. While growth has been slowed, with proper nutrition and care, you can make significant progress toward healthier development. Focus on a balanced diet with essential vitamins, minerals, and proteins to support growth.</string>
+    <string name="normal_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as Normal. Your growth and development are on track, but continued attention to a balanced, nutrient-rich diet will ensure you stay healthy and strong. Keep up the good work with a varied diet that supports overall well-being.</string>
+    <string name="high_desc">Based on your data, we are %1$d%% confident that your nutritional status is classified as High. This indicates that your body is receiving more than sufficient nutrients for growth and development. Maintaining a balanced approach to nutrition will help prevent any future imbalances while sustaining good health.</string>
     <string name="unknown_desc">Description Unknown</string>
 
     <string name="save">Save</string>
     <string name="up_predict_success_title">Prediction Saved</string>
     <string name="up_predict_failed_title">Failed to Saved Prediction</string>
     <string name="success_up_predict_reply">Done</string>
+    <string name="get_food">Get Food Recommendation</string>
+    <string name="empty_food">Food Recommendation is not available at the moment</string>
+
+    <string name="category_label">Category: %1$s</string>
+    <string name="food_label">Food: %1$s</string>
+    <string name="serving_size_label">Serving Size: %1$s (g)</string>
+    <string name="calories_label">Calories: %1$s</string>
+    <string name="protein_label">Protein: %1$s (g)</string>
+    <string name="fats_label">Fats: %1$s (g)</string>
+    <string name="vitamin_a_label">Vitamin A: %1$s (IU)</string>
+    <string name="vitamin_c_label">Vitamin C: %1$s (mg)</string>
+    <string name="vitamin_d_label">Vitamin D: %1$s (IU)</string>
+    <string name="vitamin_e_label">Vitamin E: %1$s (mg)</string>
+    <string name="vitamin_b1_label">Vitamin B1: %1$s (mg)</string>
+    <string name="vitamin_b2_label">Vitamin B2: %1$s (mg)</string>
+
     <!-- Notification Strings -->
     <string name="notification_channel_id">daily_notification_channel</string>
     <string name="notification_channel_name">Daily Notification</string>

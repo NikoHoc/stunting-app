@@ -73,7 +73,7 @@ class JournalHistoryActivity : AppCompatActivity() {
                 startActivity(Intent(this, AuthenticationActivity::class.java))
                 finish()
             } else {
-                journalViewModel.getJournal(user.userId).observe(this) { result ->
+                journalViewModel.getJournal().observe(this) { result ->
                     when (result) {
                         is Result.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE

@@ -1,9 +1,11 @@
 package com.dicoding.stunting.data.remote.nourish.retrofit
 
+import com.dicoding.stunting.data.remote.news.response.NewsResponse
 import com.dicoding.stunting.data.remote.nourish.request.LoginRequest
 import com.dicoding.stunting.data.remote.nourish.request.PredictionRequest
 import com.dicoding.stunting.data.remote.nourish.request.RegisterRequest
 import com.dicoding.stunting.data.remote.nourish.response.AddJournalResponse
+import com.dicoding.stunting.data.remote.nourish.response.FoodRecResponse
 import com.dicoding.stunting.data.remote.nourish.response.JournalResponse
 import com.dicoding.stunting.data.remote.nourish.response.LoginResponse
 import com.dicoding.stunting.data.remote.nourish.response.PredictionHistoryResponse
@@ -18,6 +20,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Query
 
 interface NourishApiServices {
 //    @FormUrlEncoded
@@ -85,4 +88,8 @@ interface NourishApiServices {
     @GET("predict")
     suspend fun getPredictionHistory(): PredictionHistoryResponse
 
+    @GET("nutrition/classification")
+    suspend fun getFoodRecommendation(
+        @Query("classification") classification: Int
+    ) : FoodRecResponse
 }

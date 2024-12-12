@@ -19,6 +19,7 @@ import com.dicoding.stunting.data.remote.nourish.response.RegisterResponse
 import com.dicoding.stunting.data.remote.nourish.request.LoginRequest
 import com.dicoding.stunting.data.remote.nourish.request.PredictionRequest
 import com.dicoding.stunting.data.remote.nourish.request.RegisterRequest
+import com.dicoding.stunting.data.remote.nourish.response.FoodRecResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -105,15 +106,13 @@ class NourishRepository private constructor(
 
     }
 
-    fun getJournal(userId: String): LiveData<Result<List<JournalHistoryEntity>>> = liveData {
+    fun getJournal(): LiveData<Result<List<JournalHistoryEntity>>> = liveData {
         emit(Result.Loading)
         try {
             val response = apiServices.getJournal()
             Log.d("respose journal", response.toString())
 
-            val journalList = response.listJournal?.filter { journal ->
-                journal?.userId.toString() == userId
-            }?.map { journal ->
+            val journalList = response.listJournal?.map { journal ->
                 JournalHistoryEntity(
                     journalId = journal?.journalsId.toString(),
                     userId = journal?.userId,
@@ -183,6 +182,18 @@ class NourishRepository private constructor(
 
     fun isPredictionExists(age: Int, height: Float, gender: String, result: String): LiveData<Boolean> {
         return predictionDao.isPredictionExists(age, height, gender, result)
+    }
+
+    fun getFoodRecommendation(classification: Int) = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiServices.getFoodRecommendation(classification)
+            emit(Result.Success(response))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, FoodRecResponse::class.java)
+            emit(Result.Error(errorResponse.toString()))
+        }
     }
 
     companion object {

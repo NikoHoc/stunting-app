@@ -66,6 +66,7 @@ class StuntingActivity : AppCompatActivity() {
                     1 -> getString(R.string.female)
                     else -> getString(R.string.unknown_gender)
                 }
+                Log.d("Result", result)
                 val intent = Intent(this, StuntingResultActivity::class.java).apply {
                     putExtra(StuntingResultActivity.EXTRA_PREDICTION_RESULT, result)
                     putExtra(StuntingResultActivity.EXTRA_PREDICTION_DESC, description)

@@ -12,7 +12,7 @@ class JournalViewModel(private val dataRepository: NourishRepository) : ViewMode
 
     fun uploadJournal(file: File, description: String) = dataRepository.uploadJournal(file, description)
 
-    fun getJournal(userId: String): LiveData<Result<List<JournalHistoryEntity>>> {
-        return dataRepository.getJournal(userId)
+    fun getJournal(): LiveData<Result<List<JournalHistoryEntity>>> {
+        return dataRepository.getJournal()
     }
 }

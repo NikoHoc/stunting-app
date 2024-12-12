@@ -57,6 +57,7 @@ class HistoryFragment : Fragment() {
                         is Result.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE
                             binding.tvHistoryNotFound.visibility = View.GONE
+                            binding.overlayView.visibility = View.VISIBLE
                         }
                         is Result.Success -> {
                             val prediction = result.data.map { predictionEntity ->
@@ -66,7 +67,7 @@ class HistoryFragment : Fragment() {
                                     gender = predictionEntity.gender,
                                     height = predictionEntity.height,
                                     result = predictionEntity.result,
-                                    description = predictionEntity.result,
+                                    description = predictionEntity.description,
                                     userId = predictionEntity.userId,
                                     createdAt = predictionEntity.createdAt
                                 )
@@ -77,11 +78,13 @@ class HistoryFragment : Fragment() {
                                 predictionAdapter.submitList(prediction)
                                 binding.tvHistoryNotFound.visibility = View.GONE
                             }
+                            binding.overlayView.visibility = View.GONE
                             binding.progressBar.visibility = View.GONE
                         }
                         is Result.Error -> {
                             Toast.makeText(requireActivity(), result.error, Toast.LENGTH_SHORT).show()
                             binding.progressBar.visibility = View.GONE
+                            binding.overlayView.visibility = View.GONE
                             binding.tvHistoryNotFound.visibility = View.VISIBLE
                         }
                     }
