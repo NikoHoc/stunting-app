@@ -27,4 +27,7 @@ We used news api to provide news about stunting in Indonesia in  our app. Click 
 - [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 
 ## Try our app
-[Nourish](https://drive.google.com/drive/u/4/folders/12srnnzpE6bPcXMva1nxFUFYjJ2DvHQw6)
+[Nourish App](https://drive.google.com/drive/u/4/folders/12srnnzpE6bPcXMva1nxFUFYjJ2DvHQw6)
+
+## Demo
+[Nourish Demo Video](https://drive.google.com/file/d/10UZfpPnELYpyCM-H8Zg61b-2v7odnV3_/view)
