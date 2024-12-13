@@ -21,6 +21,7 @@ import com.dicoding.stunting.ui.main.journal.AddJournalActivity
 import com.dicoding.stunting.ui.adapter.NewsAdapter
 import com.dicoding.stunting.ui.introduction.IntroductionActivity
 import com.dicoding.stunting.ui.main.MainActivity
+import com.dicoding.stunting.ui.main.journal.JournalHistoryActivity
 import com.dicoding.stunting.ui.main.news.NewsViewModel
 import com.dicoding.stunting.ui.main.stunting.StuntingActivity
 
@@ -117,7 +118,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnJournal.setOnClickListener {
-            val intent = Intent(requireContext(), AddJournalActivity::class.java)
+            val intent = Intent(requireContext(), JournalHistoryActivity::class.java)
             startActivity(intent)
         }
 

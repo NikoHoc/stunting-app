@@ -112,6 +112,9 @@
     <!-- Strings for history page   -->
     <string name="history_sub_title">Stunting Analyze Result</string>
     <string name="empty_history">Analyze history is still empty</string>
+    <string name="chart_failed">No data available</string>
+    <string name="chart_title">Child Data</string>
+    <string name="history_title">Prediction History</string>
 
     <!-- String for permission   -->
     <string name="permission_granted">Permission request granted</string>

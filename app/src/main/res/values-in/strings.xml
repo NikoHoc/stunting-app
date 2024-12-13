@@ -113,6 +113,9 @@
     <!-- Strings untuk halaman riwayat -->
     <string name="history_sub_title">Hasil Analisis Stunting</string>
     <string name="empty_history">Riwayat analisis masih kosong</string>
+    <string name="chart_failed">Tidak ada data tersedia</string>
+    <string name="chart_title">Data Anak</string>
+    <string name="history_title">Riwayat Prediksi</string>
 
     <!-- String untuk izin -->
     <string name="permission_granted">Permintaan izin disetujui</string>

@@ -16,6 +16,9 @@ interface PredictionDao {
     @Query("SELECT * FROM prediction")
     fun getAllPrediction(): LiveData<List<PredictionHistoryEntity>>
 
+    @Query("SELECT * FROM prediction WHERE user_id = :userId")
+    fun getPredictionsByUserId(userId: String): LiveData<List<PredictionHistoryEntity>>
+
     @Query("DELETE FROM prediction")
     suspend fun deleteAll()
 
@@ -23,6 +26,5 @@ interface PredictionDao {
         "SELECT EXISTS(SELECT * FROM prediction WHERE age = :age AND height = :height AND gender = :gender AND result = :result)"
     )
     fun isPredictionExists(age: Int, height: Float, gender: String, result: String): LiveData<Boolean>
-//    @Query("SELECT MAX(created_at) FROM prediction")
-//    fun getLatestNewsTimestamp(): Long?
+
 }

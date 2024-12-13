@@ -13,6 +13,9 @@ interface JournalDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIntoJournal(article: List<JournalHistoryEntity>)
 
+    @Query("SELECT * FROM journal WHERE user_id = :userId")
+    fun getJournalsByUserId(userId: String): LiveData<List<JournalHistoryEntity>>
+
     @Query("SELECT * FROM journal")
     fun getAllJournal(): LiveData<List<JournalHistoryEntity>>
 

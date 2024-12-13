@@ -32,3 +32,4 @@ class PredictionHistoryEntity(
     @ColumnInfo(name = "created_at")
     val createdAt: String?
 )
+

@@ -37,6 +37,17 @@ fun formatDateTime(input: String): String {
     return zonedDateTime.format(formatter)
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
+fun formatDateChart(input: String): String {
+    // Step 1: Parse the input string into a ZonedDateTime
+    val instant = Instant.parse(input)
+    val zonedDateTime = instant.atZone(ZoneId.systemDefault())
+
+    // Step 2: Format the ZonedDateTime into the desired format
+    val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale("id", "ID"))
+    return zonedDateTime.format(formatter)
+}
+
 private const val FILENAME_FORMAT = "yyyyMMdd_HHmmss"
 private val timeStamp: String = SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(Date())
 

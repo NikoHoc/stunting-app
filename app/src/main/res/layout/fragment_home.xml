@@ -137,12 +137,39 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layout_btn_history"
+                    android:id="@+id/layout_btn_journal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="24dp"
                     app:layout_constraintStart_toEndOf="@+id/layout_btn_analyze_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <ImageButton
+                        android:id="@+id/btn_journal"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_journal"
+                        android:background="@drawable/rounded_corner"
+                        tools:ignore="ContentDescription" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/journal"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/deep_blue"
+                        android:textSize="12sp"
+                        tools:ignore="SmallSp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_btn_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toEndOf="@+id/layout_btn_journal"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
@@ -165,32 +192,7 @@
                         android:layout_gravity="center"/>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/layout_btn_maps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="24dp"
-                    app:layout_constraintStart_toEndOf="@+id/layout_btn_history"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
-                    <ImageButton
-                        android:id="@+id/btn_journal"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/ic_journal"
-                        android:background="@drawable/rounded_corner"
-                        tools:ignore="ContentDescription" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/journal"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:textColor="@color/deep_blue"
-                        android:textSize="12sp"
-                        tools:ignore="SmallSp"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
+
 
                 <LinearLayout
                     android:id="@+id/layout_btn_profile"
@@ -198,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="24dp"
-                    app:layout_constraintStart_toEndOf="@+id/layout_btn_maps"
+                    app:layout_constraintStart_toEndOf="@+id/layout_btn_history"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
                     <ImageButton

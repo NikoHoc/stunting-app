@@ -41,7 +41,6 @@ class NourishRepository private constructor(
         emit(Result.Loading)
         try {
             val response = apiServices.register(RegisterRequest(name, email, password))
-//            val response = apiServices.register(name, email, password)
             emit(Result.Success(response))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
@@ -54,7 +53,6 @@ class NourishRepository private constructor(
         emit(Result.Loading)
         try {
             Log.d("Login Data Repository", "$email $password")
-//            val response = apiServices.login(email, password)
             val response = apiServices.login(LoginRequest(email, password))
             emit(Result.Success(response))
         } catch (e: HttpException) {
@@ -77,17 +75,8 @@ class NourishRepository private constructor(
 
     fun uploadJournal(imageFile: File, description: String) = liveData {
         emit(Result.Loading)
-//        val requestBody = description.toRequestBody("text/plain".toMediaType())
-//        val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
-//        val multipartBody = MultipartBody.Part.createFormData(
-//            "photo",
-//            imageFile.name,
-//            requestImageFile
-//        )
-        // Create RequestBody for the description
         val descriptionBody = description.toRequestBody("text/plain".toMediaType())
 
-        // Create MultipartBody.Part for the image file
         val requestFile = imageFile.asRequestBody("image/jpeg".toMediaType())
         val multipartBody = MultipartBody.Part.createFormData(
             "file",
@@ -96,7 +85,6 @@ class NourishRepository private constructor(
         )
         try {
             val successResponse = apiServices.uploadJournal(multipartBody, descriptionBody)
-//            val successResponse = apiServices.uploadJournal(multipartBody, requestBody)
             emit(Result.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
@@ -106,12 +94,11 @@ class NourishRepository private constructor(
 
     }
 
-    fun getJournal(): LiveData<Result<List<JournalHistoryEntity>>> = liveData {
+    fun getJournal(userId: String): LiveData<Result<List<JournalHistoryEntity>>> = liveData {
         emit(Result.Loading)
         try {
             val response = apiServices.getJournal()
-            Log.d("respose journal", response.toString())
-
+            Log.d("response journal", response.toString())
             val journalList = response.listJournal?.map { journal ->
                 JournalHistoryEntity(
                     journalId = journal?.journalsId.toString(),
@@ -121,28 +108,29 @@ class NourishRepository private constructor(
                     photoUrl = journal?.photoUrl,
                     createdAt = System.currentTimeMillis()
                 )
-            }
+            } ?: emptyList()
+
             withContext(Dispatchers.IO) {
-                journalDao.deleteAll()
-                Log.d("NourishRepo", "Old news deleted")
-                journalDao.insertIntoJournal(journalList!!)
-                Log.d("NourishRepo", "New journal inserted into database: ${journalList.size}")
-                emit(Result.Success(journalList))
+                if (journalList.isNotEmpty()) {
+                    journalDao.deleteAll()
+                    journalDao.insertIntoJournal(journalList)
+                    Log.d("NourishRepo", "Journal updated in database: ${journalList.size}")
+                }
             }
+            emit(Result.Success(journalList))
         } catch (e: Exception) {
-            Log.d("NourishRepo", "getJournal: ${e.message.toString()}")
-            emit(Result.Error(e.message.toString()))
+            Log.d("NourishRepo", "Error fetching journal: ${e.message}")
+            val localData = journalDao.getJournalsByUserId(userId)
+            emitSource(localData.map { Result.Success(it) })
         }
     }
 
-    fun getPredictionHistory(userId: String): LiveData<Result<List<PredictionHistoryEntity>>>  = liveData {
+    fun getPredictionHistory(userId: String): LiveData<Result<List<PredictionHistoryEntity>>> = liveData {
         emit(Result.Loading)
         try {
             val response = apiServices.getPredictionHistory()
             Log.d("Response Get Predict", response.toString())
-            val predictionList = response.data?.filter { prediction ->
-                prediction?.userId.toString() == userId
-            }?.map { prediction ->
+            val predictionList = response.data?.map { prediction ->
                 PredictionHistoryEntity(
                     predictionId = prediction?.predictionId.toString(),
                     age = prediction?.age,
@@ -153,19 +141,23 @@ class NourishRepository private constructor(
                     userId = prediction?.userId.toString(),
                     createdAt = prediction?.createdAt
                 )
-            }
+            } ?: emptyList()
+
             withContext(Dispatchers.IO) {
-                predictionDao.deleteAll()
-                Log.d("Prediction List", "Old Prediction deleted")
-                predictionDao.insertIntoPredictions(predictionList!!)
-                Log.d("Prediction List", "New Prediction inserted into database: ${predictionList.size}")
-                emit(Result.Success(predictionList))
+                if (predictionList.isNotEmpty()) {
+                    predictionDao.deleteAll()
+                    predictionDao.insertIntoPredictions(predictionList)
+                    Log.d("Prediction List", "Predictions updated in database: ${predictionList.size}")
+                }
             }
+            emit(Result.Success(predictionList))
         } catch (e: Exception) {
-            Log.d("Prediction list", "getPrediction: ${e.message.toString()}")
-            emit(Result.Error(e.message.toString()))
+            Log.d("Prediction list", "Error fetching predictions: ${e.message}")
+            val localData = predictionDao.getPredictionsByUserId(userId)
+            emitSource(localData.map { Result.Success(it) })
         }
     }
+
 
     fun uploadPredict(age: Int, gender: String, height: Float, result: String, description: String) = liveData {
         emit(Result.Loading)
