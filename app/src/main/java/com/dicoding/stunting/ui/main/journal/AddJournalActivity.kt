@@ -152,8 +152,6 @@ class AddJournalActivity : AppCompatActivity() {
                                 setTitle(R.string.success_upload_alert)
                                 setMessage(uploadResponse.message)
                                 setPositiveButton(R.string.success_alert_reply) { _, _ ->
-                                    val intent = Intent(this@AddJournalActivity, JournalHistoryActivity::class.java)
-                                    startActivity(intent)
                                     finish()
                                 }
                                 create()

@@ -119,20 +119,20 @@ class MainActivity : AppCompatActivity() {
         val workManager = WorkManager.getInstance(this)
 
         if (isEnabled) {
-            val weeklyWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(
-                7, // Specify 7 days directly
+            val monthlyWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(
+                30,
                 TimeUnit.DAYS
             )
                 .setInitialDelay(calculateInitialDelay(), TimeUnit.MILLISECONDS)
                 .build()
 
             workManager.enqueueUniquePeriodicWork(
-                "weekly_notification_work",
+                "monthly_notification_work",
                 ExistingPeriodicWorkPolicy.REPLACE,
-                weeklyWorkRequest
+                monthlyWorkRequest
             )
         } else {
-            workManager.cancelUniqueWork("weekly_notification_work")
+            workManager.cancelUniqueWork("monthly_notification_work")
         }
     }
 

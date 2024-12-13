@@ -190,10 +190,10 @@
     <string name="vitamin_b2_label">Vitamin B2: %1$s (mg)</string>
 
     <!-- Notification Strings -->
-    <string name="notification_channel_id">daily_notification_channel</string>
-    <string name="notification_channel_name">Daily Notification</string>
-    <string name="notification_channel_description">Channel for daily reminders about stunting prevention</string>
-    <string name="notification_title">Nourish Weekly Reminder</string>
+    <string name="notification_channel_id">monthly_notification_channel</string>
+    <string name="notification_channel_name">Monthly Notification</string>
+    <string name="notification_channel_description">Channel for monthly reminders about stunting prevention</string>
+    <string name="notification_title">Nourish Monthly Reminder</string>
     <string name="notification_content">It\'s a new day! Don\'t forget to scan and maintain your diet!</string>
 
     <string name="tflite_is_not_initialized_yet">Model is not initialized yet</string>

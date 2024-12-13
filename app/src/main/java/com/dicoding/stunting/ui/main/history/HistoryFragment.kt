@@ -158,7 +158,7 @@ class HistoryFragment : Fragment() {
             barWidth = 0.3f
         }
 
-        val groupSpace = 0.25f
+        val groupSpace = 0.35f
         val barSpace = 0.05f
         val start = 0f
         barData.groupBars(start, groupSpace, barSpace)
@@ -172,11 +172,12 @@ class HistoryFragment : Fragment() {
                 valueFormatter = IndexAxisValueFormatter(dateLabels)
                 position = XAxis.XAxisPosition.BOTTOM
                 setDrawGridLines(false)
+                textSize = 10f
                 granularity = 1f
                 labelCount = dateLabels.size
                 axisMinimum = start
                 axisMaximum = predictionList.size.toFloat()
-                labelRotationAngle = 25f
+//                labelRotationAngle = 15f
             }
 
             axisLeft.apply {
@@ -195,7 +196,6 @@ class HistoryFragment : Fragment() {
                 setDrawInside(false)
             }
 
-            //setVisibleXRangeMaximum(4f) // Limit the number of visible bars at once
             moveViewToX(0f) // Start viewing from the first bar
             invalidate() // Refresh the chart
         }

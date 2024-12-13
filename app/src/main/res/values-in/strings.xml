@@ -191,10 +191,10 @@
     <string name="vitamin_b2_label">Vitamin B2: %1$s (mg)</string>
 
     <!-- Strings Notifikasi -->
-    <string name="notification_channel_id">saluran_notifikasi_harian</string>
-    <string name="notification_channel_name">Notifikasi Harian</string>
-    <string name="notification_channel_description">Saluran untuk pengingat harian tentang pencegahan stunting</string>
-    <string name="notification_title">Pengingat Mingguan Nourish</string>
+    <string name="notification_channel_id">saluran_notifikasi_bulanan</string>
+    <string name="notification_channel_name">Notifikasi Bulanan</string>
+    <string name="notification_channel_description">Saluran untuk pengingat bulanan tentang pencegahan stunting</string>
+    <string name="notification_title">Pengingat Bulanan Nourish</string>
     <string name="notification_content">Ini hari baru! Jangan lupa untuk memindai dan menjaga diet Anda!</string>
 
     <string name="tflite_is_not_initialized_yet">Model belum diinisialisasi</string>

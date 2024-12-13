@@ -93,7 +93,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                app:cardCornerRadius="4dp"
+                app:cardCornerRadius="10dp"
+                android:padding="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/chart_title">
@@ -101,8 +102,8 @@
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/barChart"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_height="320dp"
+                    android:paddingBottom="32dp"
                     android:visibility="visible" />
             </androidx.cardview.widget.CardView>
 
@@ -126,7 +127,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/history_title">
