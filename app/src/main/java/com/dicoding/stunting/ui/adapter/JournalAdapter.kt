@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.stunting.R
 import com.dicoding.stunting.data.local.entity.JournalHistoryEntity
-import com.dicoding.stunting.data.remote.nourish.response.ListJournalItem
 import com.dicoding.stunting.databinding.ItemCardLayoutBinding
 import com.dicoding.stunting.ui.main.journal.JournalDetailActivity
 import com.dicoding.stunting.utils.formatDateTime
@@ -50,8 +49,6 @@ class JournalAdapter: ListAdapter<JournalHistoryEntity, JournalAdapter.MyViewHol
                 intent.putExtra(JournalDetailActivity.EXTRA_JOURNAL_DATE, journal.journalDate)
                 intent.putExtra(JournalDetailActivity.EXTRA_JOURNAL_DESC, journal.description)
                 intent.putExtra(JournalDetailActivity.EXTRA_JOURNAL_PHOTO_URL, journal.photoUrl)
-
-                //intent.putExtra(JournalDetailActivity.EXTRA_JOURNAL_DATA, journal)
 
                 val optionsCompat: ActivityOptionsCompat =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(

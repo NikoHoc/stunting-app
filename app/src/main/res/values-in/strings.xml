@@ -75,7 +75,7 @@
     <string name="issue_definition4">Tingginya Prevalensi Stunting di Indonesia</string>
 
     <!-- Fragmen Nourish -->
-    <string name="nourish">Nourish</string>
+    <string name="provide">Kami Menyediakan</string>
     <string name="nourish_definition1">Deteksi Tanda Awal Stunting</string>
     <string name="nourish_definition2">Rekomendasi Makanan yang Dipersonalisasi</string>
     <string name="nourish_definition3">Fitur jurnal untuk dokumentasi</string>
@@ -116,6 +116,7 @@
     <string name="chart_failed">Tidak ada data tersedia</string>
     <string name="chart_title">Data Anak</string>
     <string name="history_title">Riwayat Prediksi</string>
+    <string name="detail">Detail</string>
 
     <!-- String untuk izin -->
     <string name="permission_granted">Permintaan izin disetujui</string>
@@ -160,6 +161,7 @@
     <string name="user_height">Tinggi (cm): %.1f</string>
     <string name="user_gender">Jenis Kelamin: %1$s</string>
     <string name="unknown_gender">Jenis Kelamin Tidak Dikenal</string>
+    <string name="save_instruction">Tekan Simpan\nuntuk mendapatkan rekomendasi makanan</string>
 
     <string name="result_desc">Deskripsi Hasil</string>
     <string name="severely_stunted_desc">Berdasarkan data Anda, kami %1$d%% yakin bahwa status nutrisi Anda diklasifikasikan sebagai Sangat Stunted. Ini menunjukkan kekurangan signifikan nutrisi esensial, yang mempengaruhi pertumbuhan dan perkembangan Anda. Perhatian segera terhadap diet yang kaya nutrisi sangat penting untuk membantu membalikkan kondisi ini dan meningkatkan kesehatan secara keseluruhan.</string>

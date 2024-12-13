@@ -66,10 +66,8 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.viewpager2)
 
     // Image
-    implementation(libs.ucrop)
     implementation(libs.glide)
 
     // Lifecycle
@@ -111,11 +109,11 @@ dependencies {
 
     implementation(libs.androidx.databinding.runtime.v700)
 
-    implementation ("androidx.work:work-runtime-ktx:2.8.1")
+    implementation(libs.androidx.work.runtime.ktx)
 
-    implementation("com.google.android.gms:play-services-tflite-java:16.1.0")
-    implementation("com.google.android.gms:play-services-tflite-gpu:16.2.0")
+    implementation(libs.play.services.tflite.java)
+    implementation(libs.play.services.tflite.gpu)
 
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation(libs.mpandroidchart)
 
 }

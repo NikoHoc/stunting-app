@@ -5,7 +5,6 @@ import android.graphics.Canvas
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Patterns
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import com.dicoding.stunting.R

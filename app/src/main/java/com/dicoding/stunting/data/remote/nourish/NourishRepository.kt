@@ -163,7 +163,6 @@ class NourishRepository private constructor(
         emit(Result.Loading)
         try {
             val response = apiServices.uploadPrediction(PredictionRequest(age, gender, height, result, description))
-//            val response = apiServices.register(name, email, password)
             emit(Result.Success(response))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()

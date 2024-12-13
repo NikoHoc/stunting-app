@@ -1,5 +1,7 @@
 package com.dicoding.stunting.ui.introduction.material
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,5 +37,29 @@ class DefinitionFragment : Fragment() {
                 replace(R.id.introduction_activity, FactsFragment(),  FactsFragment::class.java.simpleName)
             }
         }
+        playAnimation()
+    }
+
+    private fun playAnimation() {
+        val tvTitle = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(200)
+        val tvDescription =
+            ObjectAnimator.ofFloat(binding.tvDescription, View.ALPHA, 1f).setDuration(200)
+        val tvDesc2 =
+            ObjectAnimator.ofFloat(binding.tvDesc2, View.ALPHA, 1f).setDuration(200)
+        val btnNext =
+            ObjectAnimator.ofFloat(binding.btnNext, View.ALPHA, 1f).setDuration(200)
+        val image =
+            ObjectAnimator.ofFloat(binding.imageCharacters, View.ALPHA, 1f).setDuration(200)
+
+        AnimatorSet().apply {
+            playSequentially(
+                tvTitle,
+                image,
+                tvDescription,
+                tvDesc2,
+                btnNext,
+            )
+            startDelay = 200
+        }.start()
     }
 }

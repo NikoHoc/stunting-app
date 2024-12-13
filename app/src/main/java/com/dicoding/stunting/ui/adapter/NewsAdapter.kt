@@ -33,9 +33,6 @@ class NewsAdapter: ListAdapter<NewsEntity, NewsAdapter.MyViewHolder>(DIFF_CALLBA
             binding.cardTitle.text = news.title
             binding.root.setOnClickListener {
                 val context = it.context
-//                val intent = Intent(Intent.ACTION_VIEW).apply {
-//                    data = Uri.parse(news.url)
-//                }
                 val intent = Intent(context, NewsDetailActivity::class.java).apply {
                     putExtra("URL", news.url)
                 }

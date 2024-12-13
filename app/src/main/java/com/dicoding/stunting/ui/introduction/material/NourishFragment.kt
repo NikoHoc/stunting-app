@@ -1,5 +1,7 @@
 package com.dicoding.stunting.ui.introduction.material
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -35,7 +37,35 @@ class NourishFragment : Fragment() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
+        playAnimation()
     }
+
+    private fun playAnimation() {
+        val tvTitle = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(200)
+        val tvDescription =
+            ObjectAnimator.ofFloat(binding.tvDescription, View.ALPHA, 1f).setDuration(200)
+        val tvDesc2 =
+            ObjectAnimator.ofFloat(binding.tvDesc2, View.ALPHA, 1f).setDuration(200)
+        val tvDesc3 =
+            ObjectAnimator.ofFloat(binding.tvDesc3, View.ALPHA, 1f).setDuration(200)
+        val tvDesc34 =
+            ObjectAnimator.ofFloat(binding.tvDesc34, View.ALPHA, 1f).setDuration(200)
+        val btnNext =
+            ObjectAnimator.ofFloat(binding.btnNext, View.ALPHA, 1f).setDuration(200)
+
+        AnimatorSet().apply {
+            playSequentially(
+                tvTitle,
+                tvDescription,
+                tvDesc2,
+                tvDesc3,
+                tvDesc34,
+                btnNext
+            )
+            startDelay = 200
+        }.start()
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -39,13 +39,11 @@ class ProfileActionsAdapter(
                     }
                 }
 
-                // Pastikan garis divider tidak terlihat untuk "Reminder"
                 binding.divider.visibility = View.GONE
             } else {
                 binding.switchToggle.visibility = View.GONE
                 binding.ivArrow.visibility = View.VISIBLE
 
-                // Hanya sembunyikan garis divider untuk item terakhir
                 if (adapterPosition == actions.size - 1) {
                     binding.divider.visibility = View.GONE
                 } else {

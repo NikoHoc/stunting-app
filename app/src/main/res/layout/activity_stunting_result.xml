@@ -150,7 +150,7 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/deep_blue"
-        android:text="Click save\nto get food recomendation"
+        android:text="@string/save_instruction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_description"/>

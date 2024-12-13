@@ -74,7 +74,7 @@
     <string name="issue_definition4">High Prevalence of Stunting in Indonesia</string>
 
     <!-- Nourish Fragment -->
-    <string name="nourish">Nourish</string>
+    <string name="provide">What We Provide</string>
     <string name="nourish_definition1">Detect Early Signs of Stunting</string>
     <string name="nourish_definition2">Personalized Food Recommendation</string>
     <string name="nourish_definition3">Journal feature for documentation</string>
@@ -115,6 +115,7 @@
     <string name="chart_failed">No data available</string>
     <string name="chart_title">Child Data</string>
     <string name="history_title">Prediction History</string>
+    <string name="detail">Detail</string>
 
     <!-- String for permission   -->
     <string name="permission_granted">Permission request granted</string>
@@ -150,6 +151,7 @@
     <string name="normal">Normal</string>
     <string name="high">High</string>
     <string name="unknown">Result Unknown</string>
+    <string name="save_instruction">Click save\nto get food recommendation</string>
 
     <string name="food_rec">Food Recommendation</string>
     <!-- Result Stunting Activity  -->

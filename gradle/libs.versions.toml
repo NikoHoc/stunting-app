@@ -1,39 +1,58 @@
 [versions]
+# Plugins
 agp = "8.6.0"
-databindingRuntime = "7.0.0"
 kotlin = "1.9.0"
+
+# Core Libraries
 coreKtx = "1.12.0"
 appcompat = "1.6.1"
 material = "1.11.0"
 constraintlayout = "2.1.4"
-fragmentKtx = "1.8.4"
-navigationFragmentKtx = "2.8.3"
-navigationUiKtx = "2.8.3"
-playServicesTfliteGpu = "16.3.0"
-playServicesTfliteJava = "16.3.0"
-ucrop = "2.2.8"
-glide = "4.16.0"
+
+# Lifecycle and Activity
 lifecycleLivedataKtx = "2.8.6"
 lifecycleViewmodelKtx = "2.8.6"
 lifecycleRuntimeKtx = "2.6.1"
-cameraCore = "1.4.0"
-activity = "1.9.3"
-junit = "4.13.2"
-androidxJunit = "1.1.5"
-espressoCore = "3.5.1"
-retrofit = "2.9.0"
-loggingInterceptor = "4.9.0"
+activityKtx = "1.7.2"
+fragmentKtx = "1.8.4"
+
+# Navigation
+navigationFragmentKtx = "2.8.3"
+navigationUiKtx = "2.8.3"
+
+# WorkManager
+workRuntime = "2.8.1"
+androidx-work = "2.8.1"
+
+# Image Processing
+glide = "4.16.0"
+playServicesTfliteJava = "16.3.0"
+playServicesTfliteGpu = "16.3.0"
+tfliteMetadata = "0.4.4"
+tfliteSupport = "0.4.4"
+tfliteTaskVision = "0.4.4"
+
+# Data Management
 room = "2.5.2"
 datastorePreferences = "1.0.0"
 coroutinesCore = "1.5.2"
 coroutinesAndroid = "1.5.2"
-workRuntime = "2.8.1"
+
+# Networking
+retrofit = "2.9.0"
+loggingInterceptor = "4.9.0"
 asyncHttp = "1.4.9"
-tfliteMetadata = "0.4.4"
-tfliteSupport = "0.4.4"
-tfliteTaskVision = "0.4.4"
-activityKtx = "1.7.2"
-viewpager2 = "1.0.0"
+
+# Testing
+junit = "4.13.2"
+androidxJunit = "1.1.5"
+espressoCore = "3.5.1"
+
+# Other
+mpandroidchart = "3.1.0"
+databindingRuntime = "7.0.0"
+cameraCore = "1.4.0"
+activity = "1.9.3"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
@@ -46,12 +65,10 @@ androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", ve
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
-androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 
 # Image
 play-services-tflite-gpu = { module = "com.google.android.gms:play-services-tflite-gpu", version.ref = "playServicesTfliteGpu" }
 play-services-tflite-java = { module = "com.google.android.gms:play-services-tflite-java", version.ref = "playServicesTfliteJava" }
-ucrop = { group = "com.github.yalantis", name = "ucrop", version.ref = "ucrop" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 
 # Lifecycle
@@ -89,6 +106,10 @@ async-http = { group = "com.loopj.android", name = "android-async-http", version
 tensorflow-lite-metadata = { group = "org.tensorflow", name = "tensorflow-lite-metadata", version.ref = "tfliteMetadata" }
 tensorflow-lite-support = { group = "org.tensorflow", name = "tensorflow-lite-support", version.ref = "tfliteSupport" }
 tensorflow-lite-task-vision = { group = "org.tensorflow", name = "tensorflow-lite-task-vision", version.ref = "tfliteTaskVision" }
+
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "androidx-work" }
+
+mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
