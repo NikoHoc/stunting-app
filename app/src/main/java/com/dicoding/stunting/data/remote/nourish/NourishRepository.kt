@@ -46,6 +46,8 @@ class NourishRepository private constructor(
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
             emit(Result.Error(errorResponse.message.toString()))
+        } catch (e: Exception) {
+            emit(Result.Error("Unable to connect to the server. Please check your internet connection."))
         }
     }
 
@@ -60,6 +62,8 @@ class NourishRepository private constructor(
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
             Log.d("Login Error", errorResponse.message.toString())
             emit(Result.Error(errorResponse.message.toString()))
+        } catch (e: Exception) {
+            emit(Result.Error("Unable to connect to the server. Please check your internet connection."))
         }
     }
 
@@ -90,8 +94,10 @@ class NourishRepository private constructor(
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, AddJournalResponse::class.java)
             emit(Result.Error(errorResponse.message.toString()))
+        } catch (e: Exception) {
+            Log.e("NourishRepo", "Error uploading journal: ${e.message}")
+            emit(Result.Error("Network error: ${e.message}"))
         }
-
     }
 
     fun getJournal(userId: String): LiveData<Result<List<JournalHistoryEntity>>> = liveData {
@@ -164,10 +170,11 @@ class NourishRepository private constructor(
         try {
             val response = apiServices.uploadPrediction(PredictionRequest(age, gender, height, result, description))
             emit(Result.Success(response))
-        } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
-            emit(Result.Error(errorResponse.message.toString()))
+        } catch (e: Exception) {
+            Log.e("NourishRepo", "Error uploading prediction: ${e.message}")
+
+            emit(Result.Error("Network error: ${e.message}"))
+
         }
     }
 
@@ -180,10 +187,9 @@ class NourishRepository private constructor(
         try {
             val response = apiServices.getFoodRecommendation(classification)
             emit(Result.Success(response))
-        } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, FoodRecResponse::class.java)
-            emit(Result.Error(errorResponse.toString()))
+        } catch (e: Exception) {
+            Log.e("NourishRepo", "Error fetching food recommendation: ${e.message}")
+            emit(Result.Error("Network error: ${e.message}"))
         }
     }
 
